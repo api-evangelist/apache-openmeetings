@@ -1,0 +1,34 @@
+aid: apache-openmeetings
+name: Apache OpenMeetings
+description: >-
+  Apache OpenMeetings is a web conferencing and collaboration tool that provides video conferencing, instant messaging, white board, collaborative document editing, and other groupware tools. It offers integration APIs for LMS platforms.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Video Conferencing
+  - Collaboration
+  - Web Conferencing
+  - Whiteboard
+created: '2026-03-16'
+modified: '2026-03-16'
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - aid: apache-openmeetings:apache-openmeetings-rest-api
+    name: Apache OpenMeetings REST API
+    description: >-
+      The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, and file uploads, with SOAP API support for legacy integrations and plugin APIs for LMS integration (Moodle, Sakai).
+    humanURL: https://openmeetings.apache.org/RestAPISample.html
+    tags:
+      - REST
+      - SOAP
+      - Conferencing
+    properties:
+      - type: Documentation
+        url: https://openmeetings.apache.org/RestAPISample.html
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
