@@ -7,8 +7,8 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Video Conferencing
   - Collaboration
+  - Video Conferencing
   - Web Conferencing
   - Whiteboard
 created: '2026-03-16'
@@ -23,9 +23,9 @@ apis:
       The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, and file uploads, with SOAP API support for legacy integrations and plugin APIs for LMS integration (Moodle, Sakai).
     humanURL: https://openmeetings.apache.org/RestAPISample.html
     tags:
+      - Conferencing
       - REST
       - SOAP
-      - Conferencing
     properties:
       - type: Documentation
         url: https://openmeetings.apache.org/RestAPISample.html
