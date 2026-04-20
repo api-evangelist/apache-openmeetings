@@ -1,0 +1,17 @@
+{
+  "id": 1234,
+  "login": "example",
+  "password": "example",
+  "firstname": "Example Name",
+  "lastname": "Example Name",
+  "rights": [
+    "ADMIN"
+  ],
+  "languageId": 1234,
+  "address": {},
+  "timeZoneId": "500123",
+  "externalId": "500123",
+  "externalType": "example",
+  "pictureUri": "https://example.com",
+  "type": "USER"
+}

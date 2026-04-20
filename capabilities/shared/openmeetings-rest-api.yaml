@@ -1,0 +1,463 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Apache OpenMeetings REST API"
+  description: "Apache OpenMeetings REST API for managing conferencing rooms, users, recordings, calendars, and files."
+  tags:
+    - Apache OpenMeetings
+    - Conferencing
+    - Collaboration
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      OPENMEETINGS_API_KEY: OPENMEETINGS_API_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: openmeetings
+      baseUri: https://localhost:5443/openmeetings/services
+      description: "Apache OpenMeetings REST API"
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "{{OPENMEETINGS_API_KEY}}"
+        placement: header
+      resources:
+        - name: calendars
+          path: /calendar
+          description: "CalendarService operations"
+          operations:
+            - name: delete
+              method: DELETE
+              description: "Apache OpenMeetings Delete"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: getByRoom
+              method: GET
+              description: "Apache OpenMeetings GetByRoom"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: getByTitle
+              method: GET
+              description: "Apache OpenMeetings GetByTitle"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: next
+              method: GET
+              description: "Apache OpenMeetings Next"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: nextForUser
+              method: GET
+              description: "Apache OpenMeetings NextForUser"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: errors
+          path: /error
+          description: "ErrorService operations"
+          operations:
+            - name: get
+              method: GET
+              description: "Apache OpenMeetings Get"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: report
+              method: POST
+              description: "Apache OpenMeetings Report"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: files
+          path: /file
+          description: "FileService operations"
+          operations:
+            - name: add
+              method: POST
+              description: "Apache OpenMeetings Add"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: delete_1
+              method: DELETE
+              description: "Apache OpenMeetings Delete_1"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: deleteExternal
+              method: DELETE
+              description: "Apache OpenMeetings DeleteExternal"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: getAllExternal
+              method: GET
+              description: "Apache OpenMeetings GetAllExternal"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: getRoom
+              method: GET
+              description: "Apache OpenMeetings GetRoom"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: groups
+          path: /group
+          description: "GroupService operations"
+          operations:
+            - name: get_1
+              method: GET
+              description: "Apache OpenMeetings Get_1"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: add_1
+              method: POST
+              description: "Apache OpenMeetings Add_1"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: addRoom
+              method: POST
+              description: "Apache OpenMeetings AddRoom"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: addUser
+              method: POST
+              description: "Apache OpenMeetings AddUser"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: removeUser
+              method: DELETE
+              description: "Apache OpenMeetings RemoveUser"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: infos
+          path: /info
+          description: "InfoService operations"
+          operations:
+            - name: getHealth
+              method: GET
+              description: "Apache OpenMeetings GetHealth"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: getManifest
+              method: GET
+              description: "Apache OpenMeetings GetManifest"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: getVersion
+              method: GET
+              description: "Apache OpenMeetings GetVersion"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: nettests
+          path: /nettest
+          description: "NetTestService operations"
+          operations:
+            - name: get_2
+              method: GET
+              description: "Apache OpenMeetings Get_2"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: upload
+              method: POST
+              description: "Apache OpenMeetings Upload"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: recordings
+          path: /recording
+          description: "RecordingService operations"
+          operations:
+            - name: delete_3
+              method: DELETE
+              description: "Apache OpenMeetings Delete_3"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: getExternal
+              method: GET
+              description: "Apache OpenMeetings GetExternal"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: getExternalByRoom
+              method: GET
+              description: "Apache OpenMeetings GetExternalByRoom"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: getExternalByType
+              method: GET
+              description: "Apache OpenMeetings GetExternalByType"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: rooms
+          path: /room
+          description: "RoomService operations"
+          operations:
+            - name: add_2
+              method: POST
+              description: "Apache OpenMeetings Add_2"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: close
+              method: GET
+              description: "Apache OpenMeetings Close"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: count
+              method: GET
+              description: "Apache OpenMeetings Count"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: getRoomById
+              method: GET
+              description: "Apache OpenMeetings GetRoomById"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: delete_4
+              method: DELETE
+              description: "Apache OpenMeetings Delete_4"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: users
+          path: /user
+          description: "UserService operations"
+          operations:
+            - name: get_3
+              method: GET
+              description: "Apache OpenMeetings Get_3"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: add_3
+              method: POST
+              description: "Apache OpenMeetings Add_3"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: delete_5
+              method: DELETE
+              description: "Apache OpenMeetings Delete_5"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: deleteExternal_1
+              method: DELETE
+              description: "Apache OpenMeetings DeleteExternal_1"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: getRoomHash
+              method: POST
+              description: "Apache OpenMeetings GetRoomHash"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: wbs
+          path: /wb
+          description: "WbService operations"
+          operations:
+            - name: cleanSlide
+              method: GET
+              description: "Apache OpenMeetings CleanSlide"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: cleanWb
+              method: GET
+              description: "Apache OpenMeetings CleanWb"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: resetWb
+              method: GET
+              description: "Apache OpenMeetings ResetWb"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: uploadWb
+              method: POST
+              description: "Apache OpenMeetings UploadWb"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: openmeetings-rest
+      resources:
+        - path: /v1/rooms
+          name: rooms
+          description: "Conference room management"
+          operations:
+            - method: GET
+              name: list-rooms
+              description: "List conference rooms"
+              call: "openmeetings.getPublic"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/users
+          name: users
+          description: "User management"
+          operations:
+            - method: GET
+              name: list-users
+              description: "List users"
+              call: "openmeetings.get_3"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: openmeetings-mcp
+      transport: http
+      tools:
+        - name: list-rooms
+          description: "List all public conference rooms"
+          hints:
+            readOnly: true
+          call: "openmeetings.getPublic"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-users
+          description: "List all users"
+          hints:
+            readOnly: true
+          call: "openmeetings.get_3"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-room
+          description: "Create a new conference room"
+          hints:
+            readOnly: false
+          call: "openmeetings.add_2"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: login-user
+          description: "Authenticate a user"
+          hints:
+            readOnly: false
+          call: "openmeetings.login"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-room-hash
+          description: "Generate a secure room access hash"
+          hints:
+            readOnly: false
+          call: "openmeetings.hash"
+          outputParameters:
+            - type: object
+              mapping: "$."

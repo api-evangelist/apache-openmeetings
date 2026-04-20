@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-appointment-dto-structure.json",
+  "description": "AppointmentDTO schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int64"
+    },
+    "title": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "start": {
+      "type": "datetime"
+    },
+    "end": {
+      "type": "datetime"
+    },
+    "description": {
+      "type": "string"
+    },
+    "owner": {
+      "$ref": "#/components/schemas/UserDTO"
+    },
+    "inserted": {
+      "type": "datetime"
+    },
+    "updated": {
+      "type": "datetime"
+    },
+    "deleted": {
+      "type": "boolean"
+    },
+    "reminder": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "EMAIL",
+        "ICAL"
+      ]
+    },
+    "room": {
+      "$ref": "#/components/schemas/RoomDTO"
+    },
+    "icalId": {
+      "type": "string"
+    },
+    "meetingMembers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MeetingMemberDTO"
+      }
+    },
+    "languageId": {
+      "type": "int64"
+    },
+    "password": {
+      "type": "string"
+    },
+    "passwordProtected": {
+      "type": "boolean"
+    },
+    "connectedEvent": {
+      "type": "boolean"
+    },
+    "reminderEmailSend": {
+      "type": "boolean"
+    }
+  },
+  "name": "AppointmentDTO"
+}

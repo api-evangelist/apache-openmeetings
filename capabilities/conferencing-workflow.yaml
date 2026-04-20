@@ -1,0 +1,168 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Apache OpenMeetings Conferencing Workflow"
+  description: "Unified workflow capability for managing web conferencing sessions, users, rooms, recordings, and calendars in Apache OpenMeetings."
+  tags:
+    - Apache OpenMeetings
+    - Conferencing
+    - Collaboration
+    - Web Conferencing
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      OPENMEETINGS_API_KEY: OPENMEETINGS_API_KEY
+
+capability:
+  consumes:
+    - import: openmeetings
+      location: ./shared/openmeetings-rest-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: conferencing-api
+      description: "Unified REST API for Apache OpenMeetings conferencing workflow."
+      resources:
+        - path: /v1/rooms
+          name: rooms
+          description: "Conference room management"
+          operations:
+            - method: GET
+              name: list-rooms
+              description: "List public rooms"
+              call: "openmeetings.getPublic"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-room
+              description: "Create a new room"
+              call: "openmeetings.add_2"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/users
+          name: users
+          description: "User management"
+          operations:
+            - method: GET
+              name: list-users
+              description: "List users"
+              call: "openmeetings.get_3"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/recordings
+          name: recordings
+          description: "Session recordings"
+          operations:
+            - method: GET
+              name: list-recordings
+              description: "Get recordings by type"
+              call: "openmeetings.getExternalByType"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/calendar
+          name: calendar
+          description: "Calendar and scheduling"
+          operations:
+            - method: GET
+              name: list-upcoming
+              description: "Get upcoming meetings"
+              call: "openmeetings.next"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: conferencing-mcp
+      transport: http
+      description: "MCP server for AI-assisted conferencing management."
+      tools:
+        - name: list-rooms
+          description: "List all public conference rooms"
+          hints:
+            readOnly: true
+          call: "openmeetings.getPublic"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-room
+          description: "Create a new conference room"
+          hints:
+            readOnly: false
+          call: "openmeetings.add_2"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: close-room
+          description: "Close a conference room"
+          hints:
+            readOnly: false
+            destructive: true
+          call: "openmeetings.close"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-users
+          description: "List all registered users"
+          hints:
+            readOnly: true
+          call: "openmeetings.get_3"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: login
+          description: "Authenticate a user to OpenMeetings"
+          hints:
+            readOnly: false
+          call: "openmeetings.login"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-room-hash
+          description: "Generate a secure room access hash"
+          hints:
+            readOnly: false
+          call: "openmeetings.hash"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-recordings
+          description: "List session recordings"
+          hints:
+            readOnly: true
+          call: "openmeetings.getExternalByType"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-upcoming-meetings
+          description: "Get upcoming calendar meetings"
+          hints:
+            readOnly: true
+          call: "openmeetings.next"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-groups
+          description: "List all user groups"
+          hints:
+            readOnly: true
+          call: "openmeetings.get_1"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: check-health
+          description: "Check system health status"
+          hints:
+            readOnly: true
+          call: "openmeetings.getHealth"
+          outputParameters:
+            - type: object
+              mapping: "$."

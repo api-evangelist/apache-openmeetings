@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-service-result-structure.json",
+  "description": "ServiceResult schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "name": "ServiceResult"
+}

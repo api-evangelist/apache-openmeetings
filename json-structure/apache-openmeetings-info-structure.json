@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-info-structure.json",
+  "description": "Info schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "buildDate": {
+      "type": "string"
+    }
+  },
+  "name": "Info"
+}

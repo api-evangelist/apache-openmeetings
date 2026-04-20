@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-health-wrapper-structure.json",
+  "description": "HealthWrapper schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "health": {
+      "$ref": "#/components/schemas/Health"
+    }
+  },
+  "name": "HealthWrapper"
+}

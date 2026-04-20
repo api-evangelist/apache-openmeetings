@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-file-item-dto-structure.json",
+  "description": "FileItemDTO schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "hash": {
+      "type": "string"
+    },
+    "parentId": {
+      "type": "int64"
+    },
+    "roomId": {
+      "type": "int64"
+    },
+    "groupId": {
+      "type": "int64"
+    },
+    "ownerId": {
+      "type": "int64"
+    },
+    "size": {
+      "type": "int64"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "externalType": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "FOLDER",
+        "IMAGE",
+        "POLL_CHART",
+        "PRESENTATION",
+        "RECORDING",
+        "VIDEO",
+        "WML_FILE"
+      ]
+    },
+    "width": {
+      "type": "int32"
+    },
+    "height": {
+      "type": "int32"
+    }
+  },
+  "name": "FileItemDTO"
+}

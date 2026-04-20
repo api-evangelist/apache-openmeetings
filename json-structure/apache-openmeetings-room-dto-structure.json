@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-room-dto-structure.json",
+  "description": "RoomDTO schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "CONFERENCE",
+        "PRESENTATION",
+        "INTERVIEW"
+      ]
+    },
+    "capacity": {
+      "type": "int64"
+    },
+    "appointment": {
+      "type": "boolean"
+    },
+    "confno": {
+      "type": "string"
+    },
+    "demo": {
+      "type": "boolean"
+    },
+    "closed": {
+      "type": "boolean"
+    },
+    "demoTime": {
+      "type": "int32"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "externalType": {
+      "type": "string"
+    },
+    "redirectUrl": {
+      "type": "string"
+    },
+    "moderated": {
+      "type": "boolean"
+    },
+    "waitModerator": {
+      "type": "boolean"
+    },
+    "allowUserQuestions": {
+      "type": "boolean"
+    },
+    "allowRecording": {
+      "type": "boolean"
+    },
+    "waitRecording": {
+      "type": "boolean"
+    },
+    "audioOnly": {
+      "type": "boolean"
+    },
+    "hiddenElements": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "TOP_BAR",
+          "CHAT",
+          "ACTIVITIES",
+          "FILES",
+          "ACTION_MENU",
+          "POLL_MENU",
+          "SCREEN_SHARING",
+          "WHITEBOARD",
+          "MICROPHONE_STATUS",
+          "USER_COUNT"
+        ]
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/RoomFileDTO"
+      }
+    },
+    "public": {
+      "type": "boolean"
+    }
+  },
+  "name": "RoomDTO"
+}

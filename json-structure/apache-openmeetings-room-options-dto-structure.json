@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-room-options-dto-structure.json",
+  "description": "RoomOptionsDTO schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "roomId": {
+      "type": "int64"
+    },
+    "externalRoomId": {
+      "type": "string"
+    },
+    "externalType": {
+      "type": "string"
+    },
+    "recordingId": {
+      "type": "int64"
+    },
+    "moderator": {
+      "type": "boolean"
+    },
+    "showAudioVideoTest": {
+      "type": "boolean"
+    },
+    "allowSameURLMultipleTimes": {
+      "type": "boolean"
+    },
+    "allowRecording": {
+      "type": "boolean"
+    }
+  },
+  "name": "RoomOptionsDTO"
+}

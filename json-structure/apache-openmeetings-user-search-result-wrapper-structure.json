@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-user-search-result-wrapper-structure.json",
+  "description": "UserSearchResultWrapper schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "userSearchResult": {
+      "$ref": "#/components/schemas/UserSearchResult"
+    }
+  },
+  "name": "UserSearchResultWrapper"
+}

@@ -1,0 +1,10 @@
+{
+  "roomId": 1234,
+  "externalRoomId": "500123",
+  "externalType": "example",
+  "recordingId": 1234,
+  "moderator": true,
+  "showAudioVideoTest": true,
+  "allowSameURLMultipleTimes": true,
+  "allowRecording": true
+}

@@ -1,0 +1,15 @@
+{
+  "id": 1234,
+  "name": "Example Name",
+  "hash": "example",
+  "parentId": 1234,
+  "roomId": 1234,
+  "groupId": 1234,
+  "ownerId": 1234,
+  "size": 1234,
+  "externalId": "500123",
+  "externalType": "example",
+  "type": "FOLDER",
+  "width": 1234,
+  "height": 1234
+}

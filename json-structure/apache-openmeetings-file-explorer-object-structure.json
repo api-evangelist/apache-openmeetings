@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-file-explorer-object-structure.json",
+  "description": "FileExplorerObject schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "userHome": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/FileItemDTO"
+      }
+    },
+    "roomHome": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/FileItemDTO"
+      }
+    },
+    "userHomeSize": {
+      "type": "int64"
+    },
+    "roomHomeSize": {
+      "type": "int64"
+    }
+  },
+  "name": "FileExplorerObject"
+}

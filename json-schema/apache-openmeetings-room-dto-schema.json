@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-schema/apache-openmeetings-room-dto-schema.json",
+  "title": "RoomDTO",
+  "description": "RoomDTO schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "CONFERENCE",
+        "PRESENTATION",
+        "INTERVIEW"
+      ]
+    },
+    "capacity": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "appointment": {
+      "type": "boolean"
+    },
+    "confno": {
+      "type": "string"
+    },
+    "demo": {
+      "type": "boolean"
+    },
+    "closed": {
+      "type": "boolean"
+    },
+    "demoTime": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "externalType": {
+      "type": "string"
+    },
+    "redirectUrl": {
+      "type": "string"
+    },
+    "moderated": {
+      "type": "boolean"
+    },
+    "waitModerator": {
+      "type": "boolean"
+    },
+    "allowUserQuestions": {
+      "type": "boolean"
+    },
+    "allowRecording": {
+      "type": "boolean"
+    },
+    "waitRecording": {
+      "type": "boolean"
+    },
+    "audioOnly": {
+      "type": "boolean"
+    },
+    "hiddenElements": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "TOP_BAR",
+          "CHAT",
+          "ACTIVITIES",
+          "FILES",
+          "ACTION_MENU",
+          "POLL_MENU",
+          "SCREEN_SHARING",
+          "WHITEBOARD",
+          "MICROPHONE_STATUS",
+          "USER_COUNT"
+        ]
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/RoomFileDTO"
+      }
+    },
+    "public": {
+      "type": "boolean"
+    }
+  }
+}

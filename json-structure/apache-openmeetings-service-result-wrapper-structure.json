@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-service-result-wrapper-structure.json",
+  "description": "ServiceResultWrapper schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "serviceResult": {
+      "$ref": "#/components/schemas/ServiceResult"
+    }
+  },
+  "name": "ServiceResultWrapper"
+}

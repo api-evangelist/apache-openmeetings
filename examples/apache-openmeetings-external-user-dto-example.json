@@ -1,0 +1,9 @@
+{
+  "login": "example",
+  "firstname": "Example Name",
+  "lastname": "Example Name",
+  "profilePictureUrl": "https://example.com",
+  "email": "user@example.com",
+  "externalId": "500123",
+  "externalType": "example"
+}

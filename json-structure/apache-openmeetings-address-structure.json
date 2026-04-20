@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-address-structure.json",
+  "description": "Address schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "inserted": {
+      "type": "datetime",
+      "xml": {
+        "name": "created"
+      }
+    },
+    "updated": {
+      "type": "datetime"
+    },
+    "deleted": {
+      "type": "boolean"
+    },
+    "id": {
+      "type": "int64"
+    },
+    "additionalname": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "fax": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "town": {
+      "type": "string"
+    },
+    "zip": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "xml": {
+        "name": "mail"
+      }
+    },
+    "phone": {
+      "type": "string"
+    }
+  },
+  "name": "Address"
+}

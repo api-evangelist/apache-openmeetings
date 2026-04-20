@@ -1,0 +1,91 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Apache OpenMeetings"
+  description: "Vocabulary taxonomy for Apache OpenMeetings web conferencing REST API"
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: openmeetings
+      version: "9.0.0"
+      baseUrl: "https://localhost:5443/openmeetings/services"
+      status: active
+  resources:
+    - name: rooms
+      api: openmeetings
+      actions: [list, create, delete, open, close, count, hash]
+    - name: users
+      api: openmeetings
+      actions: [list, create, delete, login, getRoomHash]
+    - name: recordings
+      api: openmeetings
+      actions: [list, get, delete]
+    - name: calendar
+      api: openmeetings
+      actions: [list, create, delete, getByRoom, getByTitle, next, range]
+    - name: files
+      api: openmeetings
+      actions: [add, delete, get, move, rename]
+    - name: groups
+      api: openmeetings
+      actions: [list, create, delete, addUser, removeUser, addRoom]
+    - name: whiteboards
+      api: openmeetings
+      actions: [cleanSlide, cleanWb, resetWb, uploadWb]
+  actions:
+    - name: list
+      httpMethod: GET
+      pattern: read
+    - name: create
+      httpMethod: POST
+      pattern: write
+    - name: delete
+      httpMethod: DELETE
+      pattern: destructive
+    - name: get
+      httpMethod: GET
+      pattern: read
+    - name: login
+      httpMethod: POST
+      pattern: write
+  authentication:
+    schemes:
+      - type: apiKey
+        placement: header
+        description: "Session-based API key from login endpoint"
+
+capability:
+  workflows:
+    - name: Conferencing Workflow
+      file: capabilities/conferencing-workflow.yaml
+      description: "Unified workflow for managing conferencing sessions"
+      apis: [openmeetings]
+      tools: 10
+      personas: [Meeting Organizer, System Administrator]
+  personas:
+    - id: meeting-organizer
+      name: Meeting Organizer
+      description: "Manages conference rooms, invites participants, and handles recordings"
+    - id: system-admin
+      name: System Administrator
+      description: "Manages users, groups, and system health"
+  domains:
+    - Conferencing
+    - Collaboration
+    - User Management
+
+crossReference:
+  - resource: rooms
+    operations: [list, create, delete, open, close, hash]
+    workflows: [Conferencing Workflow]
+    personas: [Meeting Organizer]
+  - resource: users
+    operations: [list, create, delete, login]
+    workflows: [Conferencing Workflow]
+    personas: [System Administrator]
+  - resource: recordings
+    operations: [list, get, delete]
+    workflows: [Conferencing Workflow]
+    personas: [Meeting Organizer]

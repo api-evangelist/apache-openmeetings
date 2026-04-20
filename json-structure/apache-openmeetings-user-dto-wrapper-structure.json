@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-user-dto-wrapper-structure.json",
+  "description": "UserDTOWrapper schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "userDTO": {
+      "$ref": "#/components/schemas/UserDTO"
+    }
+  },
+  "name": "UserDTOWrapper"
+}

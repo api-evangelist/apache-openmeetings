@@ -1,0 +1,8 @@
+{
+  "objectName": "Example Name",
+  "records": 1234,
+  "result": [
+    {}
+  ],
+  "errorKey": "example"
+}

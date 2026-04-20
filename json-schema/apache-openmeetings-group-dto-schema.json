@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-schema/apache-openmeetings-group-dto-schema.json",
+  "title": "GroupDTO",
+  "description": "GroupDTO schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    }
+  }
+}

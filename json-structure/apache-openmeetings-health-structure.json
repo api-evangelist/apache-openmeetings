@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-health-structure.json",
+  "description": "Health schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "inited": {
+      "type": "boolean"
+    },
+    "installed": {
+      "type": "boolean"
+    },
+    "dbOk": {
+      "type": "boolean"
+    }
+  },
+  "name": "Health"
+}

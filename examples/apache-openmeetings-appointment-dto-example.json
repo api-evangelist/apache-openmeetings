@@ -1,0 +1,23 @@
+{
+  "id": 1234,
+  "title": "example",
+  "location": "example",
+  "start": "2026-04-19T10:00:00Z",
+  "end": "2026-04-19T10:00:00Z",
+  "description": "Example description",
+  "owner": {},
+  "inserted": "2026-04-19T10:00:00Z",
+  "updated": "2026-04-19T10:00:00Z",
+  "deleted": true,
+  "reminder": "NONE",
+  "room": {},
+  "icalId": "500123",
+  "meetingMembers": [
+    {}
+  ],
+  "languageId": 1234,
+  "password": "example",
+  "passwordProtected": true,
+  "connectedEvent": true,
+  "reminderEmailSend": true
+}

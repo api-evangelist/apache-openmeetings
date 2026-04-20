@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-schema/apache-openmeetings-external-user-dto-schema.json",
+  "title": "ExternalUserDTO",
+  "description": "ExternalUserDTO schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "login": {
+      "type": "string"
+    },
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "profilePictureUrl": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "externalType": {
+      "type": "string"
+    }
+  }
+}

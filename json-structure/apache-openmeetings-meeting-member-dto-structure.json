@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-meeting-member-dto-structure.json",
+  "description": "MeetingMemberDTO schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int64"
+    },
+    "user": {
+      "$ref": "#/components/schemas/UserDTO"
+    }
+  },
+  "name": "MeetingMemberDTO"
+}

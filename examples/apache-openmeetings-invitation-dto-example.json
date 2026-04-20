@@ -1,0 +1,14 @@
+{
+  "email": "user@example.com",
+  "firstname": "Example Name",
+  "lastname": "Example Name",
+  "message": "example",
+  "subject": "example",
+  "roomId": 1234,
+  "passwordProtected": true,
+  "password": "example",
+  "valid": "ONE_TIME",
+  "validFrom": "500123",
+  "validTo": "500123",
+  "languageId": 1234
+}

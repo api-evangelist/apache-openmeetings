@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-schema/apache-openmeetings-group-dto-list-wrapper-schema.json",
+  "title": "GroupDTOListWrapper",
+  "description": "GroupDTOListWrapper schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "groupDTO": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GroupDTO"
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": 1234,
+  "name": "Example Name",
+  "tag": "example",
+  "comment": "example",
+  "type": "CONFERENCE",
+  "capacity": 1234,
+  "appointment": true,
+  "confno": "example",
+  "demo": true,
+  "closed": true,
+  "demoTime": 1234,
+  "externalId": "500123",
+  "externalType": "example",
+  "redirectUrl": "https://example.com",
+  "moderated": true,
+  "waitModerator": true,
+  "allowUserQuestions": true,
+  "allowRecording": true,
+  "waitRecording": true,
+  "audioOnly": true,
+  "hiddenElements": [
+    "TOP_BAR"
+  ],
+  "files": [
+    {}
+  ],
+  "public": true
+}

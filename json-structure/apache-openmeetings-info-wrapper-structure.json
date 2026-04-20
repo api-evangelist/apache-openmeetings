@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-info-wrapper-structure.json",
+  "description": "InfoWrapper schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "info": {
+      "$ref": "#/components/schemas/Info"
+    }
+  },
+  "name": "InfoWrapper"
+}

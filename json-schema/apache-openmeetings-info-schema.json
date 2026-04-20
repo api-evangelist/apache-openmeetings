@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-schema/apache-openmeetings-info-schema.json",
+  "title": "Info",
+  "description": "Info schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "buildDate": {
+      "type": "string"
+    }
+  }
+}

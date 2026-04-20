@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-schema/apache-openmeetings-health-wrapper-schema.json",
+  "title": "HealthWrapper",
+  "description": "HealthWrapper schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "health": {
+      "$ref": "#/components/schemas/Health"
+    }
+  }
+}

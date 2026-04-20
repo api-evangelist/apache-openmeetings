@@ -1,0 +1,15 @@
+{
+  "inserted": "2026-04-19T10:00:00Z",
+  "updated": "2026-04-19T10:00:00Z",
+  "deleted": true,
+  "id": 1234,
+  "additionalname": "Example Name",
+  "comment": "example",
+  "fax": "example",
+  "country": "example",
+  "street": "example",
+  "town": "example",
+  "zip": "example",
+  "email": "user@example.com",
+  "phone": "example"
+}

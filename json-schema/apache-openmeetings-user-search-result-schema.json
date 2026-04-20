@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-schema/apache-openmeetings-user-search-result-schema.json",
+  "title": "UserSearchResult",
+  "description": "UserSearchResult schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "objectName": {
+      "type": "string"
+    },
+    "records": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "result": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/UserDTO"
+      }
+    },
+    "errorKey": {
+      "type": "string"
+    }
+  }
+}

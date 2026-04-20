@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-schema/apache-openmeetings-recording-dto-schema.json",
+  "title": "RecordingDTO",
+  "description": "RecordingDTO schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "hash": {
+      "type": "string"
+    },
+    "roomId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "status": {
+      "type": "string"
+    },
+    "interview": {
+      "type": "boolean"
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "width": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "height": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "ownerId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "externalType": {
+      "type": "string"
+    }
+  }
+}

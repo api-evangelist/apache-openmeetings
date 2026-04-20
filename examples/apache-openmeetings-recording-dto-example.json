@@ -1,0 +1,14 @@
+{
+  "id": 1234,
+  "name": "Example Name",
+  "hash": "example",
+  "roomId": 1234,
+  "status": "active",
+  "interview": true,
+  "start": "2026-04-19T10:00:00Z",
+  "end": "2026-04-19T10:00:00Z",
+  "width": 1234,
+  "height": 1234,
+  "ownerId": 1234,
+  "externalType": "example"
+}

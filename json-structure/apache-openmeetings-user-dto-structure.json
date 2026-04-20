@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-user-dto-structure.json",
+  "description": "UserDTO schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int64"
+    },
+    "login": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "rights": {
+      "uniqueItems": true,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "ADMIN",
+          "GROUP_ADMIN",
+          "ADMIN_CONFIG",
+          "ADMIN_CONNECTIONS",
+          "ADMIN_BACKUP",
+          "ADMIN_LABEL",
+          "ROOM",
+          "DASHBOARD",
+          "LOGIN",
+          "SOAP"
+        ]
+      }
+    },
+    "languageId": {
+      "type": "int64"
+    },
+    "address": {
+      "$ref": "#/components/schemas/Address"
+    },
+    "timeZoneId": {
+      "type": "string"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "externalType": {
+      "type": "string"
+    },
+    "pictureUri": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "USER",
+        "LDAP",
+        "OAUTH",
+        "EXTERNAL",
+        "CONTACT"
+      ]
+    }
+  },
+  "name": "UserDTO"
+}

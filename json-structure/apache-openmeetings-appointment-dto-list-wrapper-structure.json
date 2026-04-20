@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-appointment-dto-list-wrapper-structure.json",
+  "description": "AppointmentDTOListWrapper schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "appointmentDTO": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AppointmentDTO"
+      }
+    }
+  },
+  "name": "AppointmentDTOListWrapper"
+}

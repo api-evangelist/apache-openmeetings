@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-schema/apache-openmeetings-service-result-schema.json",
+  "title": "ServiceResult",
+  "description": "ServiceResult schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

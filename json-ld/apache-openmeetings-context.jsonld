@@ -1,0 +1,471 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "om": "https://openmeetings.apache.org/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "RoomDTO": "om:RoomDTO",
+    "RoomOptionsDTO": "om:RoomOptionsDTO",
+    "AppointmentDTOWrapper": "om:AppointmentDTOWrapper",
+    "GroupDTO": "om:GroupDTO",
+    "Health": "om:Health",
+    "UserSearchResultWrapper": "om:UserSearchResultWrapper",
+    "ExternalUserDTO": "om:ExternalUserDTO",
+    "FileItemDTO": "om:FileItemDTO",
+    "FileItemDTOWrapper": "om:FileItemDTOWrapper",
+    "HealthWrapper": "om:HealthWrapper",
+    "AppointmentDTO": "om:AppointmentDTO",
+    "RecordingDTO": "om:RecordingDTO",
+    "UserDTO": "om:UserDTO",
+    "ServiceResultWrapper": "om:ServiceResultWrapper",
+    "Address": "om:Address",
+    "MeetingMemberDTO": "om:MeetingMemberDTO",
+    "FileExplorerObjectWrapper": "om:FileExplorerObjectWrapper",
+    "RoomDTOListWrapper": "om:RoomDTOListWrapper",
+    "UserSearchResult": "om:UserSearchResult",
+    "FileExplorerObject": "om:FileExplorerObject",
+    "UserDTOListWrapper": "om:UserDTOListWrapper",
+    "AppointmentDTOListWrapper": "om:AppointmentDTOListWrapper",
+    "ServiceResult": "om:ServiceResult",
+    "RoomFileDTO": "om:RoomFileDTO",
+    "FileItemDTOListWrapper": "om:FileItemDTOListWrapper",
+    "UserDTOWrapper": "om:UserDTOWrapper",
+    "Info": "om:Info",
+    "InvitationDTO": "om:InvitationDTO",
+    "RoomDTOWrapper": "om:RoomDTOWrapper",
+    "GroupDTOListWrapper": "om:GroupDTOListWrapper",
+    "RecordingDTOListWrapper": "om:RecordingDTOListWrapper",
+    "InfoWrapper": "om:InfoWrapper",
+    "id": {
+      "@id": "om:id",
+      "@type": "xsd:integer"
+    },
+    "name": {
+      "@id": "om:name",
+      "@type": "schema:name"
+    },
+    "tag": {
+      "@id": "om:tag",
+      "@type": "xsd:string"
+    },
+    "comment": {
+      "@id": "om:comment",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "om:type",
+      "@type": "xsd:string"
+    },
+    "capacity": {
+      "@id": "om:capacity",
+      "@type": "xsd:integer"
+    },
+    "appointment": {
+      "@id": "om:appointment",
+      "@type": "xsd:boolean"
+    },
+    "confno": {
+      "@id": "om:confno",
+      "@type": "xsd:string"
+    },
+    "demo": {
+      "@id": "om:demo",
+      "@type": "xsd:boolean"
+    },
+    "closed": {
+      "@id": "om:closed",
+      "@type": "xsd:boolean"
+    },
+    "demoTime": {
+      "@id": "om:demoTime",
+      "@type": "xsd:integer"
+    },
+    "externalId": {
+      "@id": "om:externalId",
+      "@type": "xsd:string"
+    },
+    "externalType": {
+      "@id": "om:externalType",
+      "@type": "xsd:string"
+    },
+    "redirectUrl": {
+      "@id": "om:redirectUrl",
+      "@type": "xsd:string"
+    },
+    "moderated": {
+      "@id": "om:moderated",
+      "@type": "xsd:boolean"
+    },
+    "waitModerator": {
+      "@id": "om:waitModerator",
+      "@type": "xsd:boolean"
+    },
+    "allowUserQuestions": {
+      "@id": "om:allowUserQuestions",
+      "@type": "xsd:boolean"
+    },
+    "allowRecording": {
+      "@id": "om:allowRecording",
+      "@type": "xsd:boolean"
+    },
+    "waitRecording": {
+      "@id": "om:waitRecording",
+      "@type": "xsd:boolean"
+    },
+    "audioOnly": {
+      "@id": "om:audioOnly",
+      "@type": "xsd:boolean"
+    },
+    "hiddenElements": {
+      "@id": "om:hiddenElements",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "files": {
+      "@id": "om:files",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "public": {
+      "@id": "om:public",
+      "@type": "xsd:boolean"
+    },
+    "roomId": {
+      "@id": "om:roomId",
+      "@type": "xsd:integer"
+    },
+    "externalRoomId": {
+      "@id": "om:externalRoomId",
+      "@type": "xsd:string"
+    },
+    "recordingId": {
+      "@id": "om:recordingId",
+      "@type": "xsd:integer"
+    },
+    "moderator": {
+      "@id": "om:moderator",
+      "@type": "xsd:boolean"
+    },
+    "showAudioVideoTest": {
+      "@id": "om:showAudioVideoTest",
+      "@type": "xsd:boolean"
+    },
+    "allowSameURLMultipleTimes": {
+      "@id": "om:allowSameURLMultipleTimes",
+      "@type": "xsd:boolean"
+    },
+    "appointmentDTO": {
+      "@id": "om:appointmentDTO",
+      "@type": "xsd:string"
+    },
+    "inited": {
+      "@id": "om:inited",
+      "@type": "xsd:boolean"
+    },
+    "installed": {
+      "@id": "om:installed",
+      "@type": "xsd:boolean"
+    },
+    "dbOk": {
+      "@id": "om:dbOk",
+      "@type": "xsd:boolean"
+    },
+    "userSearchResult": {
+      "@id": "om:userSearchResult",
+      "@type": "xsd:string"
+    },
+    "login": {
+      "@id": "om:login",
+      "@type": "xsd:string"
+    },
+    "firstname": {
+      "@id": "om:firstname",
+      "@type": "xsd:string"
+    },
+    "lastname": {
+      "@id": "om:lastname",
+      "@type": "xsd:string"
+    },
+    "profilePictureUrl": {
+      "@id": "om:profilePictureUrl",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "om:email",
+      "@type": "schema:email"
+    },
+    "hash": {
+      "@id": "om:hash",
+      "@type": "xsd:string"
+    },
+    "parentId": {
+      "@id": "om:parentId",
+      "@type": "xsd:integer"
+    },
+    "groupId": {
+      "@id": "om:groupId",
+      "@type": "xsd:integer"
+    },
+    "ownerId": {
+      "@id": "om:ownerId",
+      "@type": "xsd:integer"
+    },
+    "size": {
+      "@id": "om:size",
+      "@type": "xsd:integer"
+    },
+    "width": {
+      "@id": "om:width",
+      "@type": "xsd:integer"
+    },
+    "height": {
+      "@id": "om:height",
+      "@type": "xsd:integer"
+    },
+    "fileItemDTO": {
+      "@id": "om:fileItemDTO",
+      "@type": "xsd:string"
+    },
+    "health": {
+      "@id": "om:health",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "om:title",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "om:location",
+      "@type": "xsd:string"
+    },
+    "start": {
+      "@id": "om:start",
+      "@type": "xsd:dateTime"
+    },
+    "end": {
+      "@id": "om:end",
+      "@type": "xsd:dateTime"
+    },
+    "description": {
+      "@id": "om:description",
+      "@type": "schema:description"
+    },
+    "owner": {
+      "@id": "om:owner",
+      "@type": "xsd:string"
+    },
+    "inserted": {
+      "@id": "om:inserted",
+      "@type": "xsd:dateTime"
+    },
+    "updated": {
+      "@id": "om:updated",
+      "@type": "xsd:dateTime"
+    },
+    "deleted": {
+      "@id": "om:deleted",
+      "@type": "xsd:boolean"
+    },
+    "reminder": {
+      "@id": "om:reminder",
+      "@type": "xsd:string"
+    },
+    "room": {
+      "@id": "om:room",
+      "@type": "xsd:string"
+    },
+    "icalId": {
+      "@id": "om:icalId",
+      "@type": "xsd:string"
+    },
+    "meetingMembers": {
+      "@id": "om:meetingMembers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "languageId": {
+      "@id": "om:languageId",
+      "@type": "xsd:integer"
+    },
+    "password": {
+      "@id": "om:password",
+      "@type": "xsd:string"
+    },
+    "passwordProtected": {
+      "@id": "om:passwordProtected",
+      "@type": "xsd:boolean"
+    },
+    "connectedEvent": {
+      "@id": "om:connectedEvent",
+      "@type": "xsd:boolean"
+    },
+    "reminderEmailSend": {
+      "@id": "om:reminderEmailSend",
+      "@type": "xsd:boolean"
+    },
+    "status": {
+      "@id": "om:status",
+      "@type": "xsd:string"
+    },
+    "interview": {
+      "@id": "om:interview",
+      "@type": "xsd:boolean"
+    },
+    "rights": {
+      "@id": "om:rights",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "om:address",
+      "@type": "xsd:string"
+    },
+    "timeZoneId": {
+      "@id": "om:timeZoneId",
+      "@type": "xsd:string"
+    },
+    "pictureUri": {
+      "@id": "om:pictureUri",
+      "@type": "xsd:string"
+    },
+    "serviceResult": {
+      "@id": "om:serviceResult",
+      "@type": "xsd:string"
+    },
+    "additionalname": {
+      "@id": "om:additionalname",
+      "@type": "xsd:string"
+    },
+    "fax": {
+      "@id": "om:fax",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "om:country",
+      "@type": "xsd:string"
+    },
+    "street": {
+      "@id": "om:street",
+      "@type": "xsd:string"
+    },
+    "town": {
+      "@id": "om:town",
+      "@type": "xsd:string"
+    },
+    "zip": {
+      "@id": "om:zip",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "om:phone",
+      "@type": "xsd:string"
+    },
+    "user": {
+      "@id": "om:user",
+      "@type": "xsd:string"
+    },
+    "fileExplorerObject": {
+      "@id": "om:fileExplorerObject",
+      "@type": "xsd:string"
+    },
+    "roomDTO": {
+      "@id": "om:roomDTO",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "objectName": {
+      "@id": "om:objectName",
+      "@type": "xsd:string"
+    },
+    "records": {
+      "@id": "om:records",
+      "@type": "xsd:integer"
+    },
+    "result": {
+      "@id": "om:result",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "errorKey": {
+      "@id": "om:errorKey",
+      "@type": "xsd:string"
+    },
+    "userHome": {
+      "@id": "om:userHome",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "roomHome": {
+      "@id": "om:roomHome",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "userHomeSize": {
+      "@id": "om:userHomeSize",
+      "@type": "xsd:integer"
+    },
+    "roomHomeSize": {
+      "@id": "om:roomHomeSize",
+      "@type": "xsd:integer"
+    },
+    "userDTO": {
+      "@id": "om:userDTO",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "om:message",
+      "@type": "xsd:string"
+    },
+    "fileId": {
+      "@id": "om:fileId",
+      "@type": "xsd:integer"
+    },
+    "wbIdx": {
+      "@id": "om:wbIdx",
+      "@type": "xsd:integer"
+    },
+    "version": {
+      "@id": "om:version",
+      "@type": "xsd:string"
+    },
+    "revision": {
+      "@id": "om:revision",
+      "@type": "xsd:string"
+    },
+    "buildDate": {
+      "@id": "om:buildDate",
+      "@type": "xsd:string"
+    },
+    "subject": {
+      "@id": "om:subject",
+      "@type": "xsd:string"
+    },
+    "valid": {
+      "@id": "om:valid",
+      "@type": "xsd:string"
+    },
+    "validFrom": {
+      "@id": "om:validFrom",
+      "@type": "xsd:string"
+    },
+    "validTo": {
+      "@id": "om:validTo",
+      "@type": "xsd:string"
+    },
+    "groupDTO": {
+      "@id": "om:groupDTO",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "recordingDTO": {
+      "@id": "om:recordingDTO",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "info": {
+      "@id": "om:info",
+      "@type": "xsd:string"
+    }
+  }
+}

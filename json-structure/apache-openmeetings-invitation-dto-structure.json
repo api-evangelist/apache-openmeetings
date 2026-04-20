@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-structure/apache-openmeetings-invitation-dto-structure.json",
+  "description": "InvitationDTO schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "roomId": {
+      "type": "int64"
+    },
+    "passwordProtected": {
+      "type": "boolean"
+    },
+    "password": {
+      "type": "string"
+    },
+    "valid": {
+      "type": "string",
+      "enum": [
+        "ONE_TIME",
+        "PERIOD",
+        "ENDLESS"
+      ]
+    },
+    "validFrom": {
+      "type": "string"
+    },
+    "validTo": {
+      "type": "string"
+    },
+    "languageId": {
+      "type": "int64"
+    }
+  },
+  "name": "InvitationDTO"
+}

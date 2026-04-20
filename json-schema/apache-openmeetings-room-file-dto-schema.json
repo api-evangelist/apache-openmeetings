@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-schema/apache-openmeetings-room-file-dto-schema.json",
+  "title": "RoomFileDTO",
+  "description": "RoomFileDTO schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "fileId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "wbIdx": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

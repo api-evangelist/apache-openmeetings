@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/json-schema/apache-openmeetings-appointment-dto-wrapper-schema.json",
+  "title": "AppointmentDTOWrapper",
+  "description": "AppointmentDTOWrapper schema from Apache OpenMeetings REST API",
+  "type": "object",
+  "properties": {
+    "appointmentDTO": {
+      "$ref": "#/components/schemas/AppointmentDTO"
+    }
+  }
+}
