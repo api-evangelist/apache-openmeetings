@@ -1,8 +1,7 @@
 aid: apache-openmeetings
 name: Apache OpenMeetings
-description: >-
-  Apache OpenMeetings is a web conferencing and collaboration tool that provides video conferencing, instant messaging, white board, collaborative document editing, and other groupware tools. It offers
-  integration APIs for LMS platforms.
+description: Apache OpenMeetings is a web conferencing and collaboration tool that provides video conferencing, instant messaging,
+  white board, collaborative document editing, and other groupware tools. It offers integration APIs for LMS platforms.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -16,16 +15,14 @@ tags:
 - Open Source
 - Conferencing
 created: '2026-03-16'
-modified: '2026-04-19'
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/apis.yml
+modified: '2026-05-19'
+url: https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
 - aid: apache-openmeetings:apache-openmeetings-rest-api
   name: Apache OpenMeetings REST API
-  description: >-
-    The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, and file uploads, with SOAP API support for legacy integrations and plugin APIs for LMS integration (Moodle,
-    Sakai).
+  description: The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, and file uploads,
+    with SOAP API support for legacy integrations and plugin APIs for LMS integration (Moodle, Sakai).
   humanURL: https://openmeetings.apache.org/RestAPISample.html
   tags:
   - Conferencing
@@ -38,6 +35,26 @@ apis:
     url: https://openmeetings.apache.org/RestAPISample.html
   - type: OpenAPI
     url: openapi/apache-openmeetings-rest-api.json
+  - type: NaftikoCapability
+    url: capabilities/rest-calendarservice.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-errorservice.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-fileservice.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-groupservice.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-infoservice.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-nettestservice.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-recordingservice.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-roomservice.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-userservice.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-wbservice.yaml
 maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
@@ -52,8 +69,6 @@ common:
   url: rules/apache-openmeetings-spectral-rules.yml
 - type: Vocabulary
   url: vocabulary/apache-openmeetings-vocabulary.yaml
-- type: NaftikoCapability
-  url: capabilities/conferencing-workflow.yaml
 - type: JSONLD
   url: json-ld/apache-openmeetings-context.jsonld
 - type: Features

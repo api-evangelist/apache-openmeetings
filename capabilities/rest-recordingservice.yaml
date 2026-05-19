@@ -1,0 +1,238 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache OpenMeetings REST API — RecordingService
+  description: 'Apache OpenMeetings REST API — RecordingService. 4 operations. Lead operation: Apache OpenMeetings GetExternalByRoom.
+    Self-contained Naftiko capability covering one Apache Openmeetings business surface.'
+  tags:
+  - Apache Openmeetings
+  - RecordingService
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_OPENMEETINGS_API_KEY: APACHE_OPENMEETINGS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-recordingservice
+    baseUri: https://{host}:5443/openmeetings/services
+    description: Apache OpenMeetings REST API — RecordingService business capability. Self-contained, no shared references.
+    resources:
+    - name: record-room-roomid
+      path: /record/room/{roomid}
+      operations:
+      - name: getexternalbyroom
+        method: GET
+        description: Apache OpenMeetings GetExternalByRoom
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: roomid
+          in: path
+          type: integer
+          description: the room id
+          required: true
+    - name: record-externaltype
+      path: /record/{externaltype}
+      operations:
+      - name: getexternalbytype
+        method: GET
+        description: Apache OpenMeetings GetExternalByType
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: externaltype
+          in: path
+          type: string
+          description: externalType specified when creating the room
+          required: true
+    - name: record-externaltype-externalid
+      path: /record/{externaltype}/{externalid}
+      operations:
+      - name: getexternal
+        method: GET
+        description: Apache OpenMeetings GetExternal
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: externaltype
+          in: path
+          type: string
+          description: the externalUserId
+          required: true
+        - name: externalid
+          in: path
+          type: string
+          description: the externalUserType
+          required: true
+    - name: record-id
+      path: /record/{id}
+      operations:
+      - name: delete3
+        method: DELETE
+        description: Apache OpenMeetings Delete_3
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: id
+          in: path
+          type: integer
+          description: the id of the recording
+          required: true
+  exposes:
+  - type: rest
+    namespace: rest-recordingservice-rest
+    port: 8080
+    description: REST adapter for Apache OpenMeetings REST API — RecordingService. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/record/room/{roomid}
+      name: record-room-roomid
+      description: REST surface for record-room-roomid.
+      operations:
+      - method: GET
+        name: getexternalbyroom
+        description: Apache OpenMeetings GetExternalByRoom
+        call: rest-recordingservice.getexternalbyroom
+        with:
+          sid: rest.sid
+          roomid: rest.roomid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/record/{externaltype}
+      name: record-externaltype
+      description: REST surface for record-externaltype.
+      operations:
+      - method: GET
+        name: getexternalbytype
+        description: Apache OpenMeetings GetExternalByType
+        call: rest-recordingservice.getexternalbytype
+        with:
+          sid: rest.sid
+          externaltype: rest.externaltype
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/record/{externaltype}/{externalid}
+      name: record-externaltype-externalid
+      description: REST surface for record-externaltype-externalid.
+      operations:
+      - method: GET
+        name: getexternal
+        description: Apache OpenMeetings GetExternal
+        call: rest-recordingservice.getexternal
+        with:
+          sid: rest.sid
+          externaltype: rest.externaltype
+          externalid: rest.externalid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/record/{id}
+      name: record-id
+      description: REST surface for record-id.
+      operations:
+      - method: DELETE
+        name: delete3
+        description: Apache OpenMeetings Delete_3
+        call: rest-recordingservice.delete3
+        with:
+          sid: rest.sid
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-recordingservice-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache OpenMeetings REST API — RecordingService. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: apache-openmeetings-getexternalbyroom
+      description: Apache OpenMeetings GetExternalByRoom
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-recordingservice.getexternalbyroom
+      with:
+        sid: tools.sid
+        roomid: tools.roomid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-openmeetings-getexternalbytype
+      description: Apache OpenMeetings GetExternalByType
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-recordingservice.getexternalbytype
+      with:
+        sid: tools.sid
+        externaltype: tools.externaltype
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-openmeetings-getexternal
+      description: Apache OpenMeetings GetExternal
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-recordingservice.getexternal
+      with:
+        sid: tools.sid
+        externaltype: tools.externaltype
+        externalid: tools.externalid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-openmeetings-delete-3
+      description: Apache OpenMeetings Delete_3
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-recordingservice.delete3
+      with:
+        sid: tools.sid
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

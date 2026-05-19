@@ -1,0 +1,259 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache OpenMeetings REST API — WbService
+  description: 'Apache OpenMeetings REST API — WbService. 4 operations. Lead operation: Apache OpenMeetings CleanSlide. Self-contained
+    Naftiko capability covering one Apache Openmeetings business surface.'
+  tags:
+  - Apache Openmeetings
+  - WbService
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_OPENMEETINGS_API_KEY: APACHE_OPENMEETINGS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-wbservice
+    baseUri: https://{host}:5443/openmeetings/services
+    description: Apache OpenMeetings REST API — WbService business capability. Self-contained, no shared references.
+    resources:
+    - name: wb-cleanslide-roomid-wbid-slide
+      path: /wb/cleanslide/{roomid}/{wbid}/{slide}
+      operations:
+      - name: cleanslide
+        method: GET
+        description: Apache OpenMeetings CleanSlide
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: roomid
+          in: path
+          type: integer
+          description: id of the room to clean
+          required: true
+        - name: wbid
+          in: path
+          type: integer
+          description: id of the white board to clean
+          required: true
+        - name: slide
+          in: path
+          type: integer
+          description: slide number (zero based)
+          required: true
+    - name: wb-cleanwb-roomid-wbid
+      path: /wb/cleanwb/{roomid}/{wbid}
+      operations:
+      - name: cleanwb
+        method: GET
+        description: Apache OpenMeetings CleanWb
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: roomid
+          in: path
+          type: integer
+          description: id of the room to clean
+          required: true
+        - name: wbid
+          in: path
+          type: integer
+          description: id of the white board to clean
+          required: true
+    - name: wb-resetwb-id
+      path: /wb/resetwb/{id}
+      operations:
+      - name: resetwb
+        method: GET
+        description: Apache OpenMeetings ResetWb
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: id
+          in: path
+          type: integer
+          description: id of the room to clean
+          required: true
+    - name: wb-uploadwb-type
+      path: /wb/uploadwb/{type}
+      operations:
+      - name: uploadwb
+        method: POST
+        description: Apache OpenMeetings UploadWb
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: type
+          in: path
+          type: string
+          description: the type of document being saved PNG/PDF
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: rest-wbservice-rest
+    port: 8080
+    description: REST adapter for Apache OpenMeetings REST API — WbService. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/wb/cleanslide/{roomid}/{wbid}/{slide}
+      name: wb-cleanslide-roomid-wbid-slide
+      description: REST surface for wb-cleanslide-roomid-wbid-slide.
+      operations:
+      - method: GET
+        name: cleanslide
+        description: Apache OpenMeetings CleanSlide
+        call: rest-wbservice.cleanslide
+        with:
+          sid: rest.sid
+          roomid: rest.roomid
+          wbid: rest.wbid
+          slide: rest.slide
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/wb/cleanwb/{roomid}/{wbid}
+      name: wb-cleanwb-roomid-wbid
+      description: REST surface for wb-cleanwb-roomid-wbid.
+      operations:
+      - method: GET
+        name: cleanwb
+        description: Apache OpenMeetings CleanWb
+        call: rest-wbservice.cleanwb
+        with:
+          sid: rest.sid
+          roomid: rest.roomid
+          wbid: rest.wbid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/wb/resetwb/{id}
+      name: wb-resetwb-id
+      description: REST surface for wb-resetwb-id.
+      operations:
+      - method: GET
+        name: resetwb
+        description: Apache OpenMeetings ResetWb
+        call: rest-wbservice.resetwb
+        with:
+          sid: rest.sid
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/wb/uploadwb/{type}
+      name: wb-uploadwb-type
+      description: REST surface for wb-uploadwb-type.
+      operations:
+      - method: POST
+        name: uploadwb
+        description: Apache OpenMeetings UploadWb
+        call: rest-wbservice.uploadwb
+        with:
+          sid: rest.sid
+          type: rest.type
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-wbservice-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache OpenMeetings REST API — WbService. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: apache-openmeetings-cleanslide
+      description: Apache OpenMeetings CleanSlide
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-wbservice.cleanslide
+      with:
+        sid: tools.sid
+        roomid: tools.roomid
+        wbid: tools.wbid
+        slide: tools.slide
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-openmeetings-cleanwb
+      description: Apache OpenMeetings CleanWb
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-wbservice.cleanwb
+      with:
+        sid: tools.sid
+        roomid: tools.roomid
+        wbid: tools.wbid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-openmeetings-resetwb
+      description: Apache OpenMeetings ResetWb
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-wbservice.resetwb
+      with:
+        sid: tools.sid
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-openmeetings-uploadwb
+      description: Apache OpenMeetings UploadWb
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-wbservice.uploadwb
+      with:
+        sid: tools.sid
+        type: tools.type
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

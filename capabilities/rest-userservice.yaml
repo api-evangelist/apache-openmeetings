@@ -1,0 +1,315 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache OpenMeetings REST API — UserService
+  description: 'Apache OpenMeetings REST API — UserService. 6 operations. Lead operation: Apache OpenMeetings Get_3. Self-contained
+    Naftiko capability covering one Apache Openmeetings business surface.'
+  tags:
+  - Apache Openmeetings
+  - UserService
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_OPENMEETINGS_API_KEY: APACHE_OPENMEETINGS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-userservice
+    baseUri: https://{host}:5443/openmeetings/services
+    description: Apache OpenMeetings REST API — UserService business capability. Self-contained, no shared references.
+    resources:
+    - name: user
+      path: /user
+      operations:
+      - name: get3
+        method: GET
+        description: Apache OpenMeetings Get_3
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+      - name: add3
+        method: POST
+        description: Apache OpenMeetings Add_3
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: user-hash
+      path: /user/hash
+      operations:
+      - name: getroomhash
+        method: POST
+        description: Apache OpenMeetings GetRoomHash
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: user-login
+      path: /user/login
+      operations:
+      - name: login
+        method: POST
+        description: Apache OpenMeetings Login
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: user-externaltype-externalid
+      path: /user/{externaltype}/{externalid}
+      operations:
+      - name: deleteexternal1
+        method: DELETE
+        description: Apache OpenMeetings DeleteExternal_1
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: externaltype
+          in: path
+          type: string
+          description: externalUserId
+          required: true
+        - name: externalid
+          in: path
+          type: string
+          description: externalType
+          required: true
+    - name: user-id
+      path: /user/{id}
+      operations:
+      - name: delete5
+        method: DELETE
+        description: Apache OpenMeetings Delete_5
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: id
+          in: path
+          type: integer
+          description: the openmeetings user id
+          required: true
+  exposes:
+  - type: rest
+    namespace: rest-userservice-rest
+    port: 8080
+    description: REST adapter for Apache OpenMeetings REST API — UserService. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/user
+      name: user
+      description: REST surface for user.
+      operations:
+      - method: GET
+        name: get3
+        description: Apache OpenMeetings Get_3
+        call: rest-userservice.get3
+        with:
+          sid: rest.sid
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: add3
+        description: Apache OpenMeetings Add_3
+        call: rest-userservice.add3
+        with:
+          sid: rest.sid
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/hash
+      name: user-hash
+      description: REST surface for user-hash.
+      operations:
+      - method: POST
+        name: getroomhash
+        description: Apache OpenMeetings GetRoomHash
+        call: rest-userservice.getroomhash
+        with:
+          sid: rest.sid
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/login
+      name: user-login
+      description: REST surface for user-login.
+      operations:
+      - method: POST
+        name: login
+        description: Apache OpenMeetings Login
+        call: rest-userservice.login
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/{externaltype}/{externalid}
+      name: user-externaltype-externalid
+      description: REST surface for user-externaltype-externalid.
+      operations:
+      - method: DELETE
+        name: deleteexternal1
+        description: Apache OpenMeetings DeleteExternal_1
+        call: rest-userservice.deleteexternal1
+        with:
+          sid: rest.sid
+          externaltype: rest.externaltype
+          externalid: rest.externalid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/{id}
+      name: user-id
+      description: REST surface for user-id.
+      operations:
+      - method: DELETE
+        name: delete5
+        description: Apache OpenMeetings Delete_5
+        call: rest-userservice.delete5
+        with:
+          sid: rest.sid
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-userservice-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache OpenMeetings REST API — UserService. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: apache-openmeetings-get-3
+      description: Apache OpenMeetings Get_3
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-userservice.get3
+      with:
+        sid: tools.sid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-openmeetings-add-3
+      description: Apache OpenMeetings Add_3
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-userservice.add3
+      with:
+        sid: tools.sid
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-openmeetings-getroomhash
+      description: Apache OpenMeetings GetRoomHash
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-userservice.getroomhash
+      with:
+        sid: tools.sid
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-openmeetings-login
+      description: Apache OpenMeetings Login
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-userservice.login
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-openmeetings-deleteexternal-1
+      description: Apache OpenMeetings DeleteExternal_1
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-userservice.deleteexternal1
+      with:
+        sid: tools.sid
+        externaltype: tools.externaltype
+        externalid: tools.externalid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-openmeetings-delete-5
+      description: Apache OpenMeetings Delete_5
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-userservice.delete5
+      with:
+        sid: tools.sid
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

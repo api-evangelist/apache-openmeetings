@@ -1,0 +1,133 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache OpenMeetings REST API — ErrorService
+  description: 'Apache OpenMeetings REST API — ErrorService. 2 operations. Lead operation: Apache OpenMeetings Report. Self-contained
+    Naftiko capability covering one Apache Openmeetings business surface.'
+  tags:
+  - Apache Openmeetings
+  - ErrorService
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_OPENMEETINGS_API_KEY: APACHE_OPENMEETINGS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-errorservice
+    baseUri: https://{host}:5443/openmeetings/services
+    description: Apache OpenMeetings REST API — ErrorService business capability. Self-contained, no shared references.
+    resources:
+    - name: error-report
+      path: /error/report
+      operations:
+      - name: report
+        method: POST
+        description: Apache OpenMeetings Report
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sid
+          in: query
+          type: string
+          description: The SID of the User. This SID must be marked as Loggedin
+          required: true
+        - name: message
+          in: query
+          type: string
+          description: The message to log
+          required: true
+    - name: error-key-lang
+      path: /error/{key}/{lang}
+      operations:
+      - name: get
+        method: GET
+        description: Apache OpenMeetings Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key
+          in: path
+          type: string
+          description: the error key for ex. `error.unknown`
+          required: true
+        - name: lang
+          in: path
+          type: integer
+          description: The id of the language
+          required: true
+  exposes:
+  - type: rest
+    namespace: rest-errorservice-rest
+    port: 8080
+    description: REST adapter for Apache OpenMeetings REST API — ErrorService. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/error/report
+      name: error-report
+      description: REST surface for error-report.
+      operations:
+      - method: POST
+        name: report
+        description: Apache OpenMeetings Report
+        call: rest-errorservice.report
+        with:
+          sid: rest.sid
+          message: rest.message
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/error/{key}/{lang}
+      name: error-key-lang
+      description: REST surface for error-key-lang.
+      operations:
+      - method: GET
+        name: get
+        description: Apache OpenMeetings Get
+        call: rest-errorservice.get
+        with:
+          key: rest.key
+          lang: rest.lang
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-errorservice-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache OpenMeetings REST API — ErrorService. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: apache-openmeetings-report
+      description: Apache OpenMeetings Report
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-errorservice.report
+      with:
+        sid: tools.sid
+        message: tools.message
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-openmeetings-get
+      description: Apache OpenMeetings Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-errorservice.get
+      with:
+        key: tools.key
+        lang: tools.lang
+      outputParameters:
+      - type: object
+        mapping: $.
