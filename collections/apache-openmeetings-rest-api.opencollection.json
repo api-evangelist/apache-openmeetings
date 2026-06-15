@@ -1,0 +1,1540 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache OpenMeetings REST API",
+    "version": "9.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CalendarService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/calendar/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the id to delete"
+              }
+            ]
+          },
+          "docs": "Delete a calendar event\n\n If the given sid is from an Administrator or Web-Service USER, the USER\n can delete any appointment.\n If the sid is assigned to a regular USER, he can only delete appointments\n where he is also the owner/creator of the appointment"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetByRoom",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/calendar/room/:roomid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "id of appointment special room"
+              }
+            ]
+          },
+          "docs": "Load a calendar event by its room id"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetByTitle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/calendar/title/:title",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "path",
+                "description": "the search string"
+              }
+            ]
+          },
+          "docs": "Search a calendar event for the current SID"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Next",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/calendar/next",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Get the next Calendar event for the current USER of the SID"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings NextForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/calendar/next/:userid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "userid",
+                "value": "",
+                "type": "path",
+                "description": "the userId the calendar events should be loaded"
+              }
+            ]
+          },
+          "docs": "Get the next Calendar event for userId"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Range",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/calendar/:start/:end",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "path",
+                "description": "start time"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "path",
+                "description": "end time"
+              }
+            ]
+          },
+          "docs": "Load appointments by a start / end range for the current SID"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings RangeForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/calendar/:userid/:start/:end",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "userid",
+                "value": "",
+                "type": "path",
+                "description": "the userId the calendar events should be loaded"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "path",
+                "description": "start time"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "path",
+                "description": "end time"
+              }
+            ]
+          },
+          "docs": "Load appointments by a start / end range for the userId"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Save",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/calendar",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Create an appointment"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ErrorService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/error/:key/:lang",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "the error key for ex. `error.unknown`"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "The id of the language"
+              }
+            ]
+          },
+          "docs": "Loads an Error-Object. If a Method returns a negative Result, its an\n Error-id, it needs a languageId to specify in which language you want to\n display/read the error-message. English has the Language-ID one, for\n different one see the list of languages"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/error/report",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "message",
+                "value": "",
+                "type": "query",
+                "description": "The message to log"
+              }
+            ]
+          },
+          "docs": "Logs an error to the log file for reporting"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "FileService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/file",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "to add a folder to the private drive, set parentId = 0 and isOwner to 1/true and\n externalUserId/externalUserType to a valid USER"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Delete_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/file/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the id of the file or folder"
+              }
+            ]
+          },
+          "docs": "deletes files or folders based on it id"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings DeleteExternal",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/file/:externaltype/:externalid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "externaltype",
+                "value": "",
+                "type": "path",
+                "description": "the externalType"
+              },
+              {
+                "name": "externalid",
+                "value": "",
+                "type": "path",
+                "description": "the id of the file or folder"
+              }
+            ]
+          },
+          "docs": "deletes a file by its external Id and type"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetAllExternal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/file/:externaltype",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "externaltype",
+                "value": "",
+                "type": "path",
+                "description": "External type for file listing"
+              }
+            ]
+          },
+          "docs": "Get all files by external type"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetRoom",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/file/room/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ROOM Id"
+              }
+            ]
+          },
+          "docs": "Get a File Explorer Object by a given ROOM"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetRoomByParent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/file/room/:id/:parent",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the parent folder id"
+              },
+              {
+                "name": "parent",
+                "value": "",
+                "type": "path",
+                "description": "the room id"
+              }
+            ]
+          },
+          "docs": "Get list of FileItemDTO by parent"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Move",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/file/move/:roomid/:id/:parentid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "current file or folder id to be moved"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "room this file need to be moved"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path",
+                "description": "new parent folder id"
+              }
+            ]
+          },
+          "docs": "move a file or folder"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Rename",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/file/rename/:id/:name",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "file or folder id"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "new file or folder name"
+              }
+            ]
+          },
+          "docs": "update a file or folder name"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "GroupService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Get_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/group",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Get the list of all groups"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Add_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/group",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "The name of the group"
+              }
+            ]
+          },
+          "docs": "add a new group"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings AddRoom",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/group/:id/rooms/add/:roomid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of group that the room is being paired with"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "Id of room to be added"
+              }
+            ]
+          },
+          "docs": "Adds a room to an group"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings AddUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/group/:id/users/:userid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the USER id"
+              },
+              {
+                "name": "userid",
+                "value": "",
+                "type": "path",
+                "description": "the group id"
+              }
+            ]
+          },
+          "docs": "Add USER to a certain group"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings RemoveUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/group/:id/users/:userid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the USER id"
+              },
+              {
+                "name": "userid",
+                "value": "",
+                "type": "path",
+                "description": "the group id"
+              }
+            ]
+          },
+          "docs": "Remove USER from a certain group"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Delete_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/group/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the id of the group"
+              }
+            ]
+          },
+          "docs": "Deletes a group"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/group/users/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the group id"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "first record"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "max records"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "orderby clause"
+              },
+              {
+                "name": "asc",
+                "value": "",
+                "type": "query",
+                "description": "asc or desc"
+              }
+            ]
+          },
+          "docs": "Search users and return them"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "InfoService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetHealth",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/info/health"
+          },
+          "docs": "Method to get health report for this OpenMeetings instance"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetManifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/info/manifest.webmanifest"
+          },
+          "docs": "Apache OpenMeetings GetManifest"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetVersion",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/info/version"
+          },
+          "docs": "Method to get current OpenMeetings version"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NetTestService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Get_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/networktest",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "one of ping, jitter, download, upload"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "requests size of sample"
+              }
+            ]
+          },
+          "docs": "Generate a sample for network test"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/networktest",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "size"
+              }
+            ]
+          },
+          "docs": "Upload media to test upload speed"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "RecordingService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Delete_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/record/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the id of the recording"
+              }
+            ]
+          },
+          "docs": "Deletes a recording"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetExternal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/record/:externaltype/:externalid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "externaltype",
+                "value": "",
+                "type": "path",
+                "description": "the externalUserId"
+              },
+              {
+                "name": "externalid",
+                "value": "",
+                "type": "path",
+                "description": "the externalUserType"
+              }
+            ]
+          },
+          "docs": "Gets a list of recordings created by particular external USER"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetExternalByRoom",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/record/room/:roomid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "the room id"
+              }
+            ]
+          },
+          "docs": "Gets a list of recordings"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetExternalByType",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/record/:externaltype",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "externaltype",
+                "value": "",
+                "type": "path",
+                "description": "externalType specified when creating the room"
+              }
+            ]
+          },
+          "docs": "Gets a list of recordings"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "RoomService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Add_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/room",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Adds a new ROOM like through the Frontend"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Close",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/room/close/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the room id"
+              }
+            ]
+          },
+          "docs": "Method to remotely close rooms. If a room is closed all users\n inside the room and all users that try to enter it will be redirected to\n  the redirectURL that is defined in the ROOM-Object."
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/room/count/:roomid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "roomId id of the room to get users"
+              }
+            ]
+          },
+          "docs": "Returns the count of users currently in the ROOM with given id"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetRoomById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/room/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the room id"
+              }
+            ]
+          },
+          "docs": "Returns a conference room object"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Delete_4",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/room/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The id of the room"
+              }
+            ]
+          },
+          "docs": "Delete a room by its room id"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetExternal_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/room/:type/:externaltype/:externalid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "type of the room"
+              },
+              {
+                "name": "externaltype",
+                "value": "",
+                "type": "path",
+                "description": "you can specify your system-name or type of room here, for example \"moodle\""
+              },
+              {
+                "name": "externalid",
+                "value": "",
+                "type": "path",
+                "description": "your external room id may set here"
+              },
+              {
+                "name": "room",
+                "value": "",
+                "type": "query",
+                "description": "details of the room to be created if not found"
+              }
+            ]
+          },
+          "docs": "Checks if a room with this exteralId + externalType does exist,\n if yes it returns the room id if not, it will create the room and then\n return the room id of the newly created room"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetPublic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/room/public/:type",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "Type of public rooms need to be retrieved"
+              }
+            ]
+          },
+          "docs": "Returns an Object of Type RoomsList which contains a list of\n ROOM-Objects. Every ROOM-Object contains a Roomtype and all informations\n  about that ROOM. The List of current-users in the room is Null if you get\n   them via SOAP. The Roomtype can be 'conference', 'presentation' or 'interview'."
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Hash",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/room/hash",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "invite",
+                "value": "",
+                "type": "query",
+                "description": "parameters of the invitation"
+              },
+              {
+                "name": "sendmail",
+                "value": "",
+                "type": "query",
+                "description": "flag to determine if email should be sent or not"
+              }
+            ]
+          },
+          "docs": "Method to get invitation hash with given parameters"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Kick",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/room/kick/:id/:externalType/:externalId",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the room id"
+              },
+              {
+                "name": "externalType",
+                "value": "",
+                "type": "path",
+                "description": "external type of USER to kick"
+              },
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path",
+                "description": "external id of USER to kick"
+              }
+            ]
+          },
+          "docs": "kick external USER from given room"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings KickAll",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/room/kick/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the room id"
+              }
+            ]
+          },
+          "docs": "Kick all uses of a certain room"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Open",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/room/open/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the room id"
+              }
+            ]
+          },
+          "docs": "Method to remotely open rooms. If a room is closed all users\n inside the room and all users that try to enter it will be redirected to\n  the redirectURL that is defined in the ROOM-Object."
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/room/users/:roomid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "roomId id of the room to get users"
+              }
+            ]
+          },
+          "docs": "Returns list of users currently in the ROOM with given id"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "UserService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Get_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/user",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Lists all users in the system!"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Add_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/user",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Adds a new User like through the Frontend, but also does activates the\n Account To do SSO see the methods to create a hash and use those ones!"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Delete_5",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/user/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the openmeetings user id"
+              }
+            ]
+          },
+          "docs": "Delete a certain user by its id"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings DeleteExternal_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/user/:externaltype/:externalid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "externaltype",
+                "value": "",
+                "type": "path",
+                "description": "externalUserId"
+              },
+              {
+                "name": "externalid",
+                "value": "",
+                "type": "path",
+                "description": "externalType"
+              }
+            ]
+          },
+          "docs": "Delete a certain user by its external user id"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetRoomHash",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/user/hash",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Sets the SessionObject for a certain SID, after setting this\n Session-Object you can use the SID + a RoomId to enter any Room. ...\n  Session-Hashs are deleted 15 minutes after the creation if not used."
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Login",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/user/login"
+          },
+          "docs": "Login and create sessionId required for sub-sequent calls"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "WbService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings CleanSlide",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/wb/cleanslide/:roomid/:wbid/:slide",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "id of the room to clean"
+              },
+              {
+                "name": "wbid",
+                "value": "",
+                "type": "path",
+                "description": "id of the white board to clean"
+              },
+              {
+                "name": "slide",
+                "value": "",
+                "type": "path",
+                "description": "slide number (zero based)"
+              }
+            ]
+          },
+          "docs": "This method will do the same as clean slide in the room (except for there will be no UNDO)"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings CleanWb",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/wb/cleanwb/:roomid/:wbid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "id of the room to clean"
+              },
+              {
+                "name": "wbid",
+                "value": "",
+                "type": "path",
+                "description": "id of the white board to clean"
+              }
+            ]
+          },
+          "docs": "This method will do the same as clean WB in the room (except for there will be no UNDO)"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings ResetWb",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/wb/resetwb/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of the room to clean"
+              }
+            ]
+          },
+          "docs": "This method will remove all whiteboards from given room\n and create empty one(s) for room files specified"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings UploadWb",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/wb/uploadwb/:type",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "the type of document being saved PNG/PDF"
+              }
+            ]
+          },
+          "docs": "This method will receive WB as binary data (png) and store it to temporary PDF/PNG file"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
