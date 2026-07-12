@@ -41,6 +41,10 @@ maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
 common:
+  - type: VulnerabilityDisclosure
+    url: security/apache-openmeetings-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/apache-openmeetings-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/apache/openmeetings
   - type: Documentation
