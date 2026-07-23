@@ -1,0 +1,200 @@
+openapi: 3.0.1
+info:
+  title: Apache OpenMeetings REST CalendarService WbService API
+  description: The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.
+  version: 9.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    url: https://openmeetings.apache.org/
+servers:
+- url: https://{host}:5443/openmeetings/services
+  description: Apache OpenMeetings REST API server
+  variables:
+    host:
+      default: localhost
+tags:
+- name: WbService
+paths:
+  /wb/cleanslide/{roomid}/{wbid}/{slide}:
+    get:
+      tags:
+      - WbService
+      description: This method will do the same as clean slide in the room (except for there will be no UNDO)
+      operationId: cleanSlide
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: roomid
+        in: path
+        description: id of the room to clean
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: wbid
+        in: path
+        description: id of the white board to clean
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: slide
+        in: path
+        description: slide number (zero based)
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: serviceResult object with the result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings CleanSlide
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /wb/cleanwb/{roomid}/{wbid}:
+    get:
+      tags:
+      - WbService
+      description: This method will do the same as clean WB in the room (except for there will be no UNDO)
+      operationId: cleanWb
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: roomid
+        in: path
+        description: id of the room to clean
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: wbid
+        in: path
+        description: id of the white board to clean
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: serviceResult object with the result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings CleanWb
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /wb/resetwb/{id}:
+    get:
+      tags:
+      - WbService
+      description: "This method will remove all whiteboards from given room\n and create empty one(s) for room files specified"
+      operationId: resetWb
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id of the room to clean
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: serviceResult object with the result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings ResetWb
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /wb/uploadwb/{type}:
+    post:
+      tags:
+      - WbService
+      description: This method will receive WB as binary data (png) and store it to temporary PDF/PNG file
+      operationId: uploadWb
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: path
+        description: the type of document being saved PNG/PDF
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              required:
+              - data
+              type: object
+              properties:
+                data:
+                  type: string
+                  description: binary data
+      responses:
+        '200':
+          description: serviceResult object with the result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings UploadWb
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ServiceResult:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
+    ServiceResultWrapper:
+      type: object
+      properties:
+        serviceResult:
+          $ref: '#/components/schemas/ServiceResult'
+      example:
+        serviceResult:
+          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
+          type: SUCCESS

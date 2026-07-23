@@ -1,0 +1,81 @@
+openapi: 3.0.1
+info:
+  title: Apache OpenMeetings REST CalendarService NetTestService API
+  description: The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.
+  version: 9.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    url: https://openmeetings.apache.org/
+servers:
+- url: https://{host}:5443/openmeetings/services
+  description: Apache OpenMeetings REST API server
+  variables:
+    host:
+      default: localhost
+tags:
+- name: NetTestService
+paths:
+  /networktest:
+    get:
+      tags:
+      - NetTestService
+      description: Generate a sample for network test
+      operationId: get_2
+      parameters:
+      - name: type
+        in: query
+        description: one of ping, jitter, download, upload
+        required: true
+        schema:
+          type: string
+      - name: size
+        in: query
+        description: requests size of sample
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Content as requested
+          content:
+            application/octet-stream: {}
+        '400':
+          description: Unkown type or exceeding Max Upload size
+        '500':
+          description: Server error
+      summary: Apache OpenMeetings Get_2
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      tags:
+      - NetTestService
+      description: Upload media to test upload speed
+      operationId: upload
+      parameters:
+      - name: size
+        in: query
+        description: size
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        description: stream to upload
+        content:
+          application/octet-stream:
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Number of bytes uploaded
+        '500':
+          description: Server error
+      summary: Apache OpenMeetings Upload
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK

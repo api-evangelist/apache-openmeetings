@@ -1,0 +1,830 @@
+openapi: 3.0.1
+info:
+  title: Apache OpenMeetings REST CalendarService RoomService API
+  description: The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.
+  version: 9.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    url: https://openmeetings.apache.org/
+servers:
+- url: https://{host}:5443/openmeetings/services
+  description: Apache OpenMeetings REST API server
+  variables:
+    host:
+      default: localhost
+tags:
+- name: RoomService
+paths:
+  /room:
+    post:
+      tags:
+      - RoomService
+      description: Adds a new ROOM like through the Frontend
+      operationId: add_2
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              required:
+              - room
+              type: object
+              properties:
+                room:
+                  $ref: '#/components/schemas/RoomDTO'
+      responses:
+        '200':
+          description: Room object or throw error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomDTOWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Add_2
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /room/close/{id}:
+    get:
+      tags:
+      - RoomService
+      description: "Method to remotely close rooms. If a room is closed all users\n inside the room and all users that try to enter it will be redirected to\n  the redirectURL that is defined in the ROOM-Object."
+      operationId: close
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: the room id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: 1 in case of success, -2 otherwise
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Close
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /room/count/{roomid}:
+    get:
+      tags:
+      - RoomService
+      description: Returns the count of users currently in the ROOM with given id
+      operationId: count
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: roomid
+        in: path
+        description: roomId id of the room to get users
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: number of users as int
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Count
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /room/{id}:
+    get:
+      tags:
+      - RoomService
+      description: Returns a conference room object
+      operationId: getRoomById
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: the room id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: room with the id given
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomDTOWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings GetRoomById
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - RoomService
+      description: Delete a room by its room id
+      operationId: delete_4
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: The id of the room
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: id of the room deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Delete_4
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /room/{type}/{externaltype}/{externalid}:
+    get:
+      tags:
+      - RoomService
+      description: "Checks if a room with this exteralId + externalType does exist,\n if yes it returns the room id if not, it will create the room and then\n return the room id of the newly created room"
+      operationId: getExternal_1
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: path
+        description: type of the room
+        required: true
+        schema:
+          type: string
+      - name: externaltype
+        in: path
+        description: you can specify your system-name or type of room here, for example "moodle"
+        required: true
+        schema:
+          type: string
+      - name: externalid
+        in: path
+        description: your external room id may set here
+        required: true
+        schema:
+          type: string
+      - name: room
+        in: query
+        description: details of the room to be created if not found
+        required: true
+        schema:
+          $ref: '#/components/schemas/RoomDTO'
+      responses:
+        '200':
+          description: id of the room or error code
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomDTOWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings GetExternal_1
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /room/public/{type}:
+    get:
+      tags:
+      - RoomService
+      description: "Returns an Object of Type RoomsList which contains a list of\n ROOM-Objects. Every ROOM-Object contains a Roomtype and all informations\n  about that ROOM. The List of current-users in the room is Null if you get\n   them via SOAP. The Roomtype can be 'conference', 'presentation' or 'interview'."
+      operationId: getPublic
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: path
+        description: Type of public rooms need to be retrieved
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: list of public rooms
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomDTOListWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings GetPublic
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /room/hash:
+    post:
+      tags:
+      - RoomService
+      description: Method to get invitation hash with given parameters
+      operationId: hash
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: invite
+        in: query
+        description: parameters of the invitation
+        required: true
+        schema:
+          $ref: '#/components/schemas/InvitationDTO'
+      - name: sendmail
+        in: query
+        description: flag to determine if email should be sent or not
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: serviceResult object with the result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Hash
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /room/kick/{id}/{externalType}/{externalId}:
+    get:
+      tags:
+      - RoomService
+      description: kick external USER from given room
+      operationId: kick
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: the room id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: externalType
+        in: path
+        description: external type of USER to kick
+        required: true
+        schema:
+          type: string
+      - name: externalId
+        in: path
+        description: external id of USER to kick
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '''Kicked'' if USER was ''Not kicked'' otherwise'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Kick
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /room/kick/{id}:
+    get:
+      tags:
+      - RoomService
+      description: Kick all uses of a certain room
+      operationId: kickAll
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: the room id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: true if USER was kicked, false otherwise
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings KickAll
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /room/open/{id}:
+    get:
+      tags:
+      - RoomService
+      description: "Method to remotely open rooms. If a room is closed all users\n inside the room and all users that try to enter it will be redirected to\n  the redirectURL that is defined in the ROOM-Object."
+      operationId: open
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: the room id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: 1 in case of success, -2 otherwise
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Open
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /room/users/{roomid}:
+    get:
+      tags:
+      - RoomService
+      description: Returns list of users currently in the ROOM with given id
+      operationId: users
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: roomid
+        in: path
+        description: roomId id of the room to get users
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: List of users in the room
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDTOListWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Users
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    RoomDTOWrapper:
+      type: object
+      properties:
+        roomDTO:
+          $ref: '#/components/schemas/RoomDTO'
+      example:
+        roomDTO:
+          id: 2
+          name: Public Conference Room [install.room.public.conference]
+          comment: ''
+          type: CONFERENCE
+          capacity: 32
+          appointment: false
+          isPublic: true
+          demo: false
+          closed: false
+          moderated: false
+          waitModerator: false
+          allowUserQuestions: true
+          allowRecording: true
+          waitRecording: false
+          audioOnly: false
+          hiddenElements: MICROPHONE_STATUS
+    ServiceResultWrapper:
+      type: object
+      properties:
+        serviceResult:
+          $ref: '#/components/schemas/ServiceResult'
+      example:
+        serviceResult:
+          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
+          type: SUCCESS
+    Address:
+      type: object
+      properties:
+        inserted:
+          type: string
+          format: date-time
+          xml:
+            name: created
+        updated:
+          type: string
+          format: date-time
+        deleted:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        additionalname:
+          type: string
+        comment:
+          type: string
+        fax:
+          type: string
+        country:
+          type: string
+        street:
+          type: string
+        town:
+          type: string
+        zip:
+          type: string
+        email:
+          type: string
+          xml:
+            name: mail
+        phone:
+          type: string
+      xml:
+        name: address
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        login:
+          type: string
+        password:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        rights:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - ADMIN
+            - GROUP_ADMIN
+            - ADMIN_CONFIG
+            - ADMIN_CONNECTIONS
+            - ADMIN_BACKUP
+            - ADMIN_LABEL
+            - ROOM
+            - DASHBOARD
+            - LOGIN
+            - SOAP
+        languageId:
+          type: integer
+          format: int64
+        address:
+          $ref: '#/components/schemas/Address'
+        timeZoneId:
+          type: string
+        externalId:
+          type: string
+        externalType:
+          type: string
+        pictureUri:
+          type: string
+        type:
+          type: string
+          enum:
+          - USER
+          - LDAP
+          - OAUTH
+          - EXTERNAL
+          - CONTACT
+    RoomDTOListWrapper:
+      type: object
+      properties:
+        roomDTO:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoomDTO'
+      example:
+        roomDTO:
+        - id: 2
+          name: Public Conference Room [install.room.public.conference]
+          comment: ''
+          type: CONFERENCE
+          capacity: 32
+          appointment: false
+          isPublic: true
+          demo: false
+          closed: false
+          moderated: false
+          waitModerator: false
+          allowUserQuestions: true
+          allowRecording: true
+          waitRecording: false
+          audioOnly: false
+          hiddenElements: MICROPHONE_STATUS
+        - id: 3
+          name: Public Video Only Room [install.room.public.video.only]
+          comment: ''
+          type: CONFERENCE
+          capacity: 32
+          appointment: false
+          isPublic: true
+          demo: false
+          closed: false
+          moderated: false
+          waitModerator: false
+          allowUserQuestions: true
+          allowRecording: true
+          waitRecording: false
+          audioOnly: false
+          hiddenElements:
+          - WHITEBOARD
+          - MICROPHONE_STATUS
+        - id: 4
+          name: Public Video And Whiteboard Room [install.room.public.video.wb]
+          comment: ''
+          type: CONFERENCE
+          capacity: 32
+          appointment: false
+          isPublic: true
+          demo: false
+          closed: false
+          moderated: false
+          waitModerator: false
+          allowUserQuestions: true
+          allowRecording: true
+          waitRecording: false
+          audioOnly: false
+          hiddenElements: MICROPHONE_STATUS
+        - id: 7
+          name: Conference room with microphone option set [install.room.conference.micro]
+          comment: ''
+          type: CONFERENCE
+          capacity: 32
+          appointment: false
+          isPublic: true
+          demo: false
+          closed: false
+          moderated: false
+          waitModerator: false
+          allowUserQuestions: true
+          allowRecording: true
+          waitRecording: false
+          audioOnly: false
+    ServiceResult:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
+    RoomDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        tag:
+          type: string
+        comment:
+          type: string
+        type:
+          type: string
+          enum:
+          - CONFERENCE
+          - PRESENTATION
+          - INTERVIEW
+        capacity:
+          type: integer
+          format: int64
+        appointment:
+          type: boolean
+        confno:
+          type: string
+        demo:
+          type: boolean
+        closed:
+          type: boolean
+        demoTime:
+          type: integer
+          format: int32
+        externalId:
+          type: string
+        externalType:
+          type: string
+        redirectUrl:
+          type: string
+        moderated:
+          type: boolean
+        waitModerator:
+          type: boolean
+        allowUserQuestions:
+          type: boolean
+        allowRecording:
+          type: boolean
+        waitRecording:
+          type: boolean
+        audioOnly:
+          type: boolean
+        hiddenElements:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - TOP_BAR
+            - CHAT
+            - ACTIVITIES
+            - FILES
+            - ACTION_MENU
+            - POLL_MENU
+            - SCREEN_SHARING
+            - WHITEBOARD
+            - MICROPHONE_STATUS
+            - USER_COUNT
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoomFileDTO'
+        public:
+          type: boolean
+    RoomFileDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        fileId:
+          type: integer
+          format: int64
+        wbIdx:
+          type: integer
+          format: int64
+    UserDTOListWrapper:
+      type: object
+      properties:
+        userDTO:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserDTO'
+      example:
+        userDTO:
+        - address:
+            created: 1630191589000
+            deleted: false
+            country: NZ
+            mail: seba.wagner@gmail.com
+          firstname: firstname
+          id: 1
+          languageId: 1
+          lastname: lastname
+          login: admin
+          rights:
+          - ROOM
+          - SOAP
+          - DASHBOARD
+          - ADMIN
+          - LOGIN
+          timeZoneId: Europe/Berlin
+          type: USER
+        - address:
+            created: 1631324533000
+            deleted: false
+            country: NZ
+            mail: john.doe@gmail.com
+          externalId: uniqueId1
+          externalType: myCMS
+          firstname: John
+          id: 2
+          languageId: 1
+          lastname: Doe
+          login: john.doe
+          pictureUri: ''
+          rights: ROOM
+          timeZoneId: Europe/Berlin
+          type: EXTERNAL
+        - address:
+            created: 1631958373000
+            deleted: false
+            country: NZ
+            mail: test@test.com
+          id: 3
+          languageId: 1
+          login: soapuser
+          rights:
+          - ROOM
+          - SOAP
+          - DASHBOARD
+          - ADMIN
+          - LOGIN
+          timeZoneId: Europe/Berlin
+          type: USER
+    InvitationDTO:
+      type: object
+      properties:
+        email:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        message:
+          type: string
+        subject:
+          type: string
+        roomId:
+          type: integer
+          format: int64
+        passwordProtected:
+          type: boolean
+        password:
+          type: string
+        valid:
+          type: string
+          enum:
+          - ONE_TIME
+          - PERIOD
+          - ENDLESS
+        validFrom:
+          type: string
+        validTo:
+          type: string
+        languageId:
+          type: integer
+          format: int64

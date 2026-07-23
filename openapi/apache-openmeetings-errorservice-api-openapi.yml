@@ -1,0 +1,98 @@
+openapi: 3.0.1
+info:
+  title: Apache OpenMeetings REST CalendarService ErrorService API
+  description: The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.
+  version: 9.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    url: https://openmeetings.apache.org/
+servers:
+- url: https://{host}:5443/openmeetings/services
+  description: Apache OpenMeetings REST API server
+  variables:
+    host:
+      default: localhost
+tags:
+- name: ErrorService
+paths:
+  /error/{key}/{lang}:
+    get:
+      tags:
+      - ErrorService
+      description: "Loads an Error-Object. If a Method returns a negative Result, its an\n Error-id, it needs a languageId to specify in which language you want to\n display/read the error-message. English has the Language-ID one, for\n different one see the list of languages"
+      operationId: get
+      parameters:
+      - name: key
+        in: path
+        description: the error key for ex. `error.unknown`
+        required: true
+        schema:
+          type: string
+      - name: lang
+        in: path
+        description: The id of the language
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: error with the code given
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Server error
+      summary: Apache OpenMeetings Get
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /error/report:
+    post:
+      tags:
+      - ErrorService
+      description: Logs an error to the log file for reporting
+      operationId: report
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: message
+        in: query
+        description: The message to log
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Report
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ServiceResult:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
+    ServiceResultWrapper:
+      type: object
+      properties:
+        serviceResult:
+          $ref: '#/components/schemas/ServiceResult'
+      example:
+        serviceResult:
+          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
+          type: SUCCESS

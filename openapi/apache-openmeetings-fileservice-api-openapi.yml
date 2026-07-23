@@ -1,0 +1,458 @@
+openapi: 3.0.1
+info:
+  title: Apache OpenMeetings REST CalendarService FileService API
+  description: The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.
+  version: 9.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    url: https://openmeetings.apache.org/
+servers:
+- url: https://{host}:5443/openmeetings/services
+  description: Apache OpenMeetings REST API server
+  variables:
+    host:
+      default: localhost
+tags:
+- name: FileService
+paths:
+  /file:
+    post:
+      tags:
+      - FileService
+      description: "to add a folder to the private drive, set parentId = 0 and isOwner to 1/true and\n externalUserId/externalUserType to a valid USER"
+      operationId: add
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: the The file attributes to be added
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileItemDTO'
+        required: true
+      responses:
+        '200':
+          description: Object created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileItemDTOWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Add
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /file/{id}:
+    delete:
+      tags:
+      - FileService
+      description: deletes files or folders based on it id
+      operationId: delete_1
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: the id of the file or folder
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: ServiceResult with result type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Delete_1
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /file/{externaltype}/{externalid}:
+    delete:
+      tags:
+      - FileService
+      description: deletes a file by its external Id and type
+      operationId: deleteExternal
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: externaltype
+        in: path
+        description: the externalType
+        required: true
+        schema:
+          type: string
+      - name: externalid
+        in: path
+        description: the id of the file or folder
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ServiceResult with result type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResultWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings DeleteExternal
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /file/{externaltype}:
+    get:
+      tags:
+      - FileService
+      description: Get all files by external type
+      operationId: getAllExternal
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: externaltype
+        in: path
+        description: External type for file listing
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: the list of files for given external type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileItemDTOListWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings GetAllExternal
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /file/room/{id}:
+    get:
+      tags:
+      - FileService
+      description: Get a File Explorer Object by a given ROOM
+      operationId: getRoom
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: ROOM Id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: File Explorer Object by a given ROOM
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileExplorerObjectWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings GetRoom
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /file/room/{id}/{parent}:
+    get:
+      tags:
+      - FileService
+      description: Get list of FileItemDTO by parent
+      operationId: getRoomByParent
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: the parent folder id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: parent
+        in: path
+        description: the room id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: list of file explorer items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileItemDTOListWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings GetRoomByParent
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /file/move/{roomid}/{id}/{parentid}:
+    post:
+      tags:
+      - FileService
+      description: move a file or folder
+      operationId: move
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: current file or folder id to be moved
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: roomid
+        in: path
+        description: room this file need to be moved
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: parentid
+        in: path
+        description: new parent folder id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: resulting file object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileItemDTOWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Move
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /file/rename/{id}/{name}:
+    post:
+      tags:
+      - FileService
+      description: update a file or folder name
+      operationId: rename
+      parameters:
+      - name: sid
+        in: query
+        description: The SID of the User. This SID must be marked as Loggedin
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: file or folder id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: name
+        in: path
+        description: new file or folder name
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: resulting file object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileItemDTOWrapper'
+        '500':
+          description: Error in case of invalid credentials or server error
+      summary: Apache OpenMeetings Rename
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ServiceResultWrapper:
+      type: object
+      properties:
+        serviceResult:
+          $ref: '#/components/schemas/ServiceResult'
+      example:
+        serviceResult:
+          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
+          type: SUCCESS
+    FileItemDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        hash:
+          type: string
+        parentId:
+          type: integer
+          format: int64
+        roomId:
+          type: integer
+          format: int64
+        groupId:
+          type: integer
+          format: int64
+        ownerId:
+          type: integer
+          format: int64
+        size:
+          type: integer
+          format: int64
+        externalId:
+          type: string
+        externalType:
+          type: string
+        type:
+          type: string
+          enum:
+          - FOLDER
+          - IMAGE
+          - POLL_CHART
+          - PRESENTATION
+          - RECORDING
+          - VIDEO
+          - WML_FILE
+        width:
+          type: integer
+          format: int32
+        height:
+          type: integer
+          format: int32
+    ServiceResult:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
+    FileExplorerObject:
+      type: object
+      properties:
+        userHome:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileItemDTO'
+        roomHome:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileItemDTO'
+        userHomeSize:
+          type: integer
+          format: int64
+        roomHomeSize:
+          type: integer
+          format: int64
+    FileItemDTOListWrapper:
+      type: object
+      properties:
+        fileItemDTO:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileItemDTO'
+      example:
+        fileItemDTO:
+        - id: 2
+          name: OpenMeetings-NodeJS-Use-Case_preview.jpg
+          hash: f802b727-5bfc-4273-8c90-939ea15bf388
+          ownerId: 1
+          size: 391449
+          type: IMAGE
+          width: 2193
+          height: 1823
+    FileExplorerObjectWrapper:
+      type: object
+      properties:
+        fileExplorerObject:
+          $ref: '#/components/schemas/FileExplorerObject'
+      example:
+        fileExplorerObject:
+          userHome:
+            id: 2
+            name: OpenMeetings-NodeJS-Use-Case_preview.jpg
+            hash: f802b727-5bfc-4273-8c90-939ea15bf388
+            ownerId: 1
+            size: 391449
+            type: IMAGE
+            width: 2193
+            height: 1823
+          roomHome:
+          - id: 4
+            name: Folder1
+            hash: fad982f0-2468-4b10-9b6c-be3648f55143
+            roomId: 7
+            type: FOLDER
+          - id: 3
+            name: browsers-768x768.png
+            hash: 91902c95-9944-435e-a54d-a2b64158758b
+            roomId: 7
+            size: 325415
+            type: IMAGE
+            width: 768
+            height: 768
+          userHomeSize: 1444970
+          roomHomeSize: 334311
+    FileItemDTOWrapper:
+      type: object
+      properties:
+        fileItemDTO:
+          $ref: '#/components/schemas/FileItemDTO'
+      example:
+        fileItemDTO:
+          id: 2
+          name: OpenMeetings-NodeJS-Use-Case_preview.jpg
+          hash: f802b727-5bfc-4273-8c90-939ea15bf388
+          ownerId: 1
+          size: 391449
+          type: IMAGE
+          width: 2193
+          height: 1823

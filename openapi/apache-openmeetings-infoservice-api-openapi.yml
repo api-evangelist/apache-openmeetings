@@ -1,0 +1,114 @@
+openapi: 3.0.1
+info:
+  title: Apache OpenMeetings REST CalendarService InfoService API
+  description: The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.
+  version: 9.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    url: https://openmeetings.apache.org/
+servers:
+- url: https://{host}:5443/openmeetings/services
+  description: Apache OpenMeetings REST API server
+  variables:
+    host:
+      default: localhost
+tags:
+- name: InfoService
+paths:
+  /info/health:
+    get:
+      tags:
+      - InfoService
+      description: Method to get health report for this OpenMeetings instance
+      operationId: getHealth
+      responses:
+        '200':
+          description: health report
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthWrapper'
+        '500':
+          description: Error in case of server error
+      summary: Apache OpenMeetings GetHealth
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /info/manifest.webmanifest:
+    get:
+      tags:
+      - InfoService
+      operationId: getManifest
+      responses:
+        default:
+          description: default response
+          content:
+            application/manifest+json:
+              schema:
+                type: string
+      summary: Apache OpenMeetings GetManifest
+      description: Apache OpenMeetings GetManifest
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /info/version:
+    get:
+      tags:
+      - InfoService
+      description: Method to get current OpenMeetings version
+      operationId: getVersion
+      responses:
+        '200':
+          description: Current version
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoWrapper'
+        '500':
+          description: Error in case of server error
+      summary: Apache OpenMeetings GetVersion
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Info:
+      type: object
+      properties:
+        version:
+          type: string
+        revision:
+          type: string
+        buildDate:
+          type: string
+    InfoWrapper:
+      type: object
+      properties:
+        info:
+          $ref: '#/components/schemas/Info'
+      example:
+        info:
+          version: 7.0.0-SNAPSHOT
+          revision: 525bd84
+          buildDate: '2021-09-03T22:07:29Z'
+    Health:
+      type: object
+      properties:
+        inited:
+          type: boolean
+        installed:
+          type: boolean
+        dbOk:
+          type: boolean
+    HealthWrapper:
+      type: object
+      properties:
+        health:
+          $ref: '#/components/schemas/Health'
+      example:
+        health:
+          inited: true
+          installed: true
+          dbOk: true
