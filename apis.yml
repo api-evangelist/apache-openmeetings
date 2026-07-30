@@ -4,9 +4,21 @@ description: >-
   Apache OpenMeetings is a web conferencing and collaboration tool that provides video conferencing, instant messaging,
   white board, collaborative document editing, and other groupware tools. It offers integration APIs for LMS platforms.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-openmeetings.png
 tags:
   - Collaboration
   - Video Conferencing
@@ -20,23 +32,116 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: apache-openmeetings:apache-openmeetings-rest-api
-    name: Apache OpenMeetings REST API
-    description: >-
-      The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, and file uploads,
-      with SOAP API support for legacy integrations and plugin APIs for LMS integration (Moodle, Sakai).
-    humanURL: https://openmeetings.apache.org/RestAPISample.html
-    tags:
-      - Conferencing
-      - REST
-      - SOAP
-      - Apache
-      - Open Source
-    properties:
-      - type: Documentation
-        url: https://openmeetings.apache.org/RestAPISample.html
-      - type: OpenAPI
-        url: openapi/apache-openmeetings-rest-api.json
+- aid: apache-openmeetings:apache-openmeetings-calendarservice-api
+  name: Apache OpenMeetings CalendarService API
+  description: The CalendarService API from Apache OpenMeetings — 8 operation(s) for calendarservice.
+  humanURL: https://openmeetings.apache.org/RestAPISample.html
+  tags:
+  - CalendarService
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-openmeetings-calendarservice-api-openapi.yml
+  - type: Documentation
+    url: https://openmeetings.apache.org/RestAPISample.html
+- aid: apache-openmeetings:apache-openmeetings-errorservice-api
+  name: Apache OpenMeetings ErrorService API
+  description: The ErrorService API from Apache OpenMeetings — 2 operation(s) for errorservice.
+  humanURL: https://openmeetings.apache.org/RestAPISample.html
+  tags:
+  - ErrorService
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-openmeetings-errorservice-api-openapi.yml
+  - type: Documentation
+    url: https://openmeetings.apache.org/RestAPISample.html
+- aid: apache-openmeetings:apache-openmeetings-fileservice-api
+  name: Apache OpenMeetings FileService API
+  description: The FileService API from Apache OpenMeetings — 8 operation(s) for fileservice.
+  humanURL: https://openmeetings.apache.org/RestAPISample.html
+  tags:
+  - FileService
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-openmeetings-fileservice-api-openapi.yml
+  - type: Documentation
+    url: https://openmeetings.apache.org/RestAPISample.html
+- aid: apache-openmeetings:apache-openmeetings-groupservice-api
+  name: Apache OpenMeetings GroupService API
+  description: The GroupService API from Apache OpenMeetings — 5 operation(s) for groupservice.
+  humanURL: https://openmeetings.apache.org/RestAPISample.html
+  tags:
+  - GroupService
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-openmeetings-groupservice-api-openapi.yml
+  - type: Documentation
+    url: https://openmeetings.apache.org/RestAPISample.html
+- aid: apache-openmeetings:apache-openmeetings-infoservice-api
+  name: Apache OpenMeetings InfoService API
+  description: The InfoService API from Apache OpenMeetings — 3 operation(s) for infoservice.
+  humanURL: https://openmeetings.apache.org/RestAPISample.html
+  tags:
+  - InfoService
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-openmeetings-infoservice-api-openapi.yml
+  - type: Documentation
+    url: https://openmeetings.apache.org/RestAPISample.html
+- aid: apache-openmeetings:apache-openmeetings-nettestservice-api
+  name: Apache OpenMeetings NetTestService API
+  description: The NetTestService API from Apache OpenMeetings — 1 operation(s) for nettestservice.
+  humanURL: https://openmeetings.apache.org/RestAPISample.html
+  tags:
+  - NetTestService
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-openmeetings-nettestservice-api-openapi.yml
+  - type: Documentation
+    url: https://openmeetings.apache.org/RestAPISample.html
+- aid: apache-openmeetings:apache-openmeetings-recordingservice-api
+  name: Apache OpenMeetings RecordingService API
+  description: The RecordingService API from Apache OpenMeetings — 4 operation(s) for recordingservice.
+  humanURL: https://openmeetings.apache.org/RestAPISample.html
+  tags:
+  - RecordingService
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-openmeetings-recordingservice-api-openapi.yml
+  - type: Documentation
+    url: https://openmeetings.apache.org/RestAPISample.html
+- aid: apache-openmeetings:apache-openmeetings-roomservice-api
+  name: Apache OpenMeetings RoomService API
+  description: The RoomService API from Apache OpenMeetings — 11 operation(s) for roomservice.
+  humanURL: https://openmeetings.apache.org/RestAPISample.html
+  tags:
+  - RoomService
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-openmeetings-roomservice-api-openapi.yml
+  - type: Documentation
+    url: https://openmeetings.apache.org/RestAPISample.html
+- aid: apache-openmeetings:apache-openmeetings-userservice-api
+  name: Apache OpenMeetings UserService API
+  description: The UserService API from Apache OpenMeetings — 5 operation(s) for userservice.
+  humanURL: https://openmeetings.apache.org/RestAPISample.html
+  tags:
+  - UserService
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-openmeetings-userservice-api-openapi.yml
+  - type: Documentation
+    url: https://openmeetings.apache.org/RestAPISample.html
+- aid: apache-openmeetings:apache-openmeetings-wbservice-api
+  name: Apache OpenMeetings WbService API
+  description: The WbService API from Apache OpenMeetings — 4 operation(s) for wbservice.
+  humanURL: https://openmeetings.apache.org/RestAPISample.html
+  tags:
+  - WbService
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-openmeetings-wbservice-api-openapi.yml
+  - type: Documentation
+    url: https://openmeetings.apache.org/RestAPISample.html
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
