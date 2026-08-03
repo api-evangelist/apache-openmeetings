@@ -1,0 +1,32 @@
+{
+  "provider": "apache-openmeetings",
+  "sources": [
+    "apache-openmeetings-calendarservice-api-openapi.yml",
+    "apache-openmeetings-errorservice-api-openapi.yml",
+    "apache-openmeetings-fileservice-api-openapi.yml",
+    "apache-openmeetings-groupservice-api-openapi.yml",
+    "apache-openmeetings-infoservice-api-openapi.yml",
+    "apache-openmeetings-nettestservice-api-openapi.yml",
+    "apache-openmeetings-recordingservice-api-openapi.yml",
+    "apache-openmeetings-roomservice-api-openapi.yml",
+    "apache-openmeetings-userservice-api-openapi.yml",
+    "apache-openmeetings-wbservice-api-openapi.yml"
+  ],
+  "outputs": [
+    "apache-openmeetings-calendarservice-api-openapi.yml",
+    "apache-openmeetings-errorservice-api-openapi.yml",
+    "apache-openmeetings-fileservice-api-openapi.yml",
+    "apache-openmeetings-groupservice-api-openapi.yml",
+    "apache-openmeetings-infoservice-api-openapi.yml",
+    "apache-openmeetings-nettestservice-api-openapi.yml",
+    "apache-openmeetings-recordingservice-api-openapi.yml",
+    "apache-openmeetings-roomservice-api-openapi.yml",
+    "apache-openmeetings-userservice-api-openapi.yml",
+    "apache-openmeetings-wbservice-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
