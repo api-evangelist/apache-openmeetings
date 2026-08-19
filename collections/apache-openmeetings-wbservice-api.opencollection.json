@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache OpenMeetings REST CalendarService WbService API",
+    "version": "9.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WbService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings CleanSlide",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/wb/cleanslide/:roomid/:wbid/:slide",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "id of the room to clean"
+              },
+              {
+                "name": "wbid",
+                "value": "",
+                "type": "path",
+                "description": "id of the white board to clean"
+              },
+              {
+                "name": "slide",
+                "value": "",
+                "type": "path",
+                "description": "slide number (zero based)"
+              }
+            ]
+          },
+          "docs": "This method will do the same as clean slide in the room (except for there will be no UNDO)"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings CleanWb",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/wb/cleanwb/:roomid/:wbid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "id of the room to clean"
+              },
+              {
+                "name": "wbid",
+                "value": "",
+                "type": "path",
+                "description": "id of the white board to clean"
+              }
+            ]
+          },
+          "docs": "This method will do the same as clean WB in the room (except for there will be no UNDO)"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings ResetWb",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/wb/resetwb/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of the room to clean"
+              }
+            ]
+          },
+          "docs": "This method will remove all whiteboards from given room\n and create empty one(s) for room files specified"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings UploadWb",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/wb/uploadwb/:type",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "the type of document being saved PNG/PDF"
+              }
+            ]
+          },
+          "docs": "This method will receive WB as binary data (png) and store it to temporary PDF/PNG file"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

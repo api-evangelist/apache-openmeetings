@@ -1,0 +1,142 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache OpenMeetings REST CalendarService UserService API",
+    "version": "9.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UserService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Get_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/user",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Lists all users in the system!"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Add_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/user",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Adds a new User like through the Frontend, but also does activates the\n Account To do SSO see the methods to create a hash and use those ones!"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Delete_5",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/user/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the openmeetings user id"
+              }
+            ]
+          },
+          "docs": "Delete a certain user by its id"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings DeleteExternal_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/user/:externaltype/:externalid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "externaltype",
+                "value": "",
+                "type": "path",
+                "description": "externalUserId"
+              },
+              {
+                "name": "externalid",
+                "value": "",
+                "type": "path",
+                "description": "externalType"
+              }
+            ]
+          },
+          "docs": "Delete a certain user by its external user id"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetRoomHash",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/user/hash",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Sets the SessionObject for a certain SID, after setting this\n Session-Object you can use the SID + a RoomId to enter any Room. ...\n  Session-Hashs are deleted 15 minutes after the creation if not used."
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Login",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/user/login"
+          },
+          "docs": "Login and create sessionId required for sub-sequent calls"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

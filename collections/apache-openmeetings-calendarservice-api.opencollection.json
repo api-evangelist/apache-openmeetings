@@ -1,0 +1,224 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache OpenMeetings REST CalendarService API",
+    "version": "9.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CalendarService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/calendar/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the id to delete"
+              }
+            ]
+          },
+          "docs": "Delete a calendar event\n\n If the given sid is from an Administrator or Web-Service USER, the USER\n can delete any appointment.\n If the sid is assigned to a regular USER, he can only delete appointments\n where he is also the owner/creator of the appointment"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetByRoom",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/calendar/room/:roomid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "id of appointment special room"
+              }
+            ]
+          },
+          "docs": "Load a calendar event by its room id"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetByTitle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/calendar/title/:title",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "path",
+                "description": "the search string"
+              }
+            ]
+          },
+          "docs": "Search a calendar event for the current SID"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Next",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/calendar/next",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Get the next Calendar event for the current USER of the SID"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings NextForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/calendar/next/:userid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "userid",
+                "value": "",
+                "type": "path",
+                "description": "the userId the calendar events should be loaded"
+              }
+            ]
+          },
+          "docs": "Get the next Calendar event for userId"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Range",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/calendar/:start/:end",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "path",
+                "description": "start time"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "path",
+                "description": "end time"
+              }
+            ]
+          },
+          "docs": "Load appointments by a start / end range for the current SID"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings RangeForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/calendar/:userid/:start/:end",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "userid",
+                "value": "",
+                "type": "path",
+                "description": "the userId the calendar events should be loaded"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "path",
+                "description": "start time"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "path",
+                "description": "end time"
+              }
+            ]
+          },
+          "docs": "Load appointments by a start / end range for the userId"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Save",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/calendar",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Create an appointment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1020 @@
+{
+  "item": [
+    {
+      "id": "6279c2ad-5b29-4774-a1c1-713c36468eff",
+      "name": "UserService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "164cebe6-11e3-4865-b6c9-51be5e4073e6",
+          "name": "Apache OpenMeetings Get_3",
+          "request": {
+            "name": "Apache OpenMeetings Get_3",
+            "description": {
+              "content": "Lists all users in the system!",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c95134d-0a93-40d9-8c43-7b034c8780b1",
+              "name": "list of users",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userDTO\": [\n    {\n      \"id\": 2612,\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"rights\": [\n        \"DASHBOARD\",\n        \"ROOM\"\n      ],\n      \"languageId\": 3184,\n      \"address\": {\n        \"inserted\": \"1957-02-25T10:00:45.878Z\",\n        \"updated\": \"1957-05-29T12:06:38.432Z\",\n        \"deleted\": false,\n        \"id\": 5294,\n        \"additionalname\": \"string\",\n        \"comment\": \"string\",\n        \"fax\": \"string\",\n        \"country\": \"string\",\n        \"street\": \"string\",\n        \"town\": \"string\",\n        \"zip\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\"\n      },\n      \"timeZoneId\": \"string\",\n      \"externalId\": \"string\",\n      \"externalType\": \"string\",\n      \"pictureUri\": \"string\",\n      \"type\": \"EXTERNAL\"\n    },\n    {\n      \"id\": 8765,\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"rights\": [\n        \"LOGIN\",\n        \"DASHBOARD\"\n      ],\n      \"languageId\": 6854,\n      \"address\": {\n        \"inserted\": \"1984-08-31T02:05:15.612Z\",\n        \"updated\": \"2020-04-17T22:27:02.010Z\",\n        \"deleted\": true,\n        \"id\": 3467,\n        \"additionalname\": \"string\",\n        \"comment\": \"string\",\n        \"fax\": \"string\",\n        \"country\": \"string\",\n        \"street\": \"string\",\n        \"town\": \"string\",\n        \"zip\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\"\n      },\n      \"timeZoneId\": \"string\",\n      \"externalId\": \"string\",\n      \"externalType\": \"string\",\n      \"pictureUri\": \"string\",\n      \"type\": \"CONTACT\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91ea9329-0f09-42e5-8243-a3cef53c6ed9",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ee3bb85-18ca-479b-b18a-33580c700bd1",
+          "name": "Apache OpenMeetings Add_3",
+          "request": {
+            "name": "Apache OpenMeetings Add_3",
+            "description": {
+              "content": "Adds a new User like through the Frontend, but also does activates the\n Account To do SSO see the methods to create a hash and use those ones!",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "*/*"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"confirm\": \"<boolean>\",\n  \"user\": {\n    \"id\": \"<long>\",\n    \"login\": \"<string>\",\n    \"password\": \"<string>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"rights\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"languageId\": \"<long>\",\n    \"address\": {\n      \"inserted\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"additionalname\": \"<string>\",\n      \"comment\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"country\": \"<string>\",\n      \"street\": \"<string>\",\n      \"town\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    \"timeZoneId\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"pictureUri\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n}"
+            }
+          },
+          "response": [
+            {
+              "id": "2d2e2b6c-67fe-4cfb-8450-eb8f3183d945",
+              "name": "list of users",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"confirm\": \"<boolean>\",\n  \"user\": {\n    \"id\": \"<long>\",\n    \"login\": \"<string>\",\n    \"password\": \"<string>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"rights\": [\n      \"<string>\"\n    ],\n    \"languageId\": \"<long>\",\n    \"address\": {\n      \"inserted\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"additionalname\": \"<string>\",\n      \"comment\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"country\": \"<string>\",\n      \"street\": \"<string>\",\n      \"town\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    \"timeZoneId\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"pictureUri\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userDTO\": {\n    \"id\": \"<long>\",\n    \"login\": \"<string>\",\n    \"password\": \"<string>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"rights\": [\n      \"<string>\"\n    ],\n    \"languageId\": \"<long>\",\n    \"address\": {\n      \"inserted\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"additionalname\": \"<string>\",\n      \"comment\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"country\": \"<string>\",\n      \"street\": \"<string>\",\n      \"town\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    \"timeZoneId\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"pictureUri\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "824aee2f-331d-4fcd-ba9b-098c8cb627d9",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"confirm\": \"<boolean>\",\n  \"user\": {\n    \"id\": \"<long>\",\n    \"login\": \"<string>\",\n    \"password\": \"<string>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"rights\": [\n      \"<string>\"\n    ],\n    \"languageId\": \"<long>\",\n    \"address\": {\n      \"inserted\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\",\n      \"deleted\": \"<boolean>\",\n      \"id\": \"<long>\",\n      \"additionalname\": \"<string>\",\n      \"comment\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"country\": \"<string>\",\n      \"street\": \"<string>\",\n      \"town\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    \"timeZoneId\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"pictureUri\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n}"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f7495f0-6465-46b0-abab-606230e00511",
+          "name": "Apache OpenMeetings Delete_5",
+          "request": {
+            "name": "Apache OpenMeetings Delete_5",
+            "description": {
+              "content": "Delete a certain user by its id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) the openmeetings user id"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "805b42c6-4e6a-4106-9475-67ad0799b8aa",
+              "name": "id of the user deleted, error code otherwise",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the openmeetings user id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b31d8fab-23c8-4c18-9d19-fc879cdd618a",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the openmeetings user id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da8ab577-06ef-4ce2-96c1-43c8e3494997",
+          "name": "Apache OpenMeetings DeleteExternal_1",
+          "request": {
+            "name": "Apache OpenMeetings DeleteExternal_1",
+            "description": {
+              "content": "Delete a certain user by its external user id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                ":externaltype",
+                ":externalid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externaltype",
+                  "description": "(Required) externalUserId"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externalid",
+                  "description": "(Required) externalType"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13565a5a-06f1-4a48-93a1-b28e3311c886",
+              "name": "id of user deleted, or error code",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":externaltype",
+                    ":externalid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externaltype",
+                      "description": "(Required) externalUserId"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalid",
+                      "description": "(Required) externalType"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1fabc7f2-7da9-4288-a352-dfa79912c838",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":externaltype",
+                    ":externalid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externaltype",
+                      "description": "(Required) externalUserId"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalid",
+                      "description": "(Required) externalType"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15bb3256-19cc-4905-8af2-424cd64a2c3c",
+          "name": "Apache OpenMeetings GetRoomHash",
+          "request": {
+            "name": "Apache OpenMeetings GetRoomHash",
+            "description": {
+              "content": "Sets the SessionObject for a certain SID, after setting this\n Session-Object you can use the SID + a RoomId to enter any Room. ...\n  Session-Hashs are deleted 15 minutes after the creation if not used.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "*/*"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"options\": {\n    \"roomId\": \"<long>\",\n    \"externalRoomId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"recordingId\": \"<long>\",\n    \"moderator\": \"<boolean>\",\n    \"showAudioVideoTest\": \"<boolean>\",\n    \"allowSameURLMultipleTimes\": \"<boolean>\",\n    \"allowRecording\": \"<boolean>\"\n  },\n  \"user\": {\n    \"login\": \"<string>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"profilePictureUrl\": \"<string>\",\n    \"email\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\"\n  }\n}"
+            }
+          },
+          "response": [
+            {
+              "id": "6be66487-f70f-4291-8260-5416aea39a12",
+              "name": "secure hash or error code",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"options\": {\n    \"roomId\": \"<long>\",\n    \"externalRoomId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"recordingId\": \"<long>\",\n    \"moderator\": \"<boolean>\",\n    \"showAudioVideoTest\": \"<boolean>\",\n    \"allowSameURLMultipleTimes\": \"<boolean>\",\n    \"allowRecording\": \"<boolean>\"\n  },\n  \"user\": {\n    \"login\": \"<string>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"profilePictureUrl\": \"<string>\",\n    \"email\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\"\n  }\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80a9d4da-a7ef-4b3a-939c-8f4a0b26b9e2",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"options\": {\n    \"roomId\": \"<long>\",\n    \"externalRoomId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"recordingId\": \"<long>\",\n    \"moderator\": \"<boolean>\",\n    \"showAudioVideoTest\": \"<boolean>\",\n    \"allowSameURLMultipleTimes\": \"<boolean>\",\n    \"allowRecording\": \"<boolean>\"\n  },\n  \"user\": {\n    \"login\": \"<string>\",\n    \"firstname\": \"<string>\",\n    \"lastname\": \"<string>\",\n    \"profilePictureUrl\": \"<string>\",\n    \"email\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\"\n  }\n}"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25c2abe7-d9bf-42b2-be53-03c976724013",
+          "name": "Apache OpenMeetings Login",
+          "request": {
+            "name": "Apache OpenMeetings Login",
+            "description": {
+              "content": "Login and create sessionId required for sub-sequent calls",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "*/*"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pass\": \"<string>\",\n  \"user\": \"<string>\"\n}"
+            }
+          },
+          "response": [
+            {
+              "id": "8832975d-f086-4420-8bc8-7163446f7c85",
+              "name": "ServiceResult with error code or SID and userId",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pass\": \"<string>\",\n  \"user\": \"<string>\"\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c49d5f64-dc21-4951-8d16-34f681a8e376",
+              "name": "Error of server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pass\": \"<string>\",\n  \"user\": \"<string>\"\n}"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}:5443/openmeetings/services",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7ee55c6d-dacd-47d9-acae-0298bf90fee8",
+    "name": "Apache OpenMeetings REST CalendarService UserService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.",
+      "type": "text/plain"
+    }
+  }
+}

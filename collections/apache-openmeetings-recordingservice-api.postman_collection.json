@@ -1,0 +1,748 @@
+{
+  "item": [
+    {
+      "id": "3aea386b-8c6c-48da-b1a5-31d8f686e023",
+      "name": "RecordingService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "065004e0-c19d-4a37-9ea0-8239fbb2d400",
+          "name": "Apache OpenMeetings Delete_3",
+          "request": {
+            "name": "Apache OpenMeetings Delete_3",
+            "description": {
+              "content": "Deletes a recording",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "record",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) the id of the recording"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8957d680-8e5d-44e8-92e5-6f52c5485af1",
+              "name": "serviceResult object with the result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "record",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the id of the recording"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9b2bc2f-31e0-45a6-b153-c5b722bb47d4",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "record",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the id of the recording"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a7bc94e-4ed5-4941-8105-6315f57971cd",
+          "name": "Apache OpenMeetings GetExternal",
+          "request": {
+            "name": "Apache OpenMeetings GetExternal",
+            "description": {
+              "content": "Gets a list of recordings created by particular external USER",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "record",
+                ":externaltype",
+                ":externalid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externaltype",
+                  "description": "(Required) the externalUserId"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externalid",
+                  "description": "(Required) the externalUserType"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "634c57bc-e885-43c0-aaf5-e17b8315d660",
+              "name": "list of recordings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "record",
+                    ":externaltype",
+                    ":externalid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externaltype",
+                      "description": "(Required) the externalUserId"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalid",
+                      "description": "(Required) the externalUserType"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"recordingDTO\": [\n    {\n      \"id\": 1,\n      \"name\": \"Recording [file.name.recording]19/09/21, 12:43 am\",\n      \"hash\": \"1ee00bf1-6cb6-44d2-bb91-cfbe96e2ae19\",\n      \"roomId\": 7,\n      \"status\": \"PROCESSED\",\n      \"interview\": false,\n      \"start\": \"2021-09-19T10:43:39+12:00\",\n      \"end\": \"2021-09-19T10:43:56+12:00\",\n      \"width\": 1792,\n      \"height\": 1120,\n      \"ownerId\": 1\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aae90944-4341-4833-9341-809e998f12fe",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "record",
+                    ":externaltype",
+                    ":externalid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externaltype",
+                      "description": "(Required) the externalUserId"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalid",
+                      "description": "(Required) the externalUserType"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c5f95c3-51e2-4068-8986-aa674e40b9b6",
+          "name": "Apache OpenMeetings GetExternalByRoom",
+          "request": {
+            "name": "Apache OpenMeetings GetExternalByRoom",
+            "description": {
+              "content": "Gets a list of recordings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "record",
+                "room",
+                ":roomid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "roomid",
+                  "description": "(Required) the room id"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf45f1ea-bd33-4511-b352-0424c3858245",
+              "name": "list of recordings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "record",
+                    "room",
+                    ":roomid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "roomid",
+                      "description": "(Required) the room id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"recordingDTO\": [\n    {\n      \"id\": 1879,\n      \"name\": \"string\",\n      \"hash\": \"string\",\n      \"roomId\": 3306,\n      \"status\": \"string\",\n      \"interview\": true,\n      \"start\": \"1965-11-29T09:28:57.230Z\",\n      \"end\": \"1982-04-03T00:36:56.429Z\",\n      \"width\": 2149,\n      \"height\": 5789,\n      \"ownerId\": 3913,\n      \"externalType\": \"string\"\n    },\n    {\n      \"id\": 7725,\n      \"name\": \"string\",\n      \"hash\": \"string\",\n      \"roomId\": 7869,\n      \"status\": \"string\",\n      \"interview\": false,\n      \"start\": \"2013-05-17T03:21:29.295Z\",\n      \"end\": \"1972-02-21T23:10:35.233Z\",\n      \"width\": 1435,\n      \"height\": 3557,\n      \"ownerId\": 4329,\n      \"externalType\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "834d38b0-c4f9-41d9-aca8-d17bb09b5411",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "record",
+                    "room",
+                    ":roomid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "roomid",
+                      "description": "(Required) the room id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b00245ae-064e-4e7d-ba04-cfb08e361dc5",
+          "name": "Apache OpenMeetings GetExternalByType",
+          "request": {
+            "name": "Apache OpenMeetings GetExternalByType",
+            "description": {
+              "content": "Gets a list of recordings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "record",
+                ":externaltype"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externaltype",
+                  "description": "(Required) externalType specified when creating the room"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91bb355c-cb41-4eb6-95b6-b6c6ca963e04",
+              "name": "list of recordings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "record",
+                    ":externaltype"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externaltype",
+                      "description": "(Required) externalType specified when creating the room"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"recordingDTO\": [\n    {\n      \"id\": 1879,\n      \"name\": \"string\",\n      \"hash\": \"string\",\n      \"roomId\": 3306,\n      \"status\": \"string\",\n      \"interview\": true,\n      \"start\": \"1965-11-29T09:28:57.230Z\",\n      \"end\": \"1982-04-03T00:36:56.429Z\",\n      \"width\": 2149,\n      \"height\": 5789,\n      \"ownerId\": 3913,\n      \"externalType\": \"string\"\n    },\n    {\n      \"id\": 7725,\n      \"name\": \"string\",\n      \"hash\": \"string\",\n      \"roomId\": 7869,\n      \"status\": \"string\",\n      \"interview\": false,\n      \"start\": \"2013-05-17T03:21:29.295Z\",\n      \"end\": \"1972-02-21T23:10:35.233Z\",\n      \"width\": 1435,\n      \"height\": 3557,\n      \"ownerId\": 4329,\n      \"externalType\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c63f854-8f91-451c-8d63-4012a802ad85",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "record",
+                    ":externaltype"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externaltype",
+                      "description": "(Required) externalType specified when creating the room"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}:5443/openmeetings/services",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "048c479d-dede-4871-b501-4d1e63e1fd73",
+    "name": "Apache OpenMeetings REST CalendarService RecordingService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.",
+      "type": "text/plain"
+    }
+  }
+}

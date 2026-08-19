@@ -1,0 +1,1451 @@
+{
+  "item": [
+    {
+      "id": "2ab24885-32d6-41ca-9096-388ef046ad45",
+      "name": "CalendarService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4ddb2308-45b3-41d5-82f9-6c4bd584ed23",
+          "name": "Apache OpenMeetings Delete",
+          "request": {
+            "name": "Apache OpenMeetings Delete",
+            "description": {
+              "content": "Delete a calendar event\n\n If the given sid is from an Administrator or Web-Service USER, the USER\n can delete any appointment.\n If the sid is assigned to a regular USER, he can only delete appointments\n where he is also the owner/creator of the appointment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) the id to delete"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9cb143e0-32cb-4fef-b07c-b8df35797ce6",
+              "name": "ServiceResult with result type",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the id to delete"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f15d64c4-c4fc-4b2d-8a1e-1618b16faa48",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the id to delete"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "684feb2c-14f1-46bd-92f6-180e0fdeda58",
+          "name": "Apache OpenMeetings GetByRoom",
+          "request": {
+            "name": "Apache OpenMeetings GetByRoom",
+            "description": {
+              "content": "Load a calendar event by its room id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar",
+                "room",
+                ":roomid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "roomid",
+                  "description": "(Required) id of appointment special room"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eda371f1-952b-4e1e-806a-08296fd0ffdd",
+              "name": "calendar event by its room id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "room",
+                    ":roomid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "roomid",
+                      "description": "(Required) id of appointment special room"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appointmentDTO\": {\n    \"id\": 2814,\n    \"title\": \"string\",\n    \"location\": \"string\",\n    \"start\": \"1987-10-20T17:46:11.788Z\",\n    \"end\": \"2020-05-26T12:07:52.873Z\",\n    \"description\": \"string\",\n    \"owner\": {\n      \"id\": 6838,\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"rights\": [\n        \"ADMIN_CONFIG\",\n        \"ADMIN\"\n      ],\n      \"languageId\": 803,\n      \"address\": {\n        \"inserted\": \"1985-07-21T06:24:13.903Z\",\n        \"updated\": \"2023-06-17T11:19:55.925Z\",\n        \"deleted\": true,\n        \"id\": 4413,\n        \"additionalname\": \"string\",\n        \"comment\": \"string\",\n        \"fax\": \"string\",\n        \"country\": \"string\",\n        \"street\": \"string\",\n        \"town\": \"string\",\n        \"zip\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\"\n      },\n      \"timeZoneId\": \"string\",\n      \"externalId\": \"string\",\n      \"externalType\": \"string\",\n      \"pictureUri\": \"string\",\n      \"type\": \"USER\"\n    },\n    \"inserted\": \"2025-02-01T20:51:12.025Z\",\n    \"updated\": \"2001-01-01T15:04:28.904Z\",\n    \"deleted\": true,\n    \"reminder\": \"ICAL\",\n    \"room\": {\n      \"id\": 3495,\n      \"name\": \"string\",\n      \"tag\": \"string\",\n      \"comment\": \"string\",\n      \"type\": \"INTERVIEW\",\n      \"capacity\": 6534,\n      \"appointment\": false,\n      \"confno\": \"string\",\n      \"demo\": true,\n      \"closed\": false,\n      \"demoTime\": 7990,\n      \"externalId\": \"string\",\n      \"externalType\": \"string\",\n      \"redirectUrl\": \"string\",\n      \"moderated\": true,\n      \"waitModerator\": false,\n      \"allowUserQuestions\": false,\n      \"allowRecording\": true,\n      \"waitRecording\": false,\n      \"audioOnly\": true,\n      \"hiddenElements\": [\n        \"POLL_MENU\",\n        \"CHAT\"\n      ],\n      \"files\": [\n        {\n          \"id\": 4879,\n          \"fileId\": 891,\n          \"wbIdx\": 3300\n        },\n        {\n          \"id\": 6069,\n          \"fileId\": 8754,\n          \"wbIdx\": 3976\n        }\n      ],\n      \"public\": false\n    },\n    \"icalId\": \"string\",\n    \"meetingMembers\": [\n      {\n        \"id\": 770,\n        \"user\": {\n          \"id\": 9084,\n          \"login\": \"string\",\n          \"password\": \"string\",\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"rights\": [\n            \"ADMIN_LABEL\",\n            \"DASHBOARD\"\n          ],\n          \"languageId\": 3497,\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"string\",\n          \"externalId\": \"string\",\n          \"externalType\": \"string\",\n          \"pictureUri\": \"string\",\n          \"type\": \"LDAP\"\n        }\n      },\n      {\n        \"id\": 3768,\n        \"user\": {\n          \"id\": 7113,\n          \"login\": \"string\",\n          \"password\": \"string\",\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"rights\": [\n            \"ADMIN_CONNECTIONS\",\n            \"SOAP\"\n          ],\n          \"languageId\": 7319,\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"string\",\n          \"externalId\": \"string\",\n          \"externalType\": \"string\",\n          \"pictureUri\": \"string\",\n          \"type\": \"LDAP\"\n        }\n      }\n    ],\n    \"languageId\": 4926,\n    \"password\": \"string\",\n    \"passwordProtected\": true,\n    \"connectedEvent\": true,\n    \"reminderEmailSend\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af8b4c4e-6538-4856-a5bb-c9046eba5697",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "room",
+                    ":roomid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "roomid",
+                      "description": "(Required) id of appointment special room"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f32fea2b-0cb2-4f65-aa0f-06044c6ebfda",
+          "name": "Apache OpenMeetings GetByTitle",
+          "request": {
+            "name": "Apache OpenMeetings GetByTitle",
+            "description": {
+              "content": "Search a calendar event for the current SID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar",
+                "title",
+                ":title"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "title",
+                  "description": "(Required) the search string"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f37e1b7-d3df-482c-9332-d8d6014ccbd4",
+              "name": "calendar event list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "title",
+                    ":title"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "title",
+                      "description": "(Required) the search string"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appointmentDTO\": [\n    {\n      \"id\": 8102,\n      \"title\": \"string\",\n      \"location\": \"string\",\n      \"start\": \"1959-10-25T13:23:23.879Z\",\n      \"end\": \"2003-04-11T10:22:42.233Z\",\n      \"description\": \"string\",\n      \"owner\": {\n        \"id\": 722,\n        \"login\": \"string\",\n        \"password\": \"string\",\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"rights\": [\n          \"DASHBOARD\",\n          \"ADMIN_LABEL\"\n        ],\n        \"languageId\": 6739,\n        \"address\": {\n          \"inserted\": \"1954-11-17T06:08:43.190Z\",\n          \"updated\": \"2017-04-28T12:43:59.421Z\",\n          \"deleted\": false,\n          \"id\": 7851,\n          \"additionalname\": \"string\",\n          \"comment\": \"string\",\n          \"fax\": \"string\",\n          \"country\": \"string\",\n          \"street\": \"string\",\n          \"town\": \"string\",\n          \"zip\": \"string\",\n          \"email\": \"string\",\n          \"phone\": \"string\"\n        },\n        \"timeZoneId\": \"string\",\n        \"externalId\": \"string\",\n        \"externalType\": \"string\",\n        \"pictureUri\": \"string\",\n        \"type\": \"OAUTH\"\n      },\n      \"inserted\": \"1951-01-04T23:01:43.435Z\",\n      \"updated\": \"1982-08-14T16:31:00.406Z\",\n      \"deleted\": false,\n      \"reminder\": \"NONE\",\n      \"room\": {\n        \"id\": 7774,\n        \"name\": \"string\",\n        \"tag\": \"string\",\n        \"comment\": \"string\",\n        \"type\": \"INTERVIEW\",\n        \"capacity\": 3870,\n        \"appointment\": true,\n        \"confno\": \"string\",\n        \"demo\": true,\n        \"closed\": true,\n        \"demoTime\": 7179,\n        \"externalId\": \"string\",\n        \"externalType\": \"string\",\n        \"redirectUrl\": \"string\",\n        \"moderated\": false,\n        \"waitModerator\": false,\n        \"allowUserQuestions\": true,\n        \"allowRecording\": true,\n        \"waitRecording\": true,\n        \"audioOnly\": false,\n        \"hiddenElements\": [\n          \"ACTIVITIES\",\n          \"TOP_BAR\"\n        ],\n        \"files\": [\n          {\n            \"id\": 6411,\n            \"fileId\": 3308,\n            \"wbIdx\": 6141\n          },\n          {\n            \"id\": 8568,\n            \"fileId\": 776,\n            \"wbIdx\": 2825\n          }\n        ],\n        \"public\": false\n      },\n      \"icalId\": \"string\",\n      \"meetingMembers\": [\n        {\n          \"id\": 1033,\n          \"user\": {\n            \"id\": 8098,\n            \"login\": \"string\",\n            \"password\": \"string\",\n            \"firstname\": \"string\",\n            \"lastname\": \"string\",\n            \"rights\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"languageId\": 9018,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZoneId\": \"string\",\n            \"externalId\": \"string\",\n            \"externalType\": \"string\",\n            \"pictureUri\": \"string\",\n            \"type\": \"OAUTH\"\n          }\n        },\n        {\n          \"id\": 9920,\n          \"user\": {\n            \"id\": 9942,\n            \"login\": \"string\",\n            \"password\": \"string\",\n            \"firstname\": \"string\",\n            \"lastname\": \"string\",\n            \"rights\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"languageId\": 7073,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZoneId\": \"string\",\n            \"externalId\": \"string\",\n            \"externalType\": \"string\",\n            \"pictureUri\": \"string\",\n            \"type\": \"OAUTH\"\n          }\n        }\n      ],\n      \"languageId\": 3715,\n      \"password\": \"string\",\n      \"passwordProtected\": false,\n      \"connectedEvent\": true,\n      \"reminderEmailSend\": false\n    },\n    {\n      \"id\": 857,\n      \"title\": \"string\",\n      \"location\": \"string\",\n      \"start\": \"2010-08-12T11:41:05.485Z\",\n      \"end\": \"1963-08-05T20:38:34.268Z\",\n      \"description\": \"string\",\n      \"owner\": {\n        \"id\": 9066,\n        \"login\": \"string\",\n        \"password\": \"string\",\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"rights\": [\n          \"ADMIN\",\n          \"ADMIN_BACKUP\"\n        ],\n        \"languageId\": 9240,\n        \"address\": {\n          \"inserted\": \"2024-09-25T11:54:14.486Z\",\n          \"updated\": \"1971-01-08T00:44:07.371Z\",\n          \"deleted\": true,\n          \"id\": 5022,\n          \"additionalname\": \"string\",\n          \"comment\": \"string\",\n          \"fax\": \"string\",\n          \"country\": \"string\",\n          \"street\": \"string\",\n          \"town\": \"string\",\n          \"zip\": \"string\",\n          \"email\": \"string\",\n          \"phone\": \"string\"\n        },\n        \"timeZoneId\": \"string\",\n        \"externalId\": \"string\",\n        \"externalType\": \"string\",\n        \"pictureUri\": \"string\",\n        \"type\": \"USER\"\n      },\n      \"inserted\": \"2000-11-30T03:10:21.436Z\",\n      \"updated\": \"1957-07-21T20:44:21.568Z\",\n      \"deleted\": false,\n      \"reminder\": \"EMAIL\",\n      \"room\": {\n        \"id\": 5733,\n        \"name\": \"string\",\n        \"tag\": \"string\",\n        \"comment\": \"string\",\n        \"type\": \"PRESENTATION\",\n        \"capacity\": 1428,\n        \"appointment\": false,\n        \"confno\": \"string\",\n        \"demo\": false,\n        \"closed\": false,\n        \"demoTime\": 6475,\n        \"externalId\": \"string\",\n        \"externalType\": \"string\",\n        \"redirectUrl\": \"string\",\n        \"moderated\": false,\n        \"waitModerator\": false,\n        \"allowUserQuestions\": false,\n        \"allowRecording\": true,\n        \"waitRecording\": true,\n        \"audioOnly\": true,\n        \"hiddenElements\": [\n          \"TOP_BAR\",\n          \"CHAT\"\n        ],\n        \"files\": [\n          {\n            \"id\": 4576,\n            \"fileId\": 4720,\n            \"wbIdx\": 2618\n          },\n          {\n            \"id\": 7429,\n            \"fileId\": 7973,\n            \"wbIdx\": 572\n          }\n        ],\n        \"public\": true\n      },\n      \"icalId\": \"string\",\n      \"meetingMembers\": [\n        {\n          \"id\": 1723,\n          \"user\": {\n            \"id\": 7895,\n            \"login\": \"string\",\n            \"password\": \"string\",\n            \"firstname\": \"string\",\n            \"lastname\": \"string\",\n            \"rights\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"languageId\": 1908,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZoneId\": \"string\",\n            \"externalId\": \"string\",\n            \"externalType\": \"string\",\n            \"pictureUri\": \"string\",\n            \"type\": \"LDAP\"\n          }\n        },\n        {\n          \"id\": 2776,\n          \"user\": {\n            \"id\": 7838,\n            \"login\": \"string\",\n            \"password\": \"string\",\n            \"firstname\": \"string\",\n            \"lastname\": \"string\",\n            \"rights\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"languageId\": 973,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZoneId\": \"string\",\n            \"externalId\": \"string\",\n            \"externalType\": \"string\",\n            \"pictureUri\": \"string\",\n            \"type\": \"CONTACT\"\n          }\n        }\n      ],\n      \"languageId\": 371,\n      \"password\": \"string\",\n      \"passwordProtected\": true,\n      \"connectedEvent\": true,\n      \"reminderEmailSend\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc4a76e8-4499-4a94-ab17-fd0fd677dbfd",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "title",
+                    ":title"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "title",
+                      "description": "(Required) the search string"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5b2e13c-1a02-45f8-8119-9469f89d3974",
+          "name": "Apache OpenMeetings Next",
+          "request": {
+            "name": "Apache OpenMeetings Next",
+            "description": {
+              "content": "Get the next Calendar event for the current USER of the SID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar",
+                "next"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2e8f20e3-eb2f-417f-ac6f-8592b5ca26ed",
+              "name": "next Calendar event",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "next"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appointmentDTO\": {\n    \"id\": 882,\n    \"title\": \"string\",\n    \"location\": \"string\",\n    \"start\": \"2019-08-24T18:54:28.414Z\",\n    \"end\": \"1956-11-23T18:33:58.684Z\",\n    \"description\": \"string\",\n    \"owner\": {\n      \"id\": 3153,\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"rights\": [\n        \"ADMIN_CONNECTIONS\",\n        \"ADMIN_CONFIG\"\n      ],\n      \"languageId\": 8335,\n      \"address\": {\n        \"inserted\": \"1960-01-31T19:34:44.988Z\",\n        \"updated\": \"2014-06-22T09:11:05.130Z\",\n        \"deleted\": false,\n        \"id\": 3934,\n        \"additionalname\": \"string\",\n        \"comment\": \"string\",\n        \"fax\": \"string\",\n        \"country\": \"string\",\n        \"street\": \"string\",\n        \"town\": \"string\",\n        \"zip\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\"\n      },\n      \"timeZoneId\": \"string\",\n      \"externalId\": \"string\",\n      \"externalType\": \"string\",\n      \"pictureUri\": \"string\",\n      \"type\": \"OAUTH\"\n    },\n    \"inserted\": \"2020-12-09T07:39:06.980Z\",\n    \"updated\": \"1955-10-11T11:12:56.993Z\",\n    \"deleted\": true,\n    \"reminder\": \"NONE\",\n    \"room\": {\n      \"id\": 7066,\n      \"name\": \"string\",\n      \"tag\": \"string\",\n      \"comment\": \"string\",\n      \"type\": \"INTERVIEW\",\n      \"capacity\": 2439,\n      \"appointment\": false,\n      \"confno\": \"string\",\n      \"demo\": false,\n      \"closed\": true,\n      \"demoTime\": 2277,\n      \"externalId\": \"string\",\n      \"externalType\": \"string\",\n      \"redirectUrl\": \"string\",\n      \"moderated\": false,\n      \"waitModerator\": false,\n      \"allowUserQuestions\": false,\n      \"allowRecording\": false,\n      \"waitRecording\": false,\n      \"audioOnly\": true,\n      \"hiddenElements\": [\n        \"TOP_BAR\",\n        \"WHITEBOARD\"\n      ],\n      \"files\": [\n        {\n          \"id\": 555,\n          \"fileId\": 1147,\n          \"wbIdx\": 5395\n        },\n        {\n          \"id\": 2500,\n          \"fileId\": 367,\n          \"wbIdx\": 826\n        }\n      ],\n      \"public\": true\n    },\n    \"icalId\": \"string\",\n    \"meetingMembers\": [\n      {\n        \"id\": 9231,\n        \"user\": {\n          \"id\": 6408,\n          \"login\": \"string\",\n          \"password\": \"string\",\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"rights\": [\n            \"ADMIN_CONNECTIONS\",\n            \"SOAP\"\n          ],\n          \"languageId\": 6299,\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"string\",\n          \"externalId\": \"string\",\n          \"externalType\": \"string\",\n          \"pictureUri\": \"string\",\n          \"type\": \"USER\"\n        }\n      },\n      {\n        \"id\": 2389,\n        \"user\": {\n          \"id\": 9860,\n          \"login\": \"string\",\n          \"password\": \"string\",\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"rights\": [\n            \"ADMIN_CONNECTIONS\",\n            \"GROUP_ADMIN\"\n          ],\n          \"languageId\": 1495,\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"string\",\n          \"externalId\": \"string\",\n          \"externalType\": \"string\",\n          \"pictureUri\": \"string\",\n          \"type\": \"LDAP\"\n        }\n      }\n    ],\n    \"languageId\": 2585,\n    \"password\": \"string\",\n    \"passwordProtected\": true,\n    \"connectedEvent\": true,\n    \"reminderEmailSend\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63aed40a-4de3-44da-859e-c1851676d3f1",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "next"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e9eb5d2-536f-42d9-b17d-00d93f6da422",
+          "name": "Apache OpenMeetings NextForUser",
+          "request": {
+            "name": "Apache OpenMeetings NextForUser",
+            "description": {
+              "content": "Get the next Calendar event for userId",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar",
+                "next",
+                ":userid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "userid",
+                  "description": "(Required) the userId the calendar events should be loaded"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "616612e9-8485-4638-a731-a148307ad69c",
+              "name": "next Calendar event",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "next",
+                    ":userid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "userid",
+                      "description": "(Required) the userId the calendar events should be loaded"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appointmentDTO\": {\n    \"id\": 882,\n    \"title\": \"string\",\n    \"location\": \"string\",\n    \"start\": \"2019-08-24T18:54:28.414Z\",\n    \"end\": \"1956-11-23T18:33:58.684Z\",\n    \"description\": \"string\",\n    \"owner\": {\n      \"id\": 3153,\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"rights\": [\n        \"ADMIN_CONNECTIONS\",\n        \"ADMIN_CONFIG\"\n      ],\n      \"languageId\": 8335,\n      \"address\": {\n        \"inserted\": \"1960-01-31T19:34:44.988Z\",\n        \"updated\": \"2014-06-22T09:11:05.130Z\",\n        \"deleted\": false,\n        \"id\": 3934,\n        \"additionalname\": \"string\",\n        \"comment\": \"string\",\n        \"fax\": \"string\",\n        \"country\": \"string\",\n        \"street\": \"string\",\n        \"town\": \"string\",\n        \"zip\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\"\n      },\n      \"timeZoneId\": \"string\",\n      \"externalId\": \"string\",\n      \"externalType\": \"string\",\n      \"pictureUri\": \"string\",\n      \"type\": \"OAUTH\"\n    },\n    \"inserted\": \"2020-12-09T07:39:06.980Z\",\n    \"updated\": \"1955-10-11T11:12:56.993Z\",\n    \"deleted\": true,\n    \"reminder\": \"NONE\",\n    \"room\": {\n      \"id\": 7066,\n      \"name\": \"string\",\n      \"tag\": \"string\",\n      \"comment\": \"string\",\n      \"type\": \"INTERVIEW\",\n      \"capacity\": 2439,\n      \"appointment\": false,\n      \"confno\": \"string\",\n      \"demo\": false,\n      \"closed\": true,\n      \"demoTime\": 2277,\n      \"externalId\": \"string\",\n      \"externalType\": \"string\",\n      \"redirectUrl\": \"string\",\n      \"moderated\": false,\n      \"waitModerator\": false,\n      \"allowUserQuestions\": false,\n      \"allowRecording\": false,\n      \"waitRecording\": false,\n      \"audioOnly\": true,\n      \"hiddenElements\": [\n        \"TOP_BAR\",\n        \"WHITEBOARD\"\n      ],\n      \"files\": [\n        {\n          \"id\": 555,\n          \"fileId\": 1147,\n          \"wbIdx\": 5395\n        },\n        {\n          \"id\": 2500,\n          \"fileId\": 367,\n          \"wbIdx\": 826\n        }\n      ],\n      \"public\": true\n    },\n    \"icalId\": \"string\",\n    \"meetingMembers\": [\n      {\n        \"id\": 9231,\n        \"user\": {\n          \"id\": 6408,\n          \"login\": \"string\",\n          \"password\": \"string\",\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"rights\": [\n            \"ADMIN_CONNECTIONS\",\n            \"SOAP\"\n          ],\n          \"languageId\": 6299,\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"string\",\n          \"externalId\": \"string\",\n          \"externalType\": \"string\",\n          \"pictureUri\": \"string\",\n          \"type\": \"USER\"\n        }\n      },\n      {\n        \"id\": 2389,\n        \"user\": {\n          \"id\": 9860,\n          \"login\": \"string\",\n          \"password\": \"string\",\n          \"firstname\": \"string\",\n          \"lastname\": \"string\",\n          \"rights\": [\n            \"ADMIN_CONNECTIONS\",\n            \"GROUP_ADMIN\"\n          ],\n          \"languageId\": 1495,\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"string\",\n          \"externalId\": \"string\",\n          \"externalType\": \"string\",\n          \"pictureUri\": \"string\",\n          \"type\": \"LDAP\"\n        }\n      }\n    ],\n    \"languageId\": 2585,\n    \"password\": \"string\",\n    \"passwordProtected\": true,\n    \"connectedEvent\": true,\n    \"reminderEmailSend\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68d0874a-d60b-4b07-bfb6-28fa4cb2014d",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "next",
+                    ":userid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "userid",
+                      "description": "(Required) the userId the calendar events should be loaded"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e74bd88-3972-410f-aa78-7a7a06dd582b",
+          "name": "Apache OpenMeetings Range",
+          "request": {
+            "name": "Apache OpenMeetings Range",
+            "description": {
+              "content": "Load appointments by a start / end range for the current SID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar",
+                ":start",
+                ":end"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "start",
+                  "description": "(Required) start time"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "end",
+                  "description": "(Required) end time"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3a7d024-d993-48cb-97f4-2ee7ca97c089",
+              "name": "list of appointments in range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    ":start",
+                    ":end"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "start",
+                      "description": "(Required) start time"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "end",
+                      "description": "(Required) end time"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appointmentDTO\": [\n    {\n      \"id\": 2014,\n      \"title\": \"string\",\n      \"location\": \"string\",\n      \"start\": \"2014-02-10T08:21:05.946Z\",\n      \"end\": \"1968-08-16T04:20:18.523Z\",\n      \"description\": \"string\",\n      \"owner\": {\n        \"id\": 9881,\n        \"login\": \"string\",\n        \"password\": \"string\",\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"rights\": [\n          \"ROOM\",\n          \"ADMIN_CONFIG\"\n        ],\n        \"languageId\": 9620,\n        \"address\": {\n          \"inserted\": \"2023-06-16T12:03:42.533Z\",\n          \"updated\": \"1954-12-06T15:23:27.133Z\",\n          \"deleted\": false,\n          \"id\": 2630,\n          \"additionalname\": \"string\",\n          \"comment\": \"string\",\n          \"fax\": \"string\",\n          \"country\": \"string\",\n          \"street\": \"string\",\n          \"town\": \"string\",\n          \"zip\": \"string\",\n          \"email\": \"string\",\n          \"phone\": \"string\"\n        },\n        \"timeZoneId\": \"string\",\n        \"externalId\": \"string\",\n        \"externalType\": \"string\",\n        \"pictureUri\": \"string\",\n        \"type\": \"CONTACT\"\n      },\n      \"inserted\": \"2013-07-31T06:53:14.253Z\",\n      \"updated\": \"1973-01-15T08:38:00.737Z\",\n      \"deleted\": false,\n      \"reminder\": \"NONE\",\n      \"room\": {\n        \"id\": 3390,\n        \"name\": \"string\",\n        \"tag\": \"string\",\n        \"comment\": \"string\",\n        \"type\": \"INTERVIEW\",\n        \"capacity\": 5807,\n        \"appointment\": false,\n        \"confno\": \"string\",\n        \"demo\": false,\n        \"closed\": true,\n        \"demoTime\": 4108,\n        \"externalId\": \"string\",\n        \"externalType\": \"string\",\n        \"redirectUrl\": \"string\",\n        \"moderated\": true,\n        \"waitModerator\": true,\n        \"allowUserQuestions\": false,\n        \"allowRecording\": false,\n        \"waitRecording\": true,\n        \"audioOnly\": false,\n        \"hiddenElements\": [\n          \"ACTION_MENU\",\n          \"FILES\"\n        ],\n        \"files\": [\n          {\n            \"id\": 5856,\n            \"fileId\": 2618,\n            \"wbIdx\": 5880\n          },\n          {\n            \"id\": 7855,\n            \"fileId\": 2798,\n            \"wbIdx\": 7808\n          }\n        ],\n        \"public\": false\n      },\n      \"icalId\": \"string\",\n      \"meetingMembers\": [\n        {\n          \"id\": 4412,\n          \"user\": {\n            \"id\": 2504,\n            \"login\": \"string\",\n            \"password\": \"string\",\n            \"firstname\": \"string\",\n            \"lastname\": \"string\",\n            \"rights\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"languageId\": 372,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZoneId\": \"string\",\n            \"externalId\": \"string\",\n            \"externalType\": \"string\",\n            \"pictureUri\": \"string\",\n            \"type\": \"CONTACT\"\n          }\n        },\n        {\n          \"id\": 2452,\n          \"user\": {\n            \"id\": 1090,\n            \"login\": \"string\",\n            \"password\": \"string\",\n            \"firstname\": \"string\",\n            \"lastname\": \"string\",\n            \"rights\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"languageId\": 6377,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZoneId\": \"string\",\n            \"externalId\": \"string\",\n            \"externalType\": \"string\",\n            \"pictureUri\": \"string\",\n            \"type\": \"EXTERNAL\"\n          }\n        }\n      ],\n      \"languageId\": 480,\n      \"password\": \"string\",\n      \"passwordProtected\": true,\n      \"connectedEvent\": true,\n      \"reminderEmailSend\": false\n    },\n    {\n      \"id\": 7165,\n      \"title\": \"string\",\n      \"location\": \"string\",\n      \"start\": \"2023-11-15T17:26:34.541Z\",\n      \"end\": \"1999-05-13T23:09:54.797Z\",\n      \"description\": \"string\",\n      \"owner\": {\n        \"id\": 2084,\n        \"login\": \"string\",\n        \"password\": \"string\",\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"rights\": [\n          \"ADMIN_BACKUP\",\n          \"GROUP_ADMIN\"\n        ],\n        \"languageId\": 5460,\n        \"address\": {\n          \"inserted\": \"1975-01-25T06:07:16.689Z\",\n          \"updated\": \"1960-05-22T08:36:31.319Z\",\n          \"deleted\": true,\n          \"id\": 1006,\n          \"additionalname\": \"string\",\n          \"comment\": \"string\",\n          \"fax\": \"string\",\n          \"country\": \"string\",\n          \"street\": \"string\",\n          \"town\": \"string\",\n          \"zip\": \"string\",\n          \"email\": \"string\",\n          \"phone\": \"string\"\n        },\n        \"timeZoneId\": \"string\",\n        \"externalId\": \"string\",\n        \"externalType\": \"string\",\n        \"pictureUri\": \"string\",\n        \"type\": \"OAUTH\"\n      },\n      \"inserted\": \"2025-12-24T18:17:44.264Z\",\n      \"updated\": \"1968-01-06T12:01:43.854Z\",\n      \"deleted\": true,\n      \"reminder\": \"EMAIL\",\n      \"room\": {\n        \"id\": 9660,\n        \"name\": \"string\",\n        \"tag\": \"string\",\n        \"comment\": \"string\",\n        \"type\": \"PRESENTATION\",\n        \"capacity\": 3658,\n        \"appointment\": true,\n        \"confno\": \"string\",\n        \"demo\": false,\n        \"closed\": false,\n        \"demoTime\": 5792,\n        \"externalId\": \"string\",\n        \"externalType\": \"string\",\n        \"redirectUrl\": \"string\",\n        \"moderated\": true,\n        \"waitModerator\": false,\n        \"allowUserQuestions\": false,\n        \"allowRecording\": false,\n        \"waitRecording\": false,\n        \"audioOnly\": false,\n        \"hiddenElements\": [\n          \"WHITEBOARD\",\n          \"POLL_MENU\"\n        ],\n        \"files\": [\n          {\n            \"id\": 6413,\n            \"fileId\": 4013,\n            \"wbIdx\": 1296\n          },\n          {\n            \"id\": 7777,\n            \"fileId\": 6882,\n            \"wbIdx\": 2396\n          }\n        ],\n        \"public\": false\n      },\n      \"icalId\": \"string\",\n      \"meetingMembers\": [\n        {\n          \"id\": 9225,\n          \"user\": {\n            \"id\": 9098,\n            \"login\": \"string\",\n            \"password\": \"string\",\n            \"firstname\": \"string\",\n            \"lastname\": \"string\",\n            \"rights\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"languageId\": 7248,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZoneId\": \"string\",\n            \"externalId\": \"string\",\n            \"externalType\": \"string\",\n            \"pictureUri\": \"string\",\n            \"type\": \"EXTERNAL\"\n          }\n        },\n        {\n          \"id\": 5154,\n          \"user\": {\n            \"id\": 2365,\n            \"login\": \"string\",\n            \"password\": \"string\",\n            \"firstname\": \"string\",\n            \"lastname\": \"string\",\n            \"rights\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"languageId\": 5247,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZoneId\": \"string\",\n            \"externalId\": \"string\",\n            \"externalType\": \"string\",\n            \"pictureUri\": \"string\",\n            \"type\": \"CONTACT\"\n          }\n        }\n      ],\n      \"languageId\": 1195,\n      \"password\": \"string\",\n      \"passwordProtected\": true,\n      \"connectedEvent\": true,\n      \"reminderEmailSend\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f157620f-8b58-41fe-9849-9ffc8164b6bc",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    ":start",
+                    ":end"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "start",
+                      "description": "(Required) start time"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "end",
+                      "description": "(Required) end time"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c4967c5-2fcb-4575-928c-10c06f371e3a",
+          "name": "Apache OpenMeetings RangeForUser",
+          "request": {
+            "name": "Apache OpenMeetings RangeForUser",
+            "description": {
+              "content": "Load appointments by a start / end range for the userId",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar",
+                ":userid",
+                ":start",
+                ":end"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "userid",
+                  "description": "(Required) the userId the calendar events should be loaded"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "start",
+                  "description": "(Required) start time"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "end",
+                  "description": "(Required) end time"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e67cb23-a755-4c1d-99c7-4fa6f8c253f4",
+              "name": "list of appointments in range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    ":userid",
+                    ":start",
+                    ":end"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "userid",
+                      "description": "(Required) the userId the calendar events should be loaded"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "start",
+                      "description": "(Required) start time"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "end",
+                      "description": "(Required) end time"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appointmentDTO\": [\n    {\n      \"id\": 2014,\n      \"title\": \"string\",\n      \"location\": \"string\",\n      \"start\": \"2014-02-10T08:21:05.946Z\",\n      \"end\": \"1968-08-16T04:20:18.523Z\",\n      \"description\": \"string\",\n      \"owner\": {\n        \"id\": 9881,\n        \"login\": \"string\",\n        \"password\": \"string\",\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"rights\": [\n          \"ROOM\",\n          \"ADMIN_CONFIG\"\n        ],\n        \"languageId\": 9620,\n        \"address\": {\n          \"inserted\": \"2023-06-16T12:03:42.533Z\",\n          \"updated\": \"1954-12-06T15:23:27.133Z\",\n          \"deleted\": false,\n          \"id\": 2630,\n          \"additionalname\": \"string\",\n          \"comment\": \"string\",\n          \"fax\": \"string\",\n          \"country\": \"string\",\n          \"street\": \"string\",\n          \"town\": \"string\",\n          \"zip\": \"string\",\n          \"email\": \"string\",\n          \"phone\": \"string\"\n        },\n        \"timeZoneId\": \"string\",\n        \"externalId\": \"string\",\n        \"externalType\": \"string\",\n        \"pictureUri\": \"string\",\n        \"type\": \"CONTACT\"\n      },\n      \"inserted\": \"2013-07-31T06:53:14.253Z\",\n      \"updated\": \"1973-01-15T08:38:00.737Z\",\n      \"deleted\": false,\n      \"reminder\": \"NONE\",\n      \"room\": {\n        \"id\": 3390,\n        \"name\": \"string\",\n        \"tag\": \"string\",\n        \"comment\": \"string\",\n        \"type\": \"INTERVIEW\",\n        \"capacity\": 5807,\n        \"appointment\": false,\n        \"confno\": \"string\",\n        \"demo\": false,\n        \"closed\": true,\n        \"demoTime\": 4108,\n        \"externalId\": \"string\",\n        \"externalType\": \"string\",\n        \"redirectUrl\": \"string\",\n        \"moderated\": true,\n        \"waitModerator\": true,\n        \"allowUserQuestions\": false,\n        \"allowRecording\": false,\n        \"waitRecording\": true,\n        \"audioOnly\": false,\n        \"hiddenElements\": [\n          \"ACTION_MENU\",\n          \"FILES\"\n        ],\n        \"files\": [\n          {\n            \"id\": 5856,\n            \"fileId\": 2618,\n            \"wbIdx\": 5880\n          },\n          {\n            \"id\": 7855,\n            \"fileId\": 2798,\n            \"wbIdx\": 7808\n          }\n        ],\n        \"public\": false\n      },\n      \"icalId\": \"string\",\n      \"meetingMembers\": [\n        {\n          \"id\": 4412,\n          \"user\": {\n            \"id\": 2504,\n            \"login\": \"string\",\n            \"password\": \"string\",\n            \"firstname\": \"string\",\n            \"lastname\": \"string\",\n            \"rights\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"languageId\": 372,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZoneId\": \"string\",\n            \"externalId\": \"string\",\n            \"externalType\": \"string\",\n            \"pictureUri\": \"string\",\n            \"type\": \"CONTACT\"\n          }\n        },\n        {\n          \"id\": 2452,\n          \"user\": {\n            \"id\": 1090,\n            \"login\": \"string\",\n            \"password\": \"string\",\n            \"firstname\": \"string\",\n            \"lastname\": \"string\",\n            \"rights\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"languageId\": 6377,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZoneId\": \"string\",\n            \"externalId\": \"string\",\n            \"externalType\": \"string\",\n            \"pictureUri\": \"string\",\n            \"type\": \"EXTERNAL\"\n          }\n        }\n      ],\n      \"languageId\": 480,\n      \"password\": \"string\",\n      \"passwordProtected\": true,\n      \"connectedEvent\": true,\n      \"reminderEmailSend\": false\n    },\n    {\n      \"id\": 7165,\n      \"title\": \"string\",\n      \"location\": \"string\",\n      \"start\": \"2023-11-15T17:26:34.541Z\",\n      \"end\": \"1999-05-13T23:09:54.797Z\",\n      \"description\": \"string\",\n      \"owner\": {\n        \"id\": 2084,\n        \"login\": \"string\",\n        \"password\": \"string\",\n        \"firstname\": \"string\",\n        \"lastname\": \"string\",\n        \"rights\": [\n          \"ADMIN_BACKUP\",\n          \"GROUP_ADMIN\"\n        ],\n        \"languageId\": 5460,\n        \"address\": {\n          \"inserted\": \"1975-01-25T06:07:16.689Z\",\n          \"updated\": \"1960-05-22T08:36:31.319Z\",\n          \"deleted\": true,\n          \"id\": 1006,\n          \"additionalname\": \"string\",\n          \"comment\": \"string\",\n          \"fax\": \"string\",\n          \"country\": \"string\",\n          \"street\": \"string\",\n          \"town\": \"string\",\n          \"zip\": \"string\",\n          \"email\": \"string\",\n          \"phone\": \"string\"\n        },\n        \"timeZoneId\": \"string\",\n        \"externalId\": \"string\",\n        \"externalType\": \"string\",\n        \"pictureUri\": \"string\",\n        \"type\": \"OAUTH\"\n      },\n      \"inserted\": \"2025-12-24T18:17:44.264Z\",\n      \"updated\": \"1968-01-06T12:01:43.854Z\",\n      \"deleted\": true,\n      \"reminder\": \"EMAIL\",\n      \"room\": {\n        \"id\": 9660,\n        \"name\": \"string\",\n        \"tag\": \"string\",\n        \"comment\": \"string\",\n        \"type\": \"PRESENTATION\",\n        \"capacity\": 3658,\n        \"appointment\": true,\n        \"confno\": \"string\",\n        \"demo\": false,\n        \"closed\": false,\n        \"demoTime\": 5792,\n        \"externalId\": \"string\",\n        \"externalType\": \"string\",\n        \"redirectUrl\": \"string\",\n        \"moderated\": true,\n        \"waitModerator\": false,\n        \"allowUserQuestions\": false,\n        \"allowRecording\": false,\n        \"waitRecording\": false,\n        \"audioOnly\": false,\n        \"hiddenElements\": [\n          \"WHITEBOARD\",\n          \"POLL_MENU\"\n        ],\n        \"files\": [\n          {\n            \"id\": 6413,\n            \"fileId\": 4013,\n            \"wbIdx\": 1296\n          },\n          {\n            \"id\": 7777,\n            \"fileId\": 6882,\n            \"wbIdx\": 2396\n          }\n        ],\n        \"public\": false\n      },\n      \"icalId\": \"string\",\n      \"meetingMembers\": [\n        {\n          \"id\": 9225,\n          \"user\": {\n            \"id\": 9098,\n            \"login\": \"string\",\n            \"password\": \"string\",\n            \"firstname\": \"string\",\n            \"lastname\": \"string\",\n            \"rights\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"languageId\": 7248,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZoneId\": \"string\",\n            \"externalId\": \"string\",\n            \"externalType\": \"string\",\n            \"pictureUri\": \"string\",\n            \"type\": \"EXTERNAL\"\n          }\n        },\n        {\n          \"id\": 5154,\n          \"user\": {\n            \"id\": 2365,\n            \"login\": \"string\",\n            \"password\": \"string\",\n            \"firstname\": \"string\",\n            \"lastname\": \"string\",\n            \"rights\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"languageId\": 5247,\n            \"address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timeZoneId\": \"string\",\n            \"externalId\": \"string\",\n            \"externalType\": \"string\",\n            \"pictureUri\": \"string\",\n            \"type\": \"CONTACT\"\n          }\n        }\n      ],\n      \"languageId\": 1195,\n      \"password\": \"string\",\n      \"passwordProtected\": true,\n      \"connectedEvent\": true,\n      \"reminderEmailSend\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2a7eaeb-d060-494c-8a1d-295262998775",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    ":userid",
+                    ":start",
+                    ":end"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "userid",
+                      "description": "(Required) the userId the calendar events should be loaded"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "start",
+                      "description": "(Required) start time"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "end",
+                      "description": "(Required) end time"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56124d4b-2bae-4f11-9464-10717aafeb79",
+          "name": "Apache OpenMeetings Save",
+          "request": {
+            "name": "Apache OpenMeetings Save",
+            "description": {
+              "content": "Create an appointment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "*/*"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appointment\": {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"location\": \"<string>\",\n    \"start\": \"<dateTime>\",\n    \"end\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"owner\": {\n      \"id\": \"<long>\",\n      \"login\": \"<string>\",\n      \"password\": \"<string>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"rights\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"languageId\": \"<long>\",\n      \"address\": {\n        \"inserted\": \"<dateTime>\",\n        \"updated\": \"<dateTime>\",\n        \"deleted\": \"<boolean>\",\n        \"id\": \"<long>\",\n        \"additionalname\": \"<string>\",\n        \"comment\": \"<string>\",\n        \"fax\": \"<string>\",\n        \"country\": \"<string>\",\n        \"street\": \"<string>\",\n        \"town\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\"\n      },\n      \"timeZoneId\": \"<string>\",\n      \"externalId\": \"<string>\",\n      \"externalType\": \"<string>\",\n      \"pictureUri\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"inserted\": \"<dateTime>\",\n    \"updated\": \"<dateTime>\",\n    \"deleted\": \"<boolean>\",\n    \"reminder\": \"<string>\",\n    \"room\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"tag\": \"<string>\",\n      \"comment\": \"<string>\",\n      \"type\": \"<string>\",\n      \"capacity\": \"<long>\",\n      \"appointment\": \"<boolean>\",\n      \"confno\": \"<string>\",\n      \"demo\": \"<boolean>\",\n      \"closed\": \"<boolean>\",\n      \"demoTime\": \"<integer>\",\n      \"externalId\": \"<string>\",\n      \"externalType\": \"<string>\",\n      \"redirectUrl\": \"<string>\",\n      \"moderated\": \"<boolean>\",\n      \"waitModerator\": \"<boolean>\",\n      \"allowUserQuestions\": \"<boolean>\",\n      \"allowRecording\": \"<boolean>\",\n      \"waitRecording\": \"<boolean>\",\n      \"audioOnly\": \"<boolean>\",\n      \"hiddenElements\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"files\": [\n        {\n          \"id\": \"<long>\",\n          \"fileId\": \"<long>\",\n          \"wbIdx\": \"<long>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"fileId\": \"<long>\",\n          \"wbIdx\": \"<long>\"\n        }\n      ],\n      \"public\": \"<boolean>\"\n    },\n    \"icalId\": \"<string>\",\n    \"meetingMembers\": [\n      {\n        \"id\": \"<long>\",\n        \"user\": {\n          \"id\": \"<long>\",\n          \"login\": \"<string>\",\n          \"password\": \"<string>\",\n          \"firstname\": \"<string>\",\n          \"lastname\": \"<string>\",\n          \"rights\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"languageId\": \"<long>\",\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"<string>\",\n          \"externalId\": \"<string>\",\n          \"externalType\": \"<string>\",\n          \"pictureUri\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"user\": {\n          \"id\": \"<long>\",\n          \"login\": \"<string>\",\n          \"password\": \"<string>\",\n          \"firstname\": \"<string>\",\n          \"lastname\": \"<string>\",\n          \"rights\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"languageId\": \"<long>\",\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"<string>\",\n          \"externalId\": \"<string>\",\n          \"externalType\": \"<string>\",\n          \"pictureUri\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"languageId\": \"<long>\",\n    \"password\": \"<string>\",\n    \"passwordProtected\": \"<boolean>\",\n    \"connectedEvent\": \"<boolean>\",\n    \"reminderEmailSend\": \"<boolean>\"\n  }\n}"
+            }
+          },
+          "response": [
+            {
+              "id": "0eedc699-767d-4471-8b20-6b8b8a8d4f09",
+              "name": "appointment saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appointment\": {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"location\": \"<string>\",\n    \"start\": \"<dateTime>\",\n    \"end\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"owner\": {\n      \"id\": \"<long>\",\n      \"login\": \"<string>\",\n      \"password\": \"<string>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"rights\": [\n        \"<string>\"\n      ],\n      \"languageId\": \"<long>\",\n      \"address\": {\n        \"inserted\": \"<dateTime>\",\n        \"updated\": \"<dateTime>\",\n        \"deleted\": \"<boolean>\",\n        \"id\": \"<long>\",\n        \"additionalname\": \"<string>\",\n        \"comment\": \"<string>\",\n        \"fax\": \"<string>\",\n        \"country\": \"<string>\",\n        \"street\": \"<string>\",\n        \"town\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\"\n      },\n      \"timeZoneId\": \"<string>\",\n      \"externalId\": \"<string>\",\n      \"externalType\": \"<string>\",\n      \"pictureUri\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"inserted\": \"<dateTime>\",\n    \"updated\": \"<dateTime>\",\n    \"deleted\": \"<boolean>\",\n    \"reminder\": \"<string>\",\n    \"room\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"tag\": \"<string>\",\n      \"comment\": \"<string>\",\n      \"type\": \"<string>\",\n      \"capacity\": \"<long>\",\n      \"appointment\": \"<boolean>\",\n      \"confno\": \"<string>\",\n      \"demo\": \"<boolean>\",\n      \"closed\": \"<boolean>\",\n      \"demoTime\": \"<integer>\",\n      \"externalId\": \"<string>\",\n      \"externalType\": \"<string>\",\n      \"redirectUrl\": \"<string>\",\n      \"moderated\": \"<boolean>\",\n      \"waitModerator\": \"<boolean>\",\n      \"allowUserQuestions\": \"<boolean>\",\n      \"allowRecording\": \"<boolean>\",\n      \"waitRecording\": \"<boolean>\",\n      \"audioOnly\": \"<boolean>\",\n      \"hiddenElements\": [\n        \"<string>\"\n      ],\n      \"files\": [\n        {\n          \"id\": \"<long>\",\n          \"fileId\": \"<long>\",\n          \"wbIdx\": \"<long>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"fileId\": \"<long>\",\n          \"wbIdx\": \"<long>\"\n        }\n      ],\n      \"public\": \"<boolean>\"\n    },\n    \"icalId\": \"<string>\",\n    \"meetingMembers\": [\n      {\n        \"id\": \"<long>\",\n        \"user\": {\n          \"id\": \"<long>\",\n          \"login\": \"<string>\",\n          \"password\": \"<string>\",\n          \"firstname\": \"<string>\",\n          \"lastname\": \"<string>\",\n          \"rights\": [\n            \"<string>\"\n          ],\n          \"languageId\": \"<long>\",\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"<string>\",\n          \"externalId\": \"<string>\",\n          \"externalType\": \"<string>\",\n          \"pictureUri\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"user\": {\n          \"id\": \"<long>\",\n          \"login\": \"<string>\",\n          \"password\": \"<string>\",\n          \"firstname\": \"<string>\",\n          \"lastname\": \"<string>\",\n          \"rights\": [\n            \"<string>\"\n          ],\n          \"languageId\": \"<long>\",\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"<string>\",\n          \"externalId\": \"<string>\",\n          \"externalType\": \"<string>\",\n          \"pictureUri\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"languageId\": \"<long>\",\n    \"password\": \"<string>\",\n    \"passwordProtected\": \"<boolean>\",\n    \"connectedEvent\": \"<boolean>\",\n    \"reminderEmailSend\": \"<boolean>\"\n  }\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appointmentDTO\": {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"location\": \"<string>\",\n    \"start\": \"<dateTime>\",\n    \"end\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"owner\": {\n      \"id\": \"<long>\",\n      \"login\": \"<string>\",\n      \"password\": \"<string>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"rights\": [\n        \"<string>\"\n      ],\n      \"languageId\": \"<long>\",\n      \"address\": {\n        \"inserted\": \"<dateTime>\",\n        \"updated\": \"<dateTime>\",\n        \"deleted\": \"<boolean>\",\n        \"id\": \"<long>\",\n        \"additionalname\": \"<string>\",\n        \"comment\": \"<string>\",\n        \"fax\": \"<string>\",\n        \"country\": \"<string>\",\n        \"street\": \"<string>\",\n        \"town\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\"\n      },\n      \"timeZoneId\": \"<string>\",\n      \"externalId\": \"<string>\",\n      \"externalType\": \"<string>\",\n      \"pictureUri\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"inserted\": \"<dateTime>\",\n    \"updated\": \"<dateTime>\",\n    \"deleted\": \"<boolean>\",\n    \"reminder\": \"<string>\",\n    \"room\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"tag\": \"<string>\",\n      \"comment\": \"<string>\",\n      \"type\": \"<string>\",\n      \"capacity\": \"<long>\",\n      \"appointment\": \"<boolean>\",\n      \"confno\": \"<string>\",\n      \"demo\": \"<boolean>\",\n      \"closed\": \"<boolean>\",\n      \"demoTime\": \"<integer>\",\n      \"externalId\": \"<string>\",\n      \"externalType\": \"<string>\",\n      \"redirectUrl\": \"<string>\",\n      \"moderated\": \"<boolean>\",\n      \"waitModerator\": \"<boolean>\",\n      \"allowUserQuestions\": \"<boolean>\",\n      \"allowRecording\": \"<boolean>\",\n      \"waitRecording\": \"<boolean>\",\n      \"audioOnly\": \"<boolean>\",\n      \"hiddenElements\": [\n        \"<string>\"\n      ],\n      \"files\": [\n        {\n          \"id\": \"<long>\",\n          \"fileId\": \"<long>\",\n          \"wbIdx\": \"<long>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"fileId\": \"<long>\",\n          \"wbIdx\": \"<long>\"\n        }\n      ],\n      \"public\": \"<boolean>\"\n    },\n    \"icalId\": \"<string>\",\n    \"meetingMembers\": [\n      {\n        \"id\": \"<long>\",\n        \"user\": {\n          \"id\": \"<long>\",\n          \"login\": \"<string>\",\n          \"password\": \"<string>\",\n          \"firstname\": \"<string>\",\n          \"lastname\": \"<string>\",\n          \"rights\": [\n            \"<string>\"\n          ],\n          \"languageId\": \"<long>\",\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"<string>\",\n          \"externalId\": \"<string>\",\n          \"externalType\": \"<string>\",\n          \"pictureUri\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"user\": {\n          \"id\": \"<long>\",\n          \"login\": \"<string>\",\n          \"password\": \"<string>\",\n          \"firstname\": \"<string>\",\n          \"lastname\": \"<string>\",\n          \"rights\": [\n            \"<string>\"\n          ],\n          \"languageId\": \"<long>\",\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"<string>\",\n          \"externalId\": \"<string>\",\n          \"externalType\": \"<string>\",\n          \"pictureUri\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"languageId\": \"<long>\",\n    \"password\": \"<string>\",\n    \"passwordProtected\": \"<boolean>\",\n    \"connectedEvent\": \"<boolean>\",\n    \"reminderEmailSend\": \"<boolean>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee936b61-cd7c-4bd3-a4bf-d8096831faf3",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appointment\": {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"location\": \"<string>\",\n    \"start\": \"<dateTime>\",\n    \"end\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"owner\": {\n      \"id\": \"<long>\",\n      \"login\": \"<string>\",\n      \"password\": \"<string>\",\n      \"firstname\": \"<string>\",\n      \"lastname\": \"<string>\",\n      \"rights\": [\n        \"<string>\"\n      ],\n      \"languageId\": \"<long>\",\n      \"address\": {\n        \"inserted\": \"<dateTime>\",\n        \"updated\": \"<dateTime>\",\n        \"deleted\": \"<boolean>\",\n        \"id\": \"<long>\",\n        \"additionalname\": \"<string>\",\n        \"comment\": \"<string>\",\n        \"fax\": \"<string>\",\n        \"country\": \"<string>\",\n        \"street\": \"<string>\",\n        \"town\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\"\n      },\n      \"timeZoneId\": \"<string>\",\n      \"externalId\": \"<string>\",\n      \"externalType\": \"<string>\",\n      \"pictureUri\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"inserted\": \"<dateTime>\",\n    \"updated\": \"<dateTime>\",\n    \"deleted\": \"<boolean>\",\n    \"reminder\": \"<string>\",\n    \"room\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"tag\": \"<string>\",\n      \"comment\": \"<string>\",\n      \"type\": \"<string>\",\n      \"capacity\": \"<long>\",\n      \"appointment\": \"<boolean>\",\n      \"confno\": \"<string>\",\n      \"demo\": \"<boolean>\",\n      \"closed\": \"<boolean>\",\n      \"demoTime\": \"<integer>\",\n      \"externalId\": \"<string>\",\n      \"externalType\": \"<string>\",\n      \"redirectUrl\": \"<string>\",\n      \"moderated\": \"<boolean>\",\n      \"waitModerator\": \"<boolean>\",\n      \"allowUserQuestions\": \"<boolean>\",\n      \"allowRecording\": \"<boolean>\",\n      \"waitRecording\": \"<boolean>\",\n      \"audioOnly\": \"<boolean>\",\n      \"hiddenElements\": [\n        \"<string>\"\n      ],\n      \"files\": [\n        {\n          \"id\": \"<long>\",\n          \"fileId\": \"<long>\",\n          \"wbIdx\": \"<long>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"fileId\": \"<long>\",\n          \"wbIdx\": \"<long>\"\n        }\n      ],\n      \"public\": \"<boolean>\"\n    },\n    \"icalId\": \"<string>\",\n    \"meetingMembers\": [\n      {\n        \"id\": \"<long>\",\n        \"user\": {\n          \"id\": \"<long>\",\n          \"login\": \"<string>\",\n          \"password\": \"<string>\",\n          \"firstname\": \"<string>\",\n          \"lastname\": \"<string>\",\n          \"rights\": [\n            \"<string>\"\n          ],\n          \"languageId\": \"<long>\",\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"<string>\",\n          \"externalId\": \"<string>\",\n          \"externalType\": \"<string>\",\n          \"pictureUri\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"user\": {\n          \"id\": \"<long>\",\n          \"login\": \"<string>\",\n          \"password\": \"<string>\",\n          \"firstname\": \"<string>\",\n          \"lastname\": \"<string>\",\n          \"rights\": [\n            \"<string>\"\n          ],\n          \"languageId\": \"<long>\",\n          \"address\": {\n            \"inserted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"updated\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deleted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"comment\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fax\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"country\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"street\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"town\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"zip\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"email\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"phone\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"timeZoneId\": \"<string>\",\n          \"externalId\": \"<string>\",\n          \"externalType\": \"<string>\",\n          \"pictureUri\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"languageId\": \"<long>\",\n    \"password\": \"<string>\",\n    \"passwordProtected\": \"<boolean>\",\n    \"connectedEvent\": \"<boolean>\",\n    \"reminderEmailSend\": \"<boolean>\"\n  }\n}"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}:5443/openmeetings/services",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5a6513b5-7f3b-4fc8-9fce-90bf29c23493",
+    "name": "Apache OpenMeetings REST CalendarService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.",
+      "type": "text/plain"
+    }
+  }
+}

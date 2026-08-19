@@ -1,0 +1,246 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache OpenMeetings REST CalendarService FileService API",
+    "version": "9.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "FileService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/file",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "to add a folder to the private drive, set parentId = 0 and isOwner to 1/true and\n externalUserId/externalUserType to a valid USER"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Delete_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/file/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the id of the file or folder"
+              }
+            ]
+          },
+          "docs": "deletes files or folders based on it id"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings DeleteExternal",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/file/:externaltype/:externalid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "externaltype",
+                "value": "",
+                "type": "path",
+                "description": "the externalType"
+              },
+              {
+                "name": "externalid",
+                "value": "",
+                "type": "path",
+                "description": "the id of the file or folder"
+              }
+            ]
+          },
+          "docs": "deletes a file by its external Id and type"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetAllExternal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/file/:externaltype",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "externaltype",
+                "value": "",
+                "type": "path",
+                "description": "External type for file listing"
+              }
+            ]
+          },
+          "docs": "Get all files by external type"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetRoom",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/file/room/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ROOM Id"
+              }
+            ]
+          },
+          "docs": "Get a File Explorer Object by a given ROOM"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetRoomByParent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/file/room/:id/:parent",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the parent folder id"
+              },
+              {
+                "name": "parent",
+                "value": "",
+                "type": "path",
+                "description": "the room id"
+              }
+            ]
+          },
+          "docs": "Get list of FileItemDTO by parent"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Move",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/file/move/:roomid/:id/:parentid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "current file or folder id to be moved"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "room this file need to be moved"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path",
+                "description": "new parent folder id"
+              }
+            ]
+          },
+          "docs": "move a file or folder"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Rename",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/file/rename/:id/:name",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "file or folder id"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "new file or folder name"
+              }
+            ]
+          },
+          "docs": "update a file or folder name"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

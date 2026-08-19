@@ -1,0 +1,229 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache OpenMeetings REST CalendarService GroupService API",
+    "version": "9.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GroupService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Get_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/group",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              }
+            ]
+          },
+          "docs": "Get the list of all groups"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Add_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/group",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "The name of the group"
+              }
+            ]
+          },
+          "docs": "add a new group"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings AddRoom",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/group/:id/rooms/add/:roomid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of group that the room is being paired with"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "Id of room to be added"
+              }
+            ]
+          },
+          "docs": "Adds a room to an group"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings AddUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/group/:id/users/:userid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the USER id"
+              },
+              {
+                "name": "userid",
+                "value": "",
+                "type": "path",
+                "description": "the group id"
+              }
+            ]
+          },
+          "docs": "Add USER to a certain group"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings RemoveUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/group/:id/users/:userid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the USER id"
+              },
+              {
+                "name": "userid",
+                "value": "",
+                "type": "path",
+                "description": "the group id"
+              }
+            ]
+          },
+          "docs": "Remove USER from a certain group"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Delete_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/group/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the id of the group"
+              }
+            ]
+          },
+          "docs": "Deletes a group"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/group/users/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the group id"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "first record"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "max records"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "orderby clause"
+              },
+              {
+                "name": "asc",
+                "value": "",
+                "type": "query",
+                "description": "asc or desc"
+              }
+            ]
+          },
+          "docs": "Search users and return them"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

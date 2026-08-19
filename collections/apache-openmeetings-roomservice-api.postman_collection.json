@@ -1,0 +1,2671 @@
+{
+  "item": [
+    {
+      "id": "472e0610-3e40-4f59-94ce-9e9413314567",
+      "name": "RoomService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "486dc15e-e22c-4414-bcbb-f1a16b8fe37d",
+          "name": "Apache OpenMeetings Add_2",
+          "request": {
+            "name": "Apache OpenMeetings Add_2",
+            "description": {
+              "content": "Adds a new ROOM like through the Frontend",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "room"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "*/*"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"room\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"tag\": \"<string>\",\n    \"comment\": \"<string>\",\n    \"type\": \"<string>\",\n    \"capacity\": \"<long>\",\n    \"appointment\": \"<boolean>\",\n    \"confno\": \"<string>\",\n    \"demo\": \"<boolean>\",\n    \"closed\": \"<boolean>\",\n    \"demoTime\": \"<integer>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"redirectUrl\": \"<string>\",\n    \"moderated\": \"<boolean>\",\n    \"waitModerator\": \"<boolean>\",\n    \"allowUserQuestions\": \"<boolean>\",\n    \"allowRecording\": \"<boolean>\",\n    \"waitRecording\": \"<boolean>\",\n    \"audioOnly\": \"<boolean>\",\n    \"hiddenElements\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"files\": [\n      {\n        \"id\": \"<long>\",\n        \"fileId\": \"<long>\",\n        \"wbIdx\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"fileId\": \"<long>\",\n        \"wbIdx\": \"<long>\"\n      }\n    ],\n    \"public\": \"<boolean>\"\n  }\n}"
+            }
+          },
+          "response": [
+            {
+              "id": "eb1d6084-0edf-4e2b-be55-250c85a17822",
+              "name": "Room object or throw error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"room\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"tag\": \"<string>\",\n    \"comment\": \"<string>\",\n    \"type\": \"<string>\",\n    \"capacity\": \"<long>\",\n    \"appointment\": \"<boolean>\",\n    \"confno\": \"<string>\",\n    \"demo\": \"<boolean>\",\n    \"closed\": \"<boolean>\",\n    \"demoTime\": \"<integer>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"redirectUrl\": \"<string>\",\n    \"moderated\": \"<boolean>\",\n    \"waitModerator\": \"<boolean>\",\n    \"allowUserQuestions\": \"<boolean>\",\n    \"allowRecording\": \"<boolean>\",\n    \"waitRecording\": \"<boolean>\",\n    \"audioOnly\": \"<boolean>\",\n    \"hiddenElements\": [\n      \"<string>\"\n    ],\n    \"files\": [\n      {\n        \"id\": \"<long>\",\n        \"fileId\": \"<long>\",\n        \"wbIdx\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"fileId\": \"<long>\",\n        \"wbIdx\": \"<long>\"\n      }\n    ],\n    \"public\": \"<boolean>\"\n  }\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roomDTO\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"tag\": \"<string>\",\n    \"comment\": \"<string>\",\n    \"type\": \"<string>\",\n    \"capacity\": \"<long>\",\n    \"appointment\": \"<boolean>\",\n    \"confno\": \"<string>\",\n    \"demo\": \"<boolean>\",\n    \"closed\": \"<boolean>\",\n    \"demoTime\": \"<integer>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"redirectUrl\": \"<string>\",\n    \"moderated\": \"<boolean>\",\n    \"waitModerator\": \"<boolean>\",\n    \"allowUserQuestions\": \"<boolean>\",\n    \"allowRecording\": \"<boolean>\",\n    \"waitRecording\": \"<boolean>\",\n    \"audioOnly\": \"<boolean>\",\n    \"hiddenElements\": [\n      \"<string>\"\n    ],\n    \"files\": [\n      {\n        \"id\": \"<long>\",\n        \"fileId\": \"<long>\",\n        \"wbIdx\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"fileId\": \"<long>\",\n        \"wbIdx\": \"<long>\"\n      }\n    ],\n    \"public\": \"<boolean>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb453559-c1e5-4bd9-9c23-44dce635c3fd",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"room\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"tag\": \"<string>\",\n    \"comment\": \"<string>\",\n    \"type\": \"<string>\",\n    \"capacity\": \"<long>\",\n    \"appointment\": \"<boolean>\",\n    \"confno\": \"<string>\",\n    \"demo\": \"<boolean>\",\n    \"closed\": \"<boolean>\",\n    \"demoTime\": \"<integer>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"redirectUrl\": \"<string>\",\n    \"moderated\": \"<boolean>\",\n    \"waitModerator\": \"<boolean>\",\n    \"allowUserQuestions\": \"<boolean>\",\n    \"allowRecording\": \"<boolean>\",\n    \"waitRecording\": \"<boolean>\",\n    \"audioOnly\": \"<boolean>\",\n    \"hiddenElements\": [\n      \"<string>\"\n    ],\n    \"files\": [\n      {\n        \"id\": \"<long>\",\n        \"fileId\": \"<long>\",\n        \"wbIdx\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"fileId\": \"<long>\",\n        \"wbIdx\": \"<long>\"\n      }\n    ],\n    \"public\": \"<boolean>\"\n  }\n}"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d855ce0-d9ca-4bc1-805b-41905ed4cfd5",
+          "name": "Apache OpenMeetings Close",
+          "request": {
+            "name": "Apache OpenMeetings Close",
+            "description": {
+              "content": "Method to remotely close rooms. If a room is closed all users\n inside the room and all users that try to enter it will be redirected to\n  the redirectURL that is defined in the ROOM-Object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "room",
+                "close",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) the room id"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4dae346-91d5-4154-8b73-19cac3fd54ec",
+              "name": "1 in case of success, -2 otherwise",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "close",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the room id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8eb6259a-5c19-4073-8ef5-b619035d4ccc",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "close",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the room id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81e1423f-a120-4d61-bd37-0e8c1a9c5071",
+          "name": "Apache OpenMeetings Count",
+          "request": {
+            "name": "Apache OpenMeetings Count",
+            "description": {
+              "content": "Returns the count of users currently in the ROOM with given id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "room",
+                "count",
+                ":roomid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "roomid",
+                  "description": "(Required) roomId id of the room to get users"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ae2d043-36d9-41d5-9c37-40afa95569a3",
+              "name": "number of users as int",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "count",
+                    ":roomid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "roomid",
+                      "description": "(Required) roomId id of the room to get users"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f6b5c09-3303-4685-9854-d8f46b34b1a0",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "count",
+                    ":roomid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "roomid",
+                      "description": "(Required) roomId id of the room to get users"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93036fbd-e72d-4632-a223-1b9c9b32fe97",
+          "name": "Apache OpenMeetings GetRoomById",
+          "request": {
+            "name": "Apache OpenMeetings GetRoomById",
+            "description": {
+              "content": "Returns a conference room object",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "room",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) the room id"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4185700-5446-4c11-aecb-f6b950b070d3",
+              "name": "room with the id given",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the room id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roomDTO\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"tag\": \"<string>\",\n    \"comment\": \"<string>\",\n    \"type\": \"<string>\",\n    \"capacity\": \"<long>\",\n    \"appointment\": \"<boolean>\",\n    \"confno\": \"<string>\",\n    \"demo\": \"<boolean>\",\n    \"closed\": \"<boolean>\",\n    \"demoTime\": \"<integer>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"redirectUrl\": \"<string>\",\n    \"moderated\": \"<boolean>\",\n    \"waitModerator\": \"<boolean>\",\n    \"allowUserQuestions\": \"<boolean>\",\n    \"allowRecording\": \"<boolean>\",\n    \"waitRecording\": \"<boolean>\",\n    \"audioOnly\": \"<boolean>\",\n    \"hiddenElements\": [\n      \"<string>\"\n    ],\n    \"files\": [\n      {\n        \"id\": \"<long>\",\n        \"fileId\": \"<long>\",\n        \"wbIdx\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"fileId\": \"<long>\",\n        \"wbIdx\": \"<long>\"\n      }\n    ],\n    \"public\": \"<boolean>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "753b6ccd-e81f-4c91-97f3-a4f5b4334793",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the room id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdc99d2f-442c-4cea-8b94-b24b02a3d89c",
+          "name": "Apache OpenMeetings Delete_4",
+          "request": {
+            "name": "Apache OpenMeetings Delete_4",
+            "description": {
+              "content": "Delete a room by its room id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "room",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The id of the room"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32b610ca-d354-4f94-b332-c64883495cfd",
+              "name": "id of the room deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The id of the room"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d96e4aee-b133-4717-83fd-7acf1ead19ca",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The id of the room"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86a6697f-e3b8-4390-9489-081e51b90bbd",
+          "name": "Apache OpenMeetings GetExternal_1",
+          "request": {
+            "name": "Apache OpenMeetings GetExternal_1",
+            "description": {
+              "content": "Checks if a room with this exteralId + externalType does exist,\n if yes it returns the room id if not, it will create the room and then\n return the room id of the newly created room",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "room",
+                ":type",
+                ":externaltype",
+                ":externalid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<long>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "comment",
+                  "value": "<string>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "capacity",
+                  "value": "<long>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "appointment",
+                  "value": "<boolean>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "confno",
+                  "value": "<string>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "demo",
+                  "value": "<boolean>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "closed",
+                  "value": "<boolean>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "demoTime",
+                  "value": "<integer>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalId",
+                  "value": "<string>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalType",
+                  "value": "<string>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirectUrl",
+                  "value": "<string>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "moderated",
+                  "value": "<boolean>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "waitModerator",
+                  "value": "<boolean>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "allowUserQuestions",
+                  "value": "<boolean>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "allowRecording",
+                  "value": "<boolean>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "waitRecording",
+                  "value": "<boolean>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "audioOnly",
+                  "value": "<boolean>",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "hiddenElements",
+                  "value": "[\"<string>\",\"<string>\"]",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "files",
+                  "value": "[{\"id\":\"<long>\",\"fileId\":\"<long>\",\"wbIdx\":\"<long>\"},{\"id\":\"<long>\",\"fileId\":\"<long>\",\"wbIdx\":\"<long>\"}]",
+                  "description": "(Required) details of the room to be created if not found"
+                },
+                {
+                  "disabled": false,
+                  "key": "public",
+                  "value": "<boolean>",
+                  "description": "(Required) details of the room to be created if not found"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) type of the room"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externaltype",
+                  "description": "(Required) you can specify your system-name or type of room here, for example \"moodle\""
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externalid",
+                  "description": "(Required) your external room id may set here"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c0b3a45c-ff1e-49aa-913a-4fcd8b322bca",
+              "name": "id of the room or error code",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    ":type",
+                    ":externaltype",
+                    ":externalid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "comment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "capacity",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "appointment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "confno",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "demo",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "closed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "demoTime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirectUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "moderated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "waitModerator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "allowUserQuestions",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "allowRecording",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "waitRecording",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "audioOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "hiddenElements",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "files",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "public",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) type of the room"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externaltype",
+                      "description": "(Required) you can specify your system-name or type of room here, for example \"moodle\""
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalid",
+                      "description": "(Required) your external room id may set here"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roomDTO\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"tag\": \"<string>\",\n    \"comment\": \"<string>\",\n    \"type\": \"<string>\",\n    \"capacity\": \"<long>\",\n    \"appointment\": \"<boolean>\",\n    \"confno\": \"<string>\",\n    \"demo\": \"<boolean>\",\n    \"closed\": \"<boolean>\",\n    \"demoTime\": \"<integer>\",\n    \"externalId\": \"<string>\",\n    \"externalType\": \"<string>\",\n    \"redirectUrl\": \"<string>\",\n    \"moderated\": \"<boolean>\",\n    \"waitModerator\": \"<boolean>\",\n    \"allowUserQuestions\": \"<boolean>\",\n    \"allowRecording\": \"<boolean>\",\n    \"waitRecording\": \"<boolean>\",\n    \"audioOnly\": \"<boolean>\",\n    \"hiddenElements\": [\n      \"<string>\"\n    ],\n    \"files\": [\n      {\n        \"id\": \"<long>\",\n        \"fileId\": \"<long>\",\n        \"wbIdx\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"fileId\": \"<long>\",\n        \"wbIdx\": \"<long>\"\n      }\n    ],\n    \"public\": \"<boolean>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43e39a73-b217-4469-b871-1674a750b793",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    ":type",
+                    ":externaltype",
+                    ":externalid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "comment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "capacity",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "appointment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "confno",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "demo",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "closed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "demoTime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirectUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "moderated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "waitModerator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "allowUserQuestions",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "allowRecording",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "waitRecording",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "audioOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "hiddenElements",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "files",
+                      "value": "[object Object],[object Object]"
+                    },
+                    {
+                      "key": "public",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) type of the room"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externaltype",
+                      "description": "(Required) you can specify your system-name or type of room here, for example \"moodle\""
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalid",
+                      "description": "(Required) your external room id may set here"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a974be97-408b-43ab-b714-c8feedd818f4",
+          "name": "Apache OpenMeetings GetPublic",
+          "request": {
+            "name": "Apache OpenMeetings GetPublic",
+            "description": {
+              "content": "Returns an Object of Type RoomsList which contains a list of\n ROOM-Objects. Every ROOM-Object contains a Roomtype and all informations\n  about that ROOM. The List of current-users in the room is Null if you get\n   them via SOAP. The Roomtype can be 'conference', 'presentation' or 'interview'.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "room",
+                "public",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) Type of public rooms need to be retrieved"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "30914f05-15b7-4d96-a5b8-778b4b2ade99",
+              "name": "list of public rooms",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "public",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) Type of public rooms need to be retrieved"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roomDTO\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"tag\": \"<string>\",\n      \"comment\": \"<string>\",\n      \"type\": \"<string>\",\n      \"capacity\": \"<long>\",\n      \"appointment\": \"<boolean>\",\n      \"confno\": \"<string>\",\n      \"demo\": \"<boolean>\",\n      \"closed\": \"<boolean>\",\n      \"demoTime\": \"<integer>\",\n      \"externalId\": \"<string>\",\n      \"externalType\": \"<string>\",\n      \"redirectUrl\": \"<string>\",\n      \"moderated\": \"<boolean>\",\n      \"waitModerator\": \"<boolean>\",\n      \"allowUserQuestions\": \"<boolean>\",\n      \"allowRecording\": \"<boolean>\",\n      \"waitRecording\": \"<boolean>\",\n      \"audioOnly\": \"<boolean>\",\n      \"hiddenElements\": [\n        \"<string>\"\n      ],\n      \"files\": [\n        {\n          \"id\": \"<long>\",\n          \"fileId\": \"<long>\",\n          \"wbIdx\": \"<long>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"fileId\": \"<long>\",\n          \"wbIdx\": \"<long>\"\n        }\n      ],\n      \"public\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"tag\": \"<string>\",\n      \"comment\": \"<string>\",\n      \"type\": \"<string>\",\n      \"capacity\": \"<long>\",\n      \"appointment\": \"<boolean>\",\n      \"confno\": \"<string>\",\n      \"demo\": \"<boolean>\",\n      \"closed\": \"<boolean>\",\n      \"demoTime\": \"<integer>\",\n      \"externalId\": \"<string>\",\n      \"externalType\": \"<string>\",\n      \"redirectUrl\": \"<string>\",\n      \"moderated\": \"<boolean>\",\n      \"waitModerator\": \"<boolean>\",\n      \"allowUserQuestions\": \"<boolean>\",\n      \"allowRecording\": \"<boolean>\",\n      \"waitRecording\": \"<boolean>\",\n      \"audioOnly\": \"<boolean>\",\n      \"hiddenElements\": [\n        \"<string>\"\n      ],\n      \"files\": [\n        {\n          \"id\": \"<long>\",\n          \"fileId\": \"<long>\",\n          \"wbIdx\": \"<long>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"fileId\": \"<long>\",\n          \"wbIdx\": \"<long>\"\n        }\n      ],\n      \"public\": \"<boolean>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f65bb3e-840d-4529-be03-2d2928af4aaf",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "public",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) Type of public rooms need to be retrieved"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb23ce61-f0de-4577-b121-eb8247975946",
+          "name": "Apache OpenMeetings Hash",
+          "request": {
+            "name": "Apache OpenMeetings Hash",
+            "description": {
+              "content": "Method to get invitation hash with given parameters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "room",
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) parameters of the invitation"
+                },
+                {
+                  "disabled": false,
+                  "key": "firstname",
+                  "value": "<string>",
+                  "description": "(Required) parameters of the invitation"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastname",
+                  "value": "<string>",
+                  "description": "(Required) parameters of the invitation"
+                },
+                {
+                  "disabled": false,
+                  "key": "message",
+                  "value": "<string>",
+                  "description": "(Required) parameters of the invitation"
+                },
+                {
+                  "disabled": false,
+                  "key": "subject",
+                  "value": "<string>",
+                  "description": "(Required) parameters of the invitation"
+                },
+                {
+                  "disabled": false,
+                  "key": "roomId",
+                  "value": "<long>",
+                  "description": "(Required) parameters of the invitation"
+                },
+                {
+                  "disabled": false,
+                  "key": "passwordProtected",
+                  "value": "<boolean>",
+                  "description": "(Required) parameters of the invitation"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) parameters of the invitation"
+                },
+                {
+                  "disabled": false,
+                  "key": "valid",
+                  "value": "<string>",
+                  "description": "(Required) parameters of the invitation"
+                },
+                {
+                  "disabled": false,
+                  "key": "validFrom",
+                  "value": "<string>",
+                  "description": "(Required) parameters of the invitation"
+                },
+                {
+                  "disabled": false,
+                  "key": "validTo",
+                  "value": "<string>",
+                  "description": "(Required) parameters of the invitation"
+                },
+                {
+                  "disabled": false,
+                  "key": "languageId",
+                  "value": "<long>",
+                  "description": "(Required) parameters of the invitation"
+                },
+                {
+                  "disabled": false,
+                  "key": "sendmail",
+                  "value": "<boolean>",
+                  "description": "(Required) flag to determine if email should be sent or not"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a895c1c-5b41-4ccd-b681-85947ed11eaf",
+              "name": "serviceResult object with the result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "firstname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "message",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subject",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roomId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "passwordProtected",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "valid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "validFrom",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "validTo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "languageId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sendmail",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa9d16ca-b0b6-4ae6-a938-232a08259bd0",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "firstname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "message",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subject",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roomId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "passwordProtected",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "valid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "validFrom",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "validTo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "languageId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "sendmail",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03079dff-9bcf-4fc6-afde-ff960cabea6a",
+          "name": "Apache OpenMeetings Kick",
+          "request": {
+            "name": "Apache OpenMeetings Kick",
+            "description": {
+              "content": "kick external USER from given room",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "room",
+                "kick",
+                ":id",
+                ":externalType",
+                ":externalId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) the room id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externalType",
+                  "description": "(Required) external type of USER to kick"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "externalId",
+                  "description": "(Required) external id of USER to kick"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d5647a9-7fbb-407f-857c-d2c5f293e688",
+              "name": "'Kicked' if USER was 'Not kicked' otherwise",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "kick",
+                    ":id",
+                    ":externalType",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the room id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalType",
+                      "description": "(Required) external type of USER to kick"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) external id of USER to kick"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "977bf2b5-f29d-43cb-a99d-1304ae73ca64",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "kick",
+                    ":id",
+                    ":externalType",
+                    ":externalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the room id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalType",
+                      "description": "(Required) external type of USER to kick"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "externalId",
+                      "description": "(Required) external id of USER to kick"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4762bf0e-3a0e-41f7-ac91-c8bc54a09e4f",
+          "name": "Apache OpenMeetings KickAll",
+          "request": {
+            "name": "Apache OpenMeetings KickAll",
+            "description": {
+              "content": "Kick all uses of a certain room",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "room",
+                "kick",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) the room id"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3c69e9d-1079-455e-9cbc-ef7b63705450",
+              "name": "true if USER was kicked, false otherwise",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "kick",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the room id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "baf930c9-e296-4cec-a390-aacc4620c652",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "kick",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the room id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "850357ab-d870-4c13-a74f-3eae14254005",
+          "name": "Apache OpenMeetings Open",
+          "request": {
+            "name": "Apache OpenMeetings Open",
+            "description": {
+              "content": "Method to remotely open rooms. If a room is closed all users\n inside the room and all users that try to enter it will be redirected to\n  the redirectURL that is defined in the ROOM-Object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "room",
+                "open",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) the room id"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f1edafd-6850-4565-b10d-ab61b77ddd88",
+              "name": "1 in case of success, -2 otherwise",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "open",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the room id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"serviceResult\": {\n    \"message\": \"9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6\",\n    \"type\": \"SUCCESS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0919ff9-5eaf-4d8e-b64a-b90007566639",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "open",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) the room id"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1164513e-c11b-4f88-a361-11a2ff134ae4",
+          "name": "Apache OpenMeetings Users",
+          "request": {
+            "name": "Apache OpenMeetings Users",
+            "description": {
+              "content": "Returns list of users currently in the ROOM with given id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "room",
+                "users",
+                ":roomid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sid",
+                  "value": "<string>",
+                  "description": "(Required) The SID of the User. This SID must be marked as Loggedin"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "roomid",
+                  "description": "(Required) roomId id of the room to get users"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dfc54424-3d92-4830-983e-b322f6c7b9ec",
+              "name": "List of users in the room",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "users",
+                    ":roomid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "roomid",
+                      "description": "(Required) roomId id of the room to get users"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userDTO\": [\n    {\n      \"id\": 3382,\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"rights\": [\n        \"ADMIN\",\n        \"DASHBOARD\"\n      ],\n      \"languageId\": 61,\n      \"address\": {\n        \"inserted\": \"2016-10-24T14:51:59.939Z\",\n        \"updated\": \"1966-06-06T02:29:59.628Z\",\n        \"deleted\": true,\n        \"id\": 1471,\n        \"additionalname\": \"string\",\n        \"comment\": \"string\",\n        \"fax\": \"string\",\n        \"country\": \"string\",\n        \"street\": \"string\",\n        \"town\": \"string\",\n        \"zip\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\"\n      },\n      \"timeZoneId\": \"string\",\n      \"externalId\": \"string\",\n      \"externalType\": \"string\",\n      \"pictureUri\": \"string\",\n      \"type\": \"OAUTH\"\n    },\n    {\n      \"id\": 7327,\n      \"login\": \"string\",\n      \"password\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"rights\": [\n        \"GROUP_ADMIN\",\n        \"DASHBOARD\"\n      ],\n      \"languageId\": 3132,\n      \"address\": {\n        \"inserted\": \"2017-02-04T07:16:18.898Z\",\n        \"updated\": \"2026-07-02T18:26:03.429Z\",\n        \"deleted\": true,\n        \"id\": 4468,\n        \"additionalname\": \"string\",\n        \"comment\": \"string\",\n        \"fax\": \"string\",\n        \"country\": \"string\",\n        \"street\": \"string\",\n        \"town\": \"string\",\n        \"zip\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\"\n      },\n      \"timeZoneId\": \"string\",\n      \"externalId\": \"string\",\n      \"externalType\": \"string\",\n      \"pictureUri\": \"string\",\n      \"type\": \"USER\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ae59190-276d-4c4c-b7eb-187d3e2db306",
+              "name": "Error in case of invalid credentials or server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "room",
+                    "users",
+                    ":roomid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "roomid",
+                      "description": "(Required) roomId id of the room to get users"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}:5443/openmeetings/services",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8785757d-e11a-4c48-897e-c6d54aed7656",
+    "name": "Apache OpenMeetings REST CalendarService RoomService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.",
+      "type": "text/plain"
+    }
+  }
+}

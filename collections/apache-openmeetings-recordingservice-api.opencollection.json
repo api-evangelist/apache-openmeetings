@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache OpenMeetings REST CalendarService RecordingService API",
+    "version": "9.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "RecordingService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Delete_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:5443/openmeetings/services/record/:id",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "the id of the recording"
+              }
+            ]
+          },
+          "docs": "Deletes a recording"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetExternal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/record/:externaltype/:externalid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "externaltype",
+                "value": "",
+                "type": "path",
+                "description": "the externalUserId"
+              },
+              {
+                "name": "externalid",
+                "value": "",
+                "type": "path",
+                "description": "the externalUserType"
+              }
+            ]
+          },
+          "docs": "Gets a list of recordings created by particular external USER"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetExternalByRoom",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/record/room/:roomid",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "roomid",
+                "value": "",
+                "type": "path",
+                "description": "the room id"
+              }
+            ]
+          },
+          "docs": "Gets a list of recordings"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetExternalByType",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/record/:externaltype",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "externaltype",
+                "value": "",
+                "type": "path",
+                "description": "externalType specified when creating the room"
+              }
+            ]
+          },
+          "docs": "Gets a list of recordings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

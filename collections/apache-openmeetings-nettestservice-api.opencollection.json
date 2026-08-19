@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache OpenMeetings REST CalendarService NetTestService API",
+    "version": "9.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NetTestService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Get_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/networktest",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "one of ping, jitter, download, upload"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "requests size of sample"
+              }
+            ]
+          },
+          "docs": "Generate a sample for network test"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/networktest",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "size"
+              }
+            ]
+          },
+          "docs": "Upload media to test upload speed"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache OpenMeetings REST CalendarService InfoService API",
+    "version": "9.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "InfoService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetHealth",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/info/health"
+          },
+          "docs": "Method to get health report for this OpenMeetings instance"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetManifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/info/manifest.webmanifest"
+          },
+          "docs": "Apache OpenMeetings GetManifest"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings GetVersion",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/info/version"
+          },
+          "docs": "Method to get current OpenMeetings version"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

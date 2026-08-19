@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache OpenMeetings REST CalendarService ErrorService API",
+    "version": "9.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ErrorService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache OpenMeetings Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:5443/openmeetings/services/error/:key/:lang",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "the error key for ex. `error.unknown`"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "The id of the language"
+              }
+            ]
+          },
+          "docs": "Loads an Error-Object. If a Method returns a negative Result, its an\n Error-id, it needs a languageId to specify in which language you want to\n display/read the error-message. English has the Language-ID one, for\n different one see the list of languages"
+        },
+        {
+          "info": {
+            "name": "Apache OpenMeetings Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:5443/openmeetings/services/error/report",
+            "params": [
+              {
+                "name": "sid",
+                "value": "",
+                "type": "query",
+                "description": "The SID of the User. This SID must be marked as Loggedin"
+              },
+              {
+                "name": "message",
+                "value": "",
+                "type": "query",
+                "description": "The message to log"
+              }
+            ]
+          },
+          "docs": "Logs an error to the log file for reporting"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
