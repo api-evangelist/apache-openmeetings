@@ -4,6 +4,17 @@ description: >-
   Apache OpenMeetings is a web conferencing and collaboration tool that provides video conferencing, instant messaging,
   white board, collaborative document editing, and other groupware tools. It offers integration APIs for LMS platforms.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
