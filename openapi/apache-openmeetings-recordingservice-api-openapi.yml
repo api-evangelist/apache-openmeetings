@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Apache OpenMeetings REST CalendarService RecordingService API
+  title: Apache OpenMeetings REST Recording Service API
   description: The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.
   version: 9.0.0
   license:
@@ -189,13 +189,15 @@ components:
           format: int64
         externalType:
           type: string
-    ServiceResult:
+    ServiceResultWrapper:
       type: object
       properties:
-        message:
-          type: string
-        type:
-          type: string
+        serviceResult:
+          $ref: '#/components/schemas/ServiceResult'
+      example:
+        serviceResult:
+          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
+          type: SUCCESS
     RecordingDTOListWrapper:
       type: object
       properties:
@@ -216,12 +218,10 @@ components:
           width: 1792
           height: 1120
           ownerId: 1
-    ServiceResultWrapper:
+    ServiceResult:
       type: object
       properties:
-        serviceResult:
-          $ref: '#/components/schemas/ServiceResult'
-      example:
-        serviceResult:
-          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
-          type: SUCCESS
+        message:
+          type: string
+        type:
+          type: string

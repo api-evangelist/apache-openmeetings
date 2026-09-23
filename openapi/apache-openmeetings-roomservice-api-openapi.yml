@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Apache OpenMeetings REST CalendarService RoomService API
+  title: Apache OpenMeetings REST Room Service API
   description: The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.
   version: 9.0.0
   license:
@@ -57,7 +57,11 @@ paths:
     get:
       tags:
       - RoomService
-      description: "Method to remotely close rooms. If a room is closed all users\n inside the room and all users that try to enter it will be redirected to\n  the redirectURL that is defined in the ROOM-Object."
+      description: 'Method to remotely close rooms. If a room is closed all users
+
+        inside the room and all users that try to enter it will be redirected to
+
+        the redirectURL that is defined in the ROOM-Object.'
       operationId: close
       parameters:
       - name: sid
@@ -188,7 +192,11 @@ paths:
     get:
       tags:
       - RoomService
-      description: "Checks if a room with this exteralId + externalType does exist,\n if yes it returns the room id if not, it will create the room and then\n return the room id of the newly created room"
+      description: 'Checks if a room with this exteralId + externalType does exist,
+
+        if yes it returns the room id if not, it will create the room and then
+
+        return the room id of the newly created room'
       operationId: getExternal_1
       parameters:
       - name: sid
@@ -238,7 +246,13 @@ paths:
     get:
       tags:
       - RoomService
-      description: "Returns an Object of Type RoomsList which contains a list of\n ROOM-Objects. Every ROOM-Object contains a Roomtype and all informations\n  about that ROOM. The List of current-users in the room is Null if you get\n   them via SOAP. The Roomtype can be 'conference', 'presentation' or 'interview'."
+      description: 'Returns an Object of Type RoomsList which contains a list of
+
+        ROOM-Objects. Every ROOM-Object contains a Roomtype and all informations
+
+        about that ROOM. The List of current-users in the room is Null if you get
+
+        them via SOAP. The Roomtype can be ''conference'', ''presentation'' or ''interview''.'
       operationId: getPublic
       parameters:
       - name: sid
@@ -386,7 +400,11 @@ paths:
     get:
       tags:
       - RoomService
-      description: "Method to remotely open rooms. If a room is closed all users\n inside the room and all users that try to enter it will be redirected to\n  the redirectURL that is defined in the ROOM-Object."
+      description: 'Method to remotely open rooms. If a room is closed all users
+
+        inside the room and all users that try to enter it will be redirected to
+
+        the redirectURL that is defined in the ROOM-Object.'
       operationId: open
       parameters:
       - name: sid
@@ -450,127 +468,149 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    RoomDTOWrapper:
+    RoomFileDTO:
       type: object
       properties:
-        roomDTO:
-          $ref: '#/components/schemas/RoomDTO'
-      example:
-        roomDTO:
-          id: 2
-          name: Public Conference Room [install.room.public.conference]
-          comment: ''
-          type: CONFERENCE
-          capacity: 32
-          appointment: false
-          isPublic: true
-          demo: false
-          closed: false
-          moderated: false
-          waitModerator: false
-          allowUserQuestions: true
-          allowRecording: true
-          waitRecording: false
-          audioOnly: false
-          hiddenElements: MICROPHONE_STATUS
-    ServiceResultWrapper:
-      type: object
-      properties:
-        serviceResult:
-          $ref: '#/components/schemas/ServiceResult'
-      example:
-        serviceResult:
-          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
-          type: SUCCESS
-    Address:
-      type: object
-      properties:
-        inserted:
-          type: string
-          format: date-time
-          xml:
-            name: created
-        updated:
-          type: string
-          format: date-time
-        deleted:
-          type: boolean
         id:
           type: integer
           format: int64
-        additionalname:
+        fileId:
+          type: integer
+          format: int64
+        wbIdx:
+          type: integer
+          format: int64
+    UserDTOListWrapper:
+      type: object
+      properties:
+        userDTO:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserDTO'
+      example:
+        userDTO:
+        - address:
+            created: 1630191589000
+            deleted: false
+            country: NZ
+            mail: seba.wagner@gmail.com
+          firstname: firstname
+          id: 1
+          languageId: 1
+          lastname: lastname
+          login: admin
+          rights:
+          - ROOM
+          - SOAP
+          - DASHBOARD
+          - ADMIN
+          - LOGIN
+          timeZoneId: Europe/Berlin
+          type: USER
+        - address:
+            created: 1631324533000
+            deleted: false
+            country: NZ
+            mail: john.doe@gmail.com
+          externalId: uniqueId1
+          externalType: myCMS
+          firstname: John
+          id: 2
+          languageId: 1
+          lastname: Doe
+          login: john.doe
+          pictureUri: ''
+          rights: ROOM
+          timeZoneId: Europe/Berlin
+          type: EXTERNAL
+        - address:
+            created: 1631958373000
+            deleted: false
+            country: NZ
+            mail: test@test.com
+          id: 3
+          languageId: 1
+          login: soapuser
+          rights:
+          - ROOM
+          - SOAP
+          - DASHBOARD
+          - ADMIN
+          - LOGIN
+          timeZoneId: Europe/Berlin
+          type: USER
+    RoomDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        tag:
           type: string
         comment:
           type: string
-        fax:
+        type:
           type: string
-        country:
-          type: string
-        street:
-          type: string
-        town:
-          type: string
-        zip:
-          type: string
-        email:
-          type: string
-          xml:
-            name: mail
-        phone:
-          type: string
-      xml:
-        name: address
-    UserDTO:
-      type: object
-      properties:
-        id:
+          enum:
+          - CONFERENCE
+          - PRESENTATION
+          - INTERVIEW
+        capacity:
           type: integer
           format: int64
-        login:
+        appointment:
+          type: boolean
+        confno:
           type: string
-        password:
+        demo:
+          type: boolean
+        closed:
+          type: boolean
+        demoTime:
+          type: integer
+          format: int32
+        externalId:
           type: string
-        firstname:
+        externalType:
           type: string
-        lastname:
+        redirectUrl:
           type: string
-        rights:
+        moderated:
+          type: boolean
+        waitModerator:
+          type: boolean
+        allowUserQuestions:
+          type: boolean
+        allowRecording:
+          type: boolean
+        waitRecording:
+          type: boolean
+        audioOnly:
+          type: boolean
+        hiddenElements:
           uniqueItems: true
           type: array
           items:
             type: string
             enum:
-            - ADMIN
-            - GROUP_ADMIN
-            - ADMIN_CONFIG
-            - ADMIN_CONNECTIONS
-            - ADMIN_BACKUP
-            - ADMIN_LABEL
-            - ROOM
-            - DASHBOARD
-            - LOGIN
-            - SOAP
-        languageId:
-          type: integer
-          format: int64
-        address:
-          $ref: '#/components/schemas/Address'
-        timeZoneId:
-          type: string
-        externalId:
-          type: string
-        externalType:
-          type: string
-        pictureUri:
-          type: string
-        type:
-          type: string
-          enum:
-          - USER
-          - LDAP
-          - OAUTH
-          - EXTERNAL
-          - CONTACT
+            - TOP_BAR
+            - CHAT
+            - ACTIVITIES
+            - FILES
+            - ACTION_MENU
+            - POLL_MENU
+            - SCREEN_SHARING
+            - WHITEBOARD
+            - MICROPHONE_STATUS
+            - USER_COUNT
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoomFileDTO'
+        public:
+          type: boolean
     RoomDTOListWrapper:
       type: object
       properties:
@@ -645,156 +685,6 @@ components:
           allowRecording: true
           waitRecording: false
           audioOnly: false
-    ServiceResult:
-      type: object
-      properties:
-        message:
-          type: string
-        type:
-          type: string
-    RoomDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        tag:
-          type: string
-        comment:
-          type: string
-        type:
-          type: string
-          enum:
-          - CONFERENCE
-          - PRESENTATION
-          - INTERVIEW
-        capacity:
-          type: integer
-          format: int64
-        appointment:
-          type: boolean
-        confno:
-          type: string
-        demo:
-          type: boolean
-        closed:
-          type: boolean
-        demoTime:
-          type: integer
-          format: int32
-        externalId:
-          type: string
-        externalType:
-          type: string
-        redirectUrl:
-          type: string
-        moderated:
-          type: boolean
-        waitModerator:
-          type: boolean
-        allowUserQuestions:
-          type: boolean
-        allowRecording:
-          type: boolean
-        waitRecording:
-          type: boolean
-        audioOnly:
-          type: boolean
-        hiddenElements:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-            enum:
-            - TOP_BAR
-            - CHAT
-            - ACTIVITIES
-            - FILES
-            - ACTION_MENU
-            - POLL_MENU
-            - SCREEN_SHARING
-            - WHITEBOARD
-            - MICROPHONE_STATUS
-            - USER_COUNT
-        files:
-          type: array
-          items:
-            $ref: '#/components/schemas/RoomFileDTO'
-        public:
-          type: boolean
-    RoomFileDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        fileId:
-          type: integer
-          format: int64
-        wbIdx:
-          type: integer
-          format: int64
-    UserDTOListWrapper:
-      type: object
-      properties:
-        userDTO:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserDTO'
-      example:
-        userDTO:
-        - address:
-            created: 1630191589000
-            deleted: false
-            country: NZ
-            mail: seba.wagner@gmail.com
-          firstname: firstname
-          id: 1
-          languageId: 1
-          lastname: lastname
-          login: admin
-          rights:
-          - ROOM
-          - SOAP
-          - DASHBOARD
-          - ADMIN
-          - LOGIN
-          timeZoneId: Europe/Berlin
-          type: USER
-        - address:
-            created: 1631324533000
-            deleted: false
-            country: NZ
-            mail: john.doe@gmail.com
-          externalId: uniqueId1
-          externalType: myCMS
-          firstname: John
-          id: 2
-          languageId: 1
-          lastname: Doe
-          login: john.doe
-          pictureUri: ''
-          rights: ROOM
-          timeZoneId: Europe/Berlin
-          type: EXTERNAL
-        - address:
-            created: 1631958373000
-            deleted: false
-            country: NZ
-            mail: test@test.com
-          id: 3
-          languageId: 1
-          login: soapuser
-          rights:
-          - ROOM
-          - SOAP
-          - DASHBOARD
-          - ADMIN
-          - LOGIN
-          timeZoneId: Europe/Berlin
-          type: USER
     InvitationDTO:
       type: object
       properties:
@@ -828,3 +718,131 @@ components:
         languageId:
           type: integer
           format: int64
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        login:
+          type: string
+        password:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        rights:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - ADMIN
+            - GROUP_ADMIN
+            - ADMIN_CONFIG
+            - ADMIN_CONNECTIONS
+            - ADMIN_BACKUP
+            - ADMIN_LABEL
+            - ROOM
+            - DASHBOARD
+            - LOGIN
+            - SOAP
+        languageId:
+          type: integer
+          format: int64
+        address:
+          $ref: '#/components/schemas/Address'
+        timeZoneId:
+          type: string
+        externalId:
+          type: string
+        externalType:
+          type: string
+        pictureUri:
+          type: string
+        type:
+          type: string
+          enum:
+          - USER
+          - LDAP
+          - OAUTH
+          - EXTERNAL
+          - CONTACT
+    Address:
+      type: object
+      properties:
+        inserted:
+          type: string
+          format: date-time
+          xml:
+            name: created
+        updated:
+          type: string
+          format: date-time
+        deleted:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        additionalname:
+          type: string
+        comment:
+          type: string
+        fax:
+          type: string
+        country:
+          type: string
+        street:
+          type: string
+        town:
+          type: string
+        zip:
+          type: string
+        email:
+          type: string
+          xml:
+            name: mail
+        phone:
+          type: string
+      xml:
+        name: address
+    ServiceResult:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
+    ServiceResultWrapper:
+      type: object
+      properties:
+        serviceResult:
+          $ref: '#/components/schemas/ServiceResult'
+      example:
+        serviceResult:
+          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
+          type: SUCCESS
+    RoomDTOWrapper:
+      type: object
+      properties:
+        roomDTO:
+          $ref: '#/components/schemas/RoomDTO'
+      example:
+        roomDTO:
+          id: 2
+          name: Public Conference Room [install.room.public.conference]
+          comment: ''
+          type: CONFERENCE
+          capacity: 32
+          appointment: false
+          isPublic: true
+          demo: false
+          closed: false
+          moderated: false
+          waitModerator: false
+          allowUserQuestions: true
+          allowRecording: true
+          waitRecording: false
+          audioOnly: false
+          hiddenElements: MICROPHONE_STATUS

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Apache OpenMeetings REST CalendarService FileService API
+  title: Apache OpenMeetings REST File Service API
   description: The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.
   version: 9.0.0
   license:
@@ -21,7 +21,9 @@ paths:
     post:
       tags:
       - FileService
-      description: "to add a folder to the private drive, set parentId = 0 and isOwner to 1/true and\n externalUserId/externalUserType to a valid USER"
+      description: 'to add a folder to the private drive, set parentId = 0 and isOwner to 1/true and
+
+        externalUserId/externalUserType to a valid USER'
       operationId: add
       parameters:
       - name: sid
@@ -314,15 +316,38 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ServiceResultWrapper:
+    FileItemDTOWrapper:
       type: object
       properties:
-        serviceResult:
-          $ref: '#/components/schemas/ServiceResult'
+        fileItemDTO:
+          $ref: '#/components/schemas/FileItemDTO'
       example:
-        serviceResult:
-          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
-          type: SUCCESS
+        fileItemDTO:
+          id: 2
+          name: OpenMeetings-NodeJS-Use-Case_preview.jpg
+          hash: f802b727-5bfc-4273-8c90-939ea15bf388
+          ownerId: 1
+          size: 391449
+          type: IMAGE
+          width: 2193
+          height: 1823
+    FileExplorerObject:
+      type: object
+      properties:
+        userHome:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileItemDTO'
+        roomHome:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileItemDTO'
+        userHomeSize:
+          type: integer
+          format: int64
+        roomHomeSize:
+          type: integer
+          format: int64
     FileItemDTO:
       type: object
       properties:
@@ -368,47 +393,6 @@ components:
         height:
           type: integer
           format: int32
-    ServiceResult:
-      type: object
-      properties:
-        message:
-          type: string
-        type:
-          type: string
-    FileExplorerObject:
-      type: object
-      properties:
-        userHome:
-          type: array
-          items:
-            $ref: '#/components/schemas/FileItemDTO'
-        roomHome:
-          type: array
-          items:
-            $ref: '#/components/schemas/FileItemDTO'
-        userHomeSize:
-          type: integer
-          format: int64
-        roomHomeSize:
-          type: integer
-          format: int64
-    FileItemDTOListWrapper:
-      type: object
-      properties:
-        fileItemDTO:
-          type: array
-          items:
-            $ref: '#/components/schemas/FileItemDTO'
-      example:
-        fileItemDTO:
-        - id: 2
-          name: OpenMeetings-NodeJS-Use-Case_preview.jpg
-          hash: f802b727-5bfc-4273-8c90-939ea15bf388
-          ownerId: 1
-          size: 391449
-          type: IMAGE
-          width: 2193
-          height: 1823
     FileExplorerObjectWrapper:
       type: object
       properties:
@@ -441,14 +425,23 @@ components:
             height: 768
           userHomeSize: 1444970
           roomHomeSize: 334311
-    FileItemDTOWrapper:
+    ServiceResult:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
+    FileItemDTOListWrapper:
       type: object
       properties:
         fileItemDTO:
-          $ref: '#/components/schemas/FileItemDTO'
+          type: array
+          items:
+            $ref: '#/components/schemas/FileItemDTO'
       example:
         fileItemDTO:
-          id: 2
+        - id: 2
           name: OpenMeetings-NodeJS-Use-Case_preview.jpg
           hash: f802b727-5bfc-4273-8c90-939ea15bf388
           ownerId: 1
@@ -456,3 +449,12 @@ components:
           type: IMAGE
           width: 2193
           height: 1823
+    ServiceResultWrapper:
+      type: object
+      properties:
+        serviceResult:
+          $ref: '#/components/schemas/ServiceResult'
+      example:
+        serviceResult:
+          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
+          type: SUCCESS

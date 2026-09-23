@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Apache OpenMeetings REST CalendarService InfoService API
+  title: Apache OpenMeetings REST Info Service API
   description: The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.
   version: 9.0.0
   license:
@@ -49,7 +49,6 @@ paths:
               schema:
                 type: string
       summary: Apache OpenMeetings GetManifest
-      description: Apache OpenMeetings GetManifest
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
@@ -74,25 +73,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Info:
-      type: object
-      properties:
-        version:
-          type: string
-        revision:
-          type: string
-        buildDate:
-          type: string
-    InfoWrapper:
-      type: object
-      properties:
-        info:
-          $ref: '#/components/schemas/Info'
-      example:
-        info:
-          version: 7.0.0-SNAPSHOT
-          revision: 525bd84
-          buildDate: '2021-09-03T22:07:29Z'
     Health:
       type: object
       properties:
@@ -102,6 +82,15 @@ components:
           type: boolean
         dbOk:
           type: boolean
+    Info:
+      type: object
+      properties:
+        version:
+          type: string
+        revision:
+          type: string
+        buildDate:
+          type: string
     HealthWrapper:
       type: object
       properties:
@@ -112,3 +101,13 @@ components:
           inited: true
           installed: true
           dbOk: true
+    InfoWrapper:
+      type: object
+      properties:
+        info:
+          $ref: '#/components/schemas/Info'
+      example:
+        info:
+          version: 7.0.0-SNAPSHOT
+          revision: 525bd84
+          buildDate: '2021-09-03T22:07:29Z'

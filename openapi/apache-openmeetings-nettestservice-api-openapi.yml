@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Apache OpenMeetings REST CalendarService NetTestService API
+  title: Apache OpenMeetings REST Net Test Service API
   description: The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, file uploads, whiteboards, and groups. It supports SOAP API for legacy integrations and plugin APIs for LMS integration.
   version: 9.0.0
   license:
