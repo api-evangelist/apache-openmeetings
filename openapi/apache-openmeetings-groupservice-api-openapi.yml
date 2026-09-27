@@ -287,20 +287,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    UserSearchResult:
-      type: object
-      properties:
-        objectName:
-          type: string
-        records:
-          type: integer
-          format: int64
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserDTO'
-        errorKey:
-          type: string
     GroupDTOListWrapper:
       type: object
       properties:
@@ -365,6 +351,20 @@ components:
           - OAUTH
           - EXTERNAL
           - CONTACT
+    UserSearchResult:
+      type: object
+      properties:
+        objectName:
+          type: string
+        records:
+          type: integer
+          format: int64
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserDTO'
+        errorKey:
+          type: string
     UserSearchResultWrapper:
       type: object
       properties:
@@ -409,13 +409,6 @@ components:
             - LOGIN
             timeZoneId: Europe/Berlin
             type: USER
-    ServiceResult:
-      type: object
-      properties:
-        message:
-          type: string
-        type:
-          type: string
     Address:
       type: object
       properties:
@@ -454,6 +447,13 @@ components:
           type: string
       xml:
         name: address
+    ServiceResult:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
     GroupDTO:
       type: object
       properties:

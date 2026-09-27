@@ -308,194 +308,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    RoomFileDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        fileId:
-          type: integer
-          format: int64
-        wbIdx:
-          type: integer
-          format: int64
-    RoomDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        tag:
-          type: string
-        comment:
-          type: string
-        type:
-          type: string
-          enum:
-          - CONFERENCE
-          - PRESENTATION
-          - INTERVIEW
-        capacity:
-          type: integer
-          format: int64
-        appointment:
-          type: boolean
-        confno:
-          type: string
-        demo:
-          type: boolean
-        closed:
-          type: boolean
-        demoTime:
-          type: integer
-          format: int32
-        externalId:
-          type: string
-        externalType:
-          type: string
-        redirectUrl:
-          type: string
-        moderated:
-          type: boolean
-        waitModerator:
-          type: boolean
-        allowUserQuestions:
-          type: boolean
-        allowRecording:
-          type: boolean
-        waitRecording:
-          type: boolean
-        audioOnly:
-          type: boolean
-        hiddenElements:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-            enum:
-            - TOP_BAR
-            - CHAT
-            - ACTIVITIES
-            - FILES
-            - ACTION_MENU
-            - POLL_MENU
-            - SCREEN_SHARING
-            - WHITEBOARD
-            - MICROPHONE_STATUS
-            - USER_COUNT
-        files:
-          type: array
-          items:
-            $ref: '#/components/schemas/RoomFileDTO'
-        public:
-          type: boolean
-    UserDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        login:
-          type: string
-        password:
-          type: string
-        firstname:
-          type: string
-        lastname:
-          type: string
-        rights:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-            enum:
-            - ADMIN
-            - GROUP_ADMIN
-            - ADMIN_CONFIG
-            - ADMIN_CONNECTIONS
-            - ADMIN_BACKUP
-            - ADMIN_LABEL
-            - ROOM
-            - DASHBOARD
-            - LOGIN
-            - SOAP
-        languageId:
-          type: integer
-          format: int64
-        address:
-          $ref: '#/components/schemas/Address'
-        timeZoneId:
-          type: string
-        externalId:
-          type: string
-        externalType:
-          type: string
-        pictureUri:
-          type: string
-        type:
-          type: string
-          enum:
-          - USER
-          - LDAP
-          - OAUTH
-          - EXTERNAL
-          - CONTACT
-    MeetingMemberDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        user:
-          $ref: '#/components/schemas/UserDTO'
-    Address:
-      type: object
-      properties:
-        inserted:
-          type: string
-          format: date-time
-          xml:
-            name: created
-        updated:
-          type: string
-          format: date-time
-        deleted:
-          type: boolean
-        id:
-          type: integer
-          format: int64
-        additionalname:
-          type: string
-        comment:
-          type: string
-        fax:
-          type: string
-        country:
-          type: string
-        street:
-          type: string
-        town:
-          type: string
-        zip:
-          type: string
-        email:
-          type: string
-          xml:
-            name: mail
-        phone:
-          type: string
-      xml:
-        name: address
-    ServiceResult:
-      type: object
-      properties:
-        message:
-          type: string
-        type:
-          type: string
     AppointmentDTOWrapper:
       type: object
       properties:
@@ -595,6 +407,163 @@ components:
             waitRecording: false
           start: 2021-09-23T11:31:00+1200
           title: New Event
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        login:
+          type: string
+        password:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        rights:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - ADMIN
+            - GROUP_ADMIN
+            - ADMIN_CONFIG
+            - ADMIN_CONNECTIONS
+            - ADMIN_BACKUP
+            - ADMIN_LABEL
+            - ROOM
+            - DASHBOARD
+            - LOGIN
+            - SOAP
+        languageId:
+          type: integer
+          format: int64
+        address:
+          $ref: '#/components/schemas/Address'
+        timeZoneId:
+          type: string
+        externalId:
+          type: string
+        externalType:
+          type: string
+        pictureUri:
+          type: string
+        type:
+          type: string
+          enum:
+          - USER
+          - LDAP
+          - OAUTH
+          - EXTERNAL
+          - CONTACT
+    AppointmentDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        location:
+          type: string
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        description:
+          type: string
+        owner:
+          $ref: '#/components/schemas/UserDTO'
+        inserted:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        deleted:
+          type: boolean
+        reminder:
+          type: string
+          enum:
+          - NONE
+          - EMAIL
+          - ICAL
+        room:
+          $ref: '#/components/schemas/RoomDTO'
+        icalId:
+          type: string
+        meetingMembers:
+          type: array
+          items:
+            $ref: '#/components/schemas/MeetingMemberDTO'
+        languageId:
+          type: integer
+          format: int64
+        password:
+          type: string
+        passwordProtected:
+          type: boolean
+        connectedEvent:
+          type: boolean
+        reminderEmailSend:
+          type: boolean
+    MeetingMemberDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        user:
+          $ref: '#/components/schemas/UserDTO'
+    Address:
+      type: object
+      properties:
+        inserted:
+          type: string
+          format: date-time
+          xml:
+            name: created
+        updated:
+          type: string
+          format: date-time
+        deleted:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        additionalname:
+          type: string
+        comment:
+          type: string
+        fax:
+          type: string
+        country:
+          type: string
+        street:
+          type: string
+        town:
+          type: string
+        zip:
+          type: string
+        email:
+          type: string
+          xml:
+            name: mail
+        phone:
+          type: string
+      xml:
+        name: address
+    ServiceResult:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
     AppointmentDTOListWrapper:
       type: object
       properties:
@@ -696,59 +665,18 @@ components:
             waitRecording: false
           start: 2021-09-23T11:31:00+1200
           title: New Event
-    AppointmentDTO:
+    RoomFileDTO:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        title:
-          type: string
-        location:
-          type: string
-        start:
-          type: string
-          format: date-time
-        end:
-          type: string
-          format: date-time
-        description:
-          type: string
-        owner:
-          $ref: '#/components/schemas/UserDTO'
-        inserted:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-        deleted:
-          type: boolean
-        reminder:
-          type: string
-          enum:
-          - NONE
-          - EMAIL
-          - ICAL
-        room:
-          $ref: '#/components/schemas/RoomDTO'
-        icalId:
-          type: string
-        meetingMembers:
-          type: array
-          items:
-            $ref: '#/components/schemas/MeetingMemberDTO'
-        languageId:
+        fileId:
           type: integer
           format: int64
-        password:
-          type: string
-        passwordProtected:
-          type: boolean
-        connectedEvent:
-          type: boolean
-        reminderEmailSend:
-          type: boolean
+        wbIdx:
+          type: integer
+          format: int64
     ServiceResultWrapper:
       type: object
       properties:
@@ -758,3 +686,75 @@ components:
         serviceResult:
           message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
           type: SUCCESS
+    RoomDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        tag:
+          type: string
+        comment:
+          type: string
+        type:
+          type: string
+          enum:
+          - CONFERENCE
+          - PRESENTATION
+          - INTERVIEW
+        capacity:
+          type: integer
+          format: int64
+        appointment:
+          type: boolean
+        confno:
+          type: string
+        demo:
+          type: boolean
+        closed:
+          type: boolean
+        demoTime:
+          type: integer
+          format: int32
+        externalId:
+          type: string
+        externalType:
+          type: string
+        redirectUrl:
+          type: string
+        moderated:
+          type: boolean
+        waitModerator:
+          type: boolean
+        allowUserQuestions:
+          type: boolean
+        allowRecording:
+          type: boolean
+        waitRecording:
+          type: boolean
+        audioOnly:
+          type: boolean
+        hiddenElements:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - TOP_BAR
+            - CHAT
+            - ACTIVITIES
+            - FILES
+            - ACTION_MENU
+            - POLL_MENU
+            - SCREEN_SHARING
+            - WHITEBOARD
+            - MICROPHONE_STATUS
+            - USER_COUNT
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoomFileDTO'
+        public:
+          type: boolean
