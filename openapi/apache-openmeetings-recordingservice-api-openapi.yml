@@ -155,22 +155,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ServiceResult:
-      type: object
-      properties:
-        message:
-          type: string
-        type:
-          type: string
-    ServiceResultWrapper:
-      type: object
-      properties:
-        serviceResult:
-          $ref: '#/components/schemas/ServiceResult'
-      example:
-        serviceResult:
-          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
-          type: SUCCESS
     RecordingDTO:
       type: object
       properties:
@@ -205,6 +189,13 @@ components:
           format: int64
         externalType:
           type: string
+    ServiceResult:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
     RecordingDTOListWrapper:
       type: object
       properties:
@@ -225,3 +216,12 @@ components:
           width: 1792
           height: 1120
           ownerId: 1
+    ServiceResultWrapper:
+      type: object
+      properties:
+        serviceResult:
+          $ref: '#/components/schemas/ServiceResult'
+      example:
+        serviceResult:
+          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
+          type: SUCCESS

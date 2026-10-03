@@ -92,15 +92,6 @@ components:
           type: boolean
         dbOk:
           type: boolean
-    Info:
-      type: object
-      properties:
-        version:
-          type: string
-        revision:
-          type: string
-        buildDate:
-          type: string
     HealthWrapper:
       type: object
       properties:
@@ -111,3 +102,12 @@ components:
           inited: true
           installed: true
           dbOk: true
+    Info:
+      type: object
+      properties:
+        version:
+          type: string
+        revision:
+          type: string
+        buildDate:
+          type: string
