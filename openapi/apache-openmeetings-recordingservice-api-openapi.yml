@@ -189,13 +189,6 @@ components:
           format: int64
         externalType:
           type: string
-    ServiceResult:
-      type: object
-      properties:
-        message:
-          type: string
-        type:
-          type: string
     RecordingDTOListWrapper:
       type: object
       properties:
@@ -225,3 +218,10 @@ components:
         serviceResult:
           message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
           type: SUCCESS
+    ServiceResult:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string

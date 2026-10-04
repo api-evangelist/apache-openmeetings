@@ -83,15 +83,6 @@ components:
           version: 7.0.0-SNAPSHOT
           revision: 525bd84
           buildDate: '2021-09-03T22:07:29Z'
-    Health:
-      type: object
-      properties:
-        inited:
-          type: boolean
-        installed:
-          type: boolean
-        dbOk:
-          type: boolean
     HealthWrapper:
       type: object
       properties:
@@ -111,3 +102,12 @@ components:
           type: string
         buildDate:
           type: string
+    Health:
+      type: object
+      properties:
+        inited:
+          type: boolean
+        installed:
+          type: boolean
+        dbOk:
+          type: boolean

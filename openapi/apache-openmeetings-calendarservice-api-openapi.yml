@@ -308,6 +308,68 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    AppointmentDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        location:
+          type: string
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        description:
+          type: string
+        owner:
+          $ref: '#/components/schemas/UserDTO'
+        inserted:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        deleted:
+          type: boolean
+        reminder:
+          type: string
+          enum:
+          - NONE
+          - EMAIL
+          - ICAL
+        room:
+          $ref: '#/components/schemas/RoomDTO'
+        icalId:
+          type: string
+        meetingMembers:
+          type: array
+          items:
+            $ref: '#/components/schemas/MeetingMemberDTO'
+        languageId:
+          type: integer
+          format: int64
+        password:
+          type: string
+        passwordProtected:
+          type: boolean
+        connectedEvent:
+          type: boolean
+        reminderEmailSend:
+          type: boolean
+    ServiceResultWrapper:
+      type: object
+      properties:
+        serviceResult:
+          $ref: '#/components/schemas/ServiceResult'
+      example:
+        serviceResult:
+          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
+          type: SUCCESS
     ServiceResult:
       type: object
       properties:
@@ -315,14 +377,90 @@ components:
           type: string
         type:
           type: string
-    MeetingMemberDTO:
+    RoomDTO:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        user:
-          $ref: '#/components/schemas/UserDTO'
+        name:
+          type: string
+        tag:
+          type: string
+        comment:
+          type: string
+        type:
+          type: string
+          enum:
+          - CONFERENCE
+          - PRESENTATION
+          - INTERVIEW
+        capacity:
+          type: integer
+          format: int64
+        appointment:
+          type: boolean
+        confno:
+          type: string
+        demo:
+          type: boolean
+        closed:
+          type: boolean
+        demoTime:
+          type: integer
+          format: int32
+        externalId:
+          type: string
+        externalType:
+          type: string
+        redirectUrl:
+          type: string
+        moderated:
+          type: boolean
+        waitModerator:
+          type: boolean
+        allowUserQuestions:
+          type: boolean
+        allowRecording:
+          type: boolean
+        waitRecording:
+          type: boolean
+        audioOnly:
+          type: boolean
+        hiddenElements:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - TOP_BAR
+            - CHAT
+            - ACTIVITIES
+            - FILES
+            - ACTION_MENU
+            - POLL_MENU
+            - SCREEN_SHARING
+            - WHITEBOARD
+            - MICROPHONE_STATUS
+            - USER_COUNT
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoomFileDTO'
+        public:
+          type: boolean
+    RoomFileDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        fileId:
+          type: integer
+          format: int64
+        wbIdx:
+          type: integer
+          format: int64
     AppointmentDTOWrapper:
       type: object
       properties:
@@ -367,6 +505,107 @@ components:
               - DASHBOARD
               - ADMIN
               - 'LOGIN  '
+              timeZoneId: Europe/Berlin
+              type: USER
+          owner:
+            address:
+              country: NZ
+              deleted: false
+              email: seba.wagner@gmail.com
+              id: 1
+              inserted:
+                date: 29
+                day: 0
+                hours: 10
+                minutes: 59
+                month: 7
+                ownerField: 1
+                seconds: 49
+                time: 1630191589000
+                timezoneOffset: -720
+                year: 121
+            firstname: firstname
+            id: 1
+            languageId: 1
+            lastname: lastname
+            login: admin
+            rights:
+            - ROOM
+            - SOAP
+            - DASHBOARD
+            - ADMIN
+            - LOGIN
+            timeZoneId: Europe/Berlin
+            type: USER
+          passwordProtected: false
+          reminder: ICAL
+          reminderEmailSend: false
+          room:
+            allowRecording: true
+            allowUserQuestions: false
+            appointment: true
+            audioOnly: false
+            capacity: 50
+            closed: false
+            demo: false
+            files: []
+            hiddenElements:
+            - MICROPHONE_STATUS
+            id: 11
+            moderated: false
+            name: New Event
+            public: false
+            type: CONFERENCE
+            waitModerator: false
+            waitRecording: false
+          start: 2021-09-23T11:31:00+1200
+          title: New Event
+    AppointmentDTOListWrapper:
+      type: object
+      properties:
+        appointmentDTO:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppointmentDTO'
+      example:
+        appointmentDTO:
+        - connectedEvent: false
+          deleted: false
+          description: Comments
+          end: 2021-09-23T12:31:00+1200
+          icalId: 7507ab5d-81ec-458a-bdb1-48d102978e49
+          id: 1
+          inserted: 2021-09-19T11:31:37+1200
+          meetingMembers:
+          - id: 1
+            user:
+              address:
+                country: NZ
+                deleted: false
+                email: seba.wagner@gmail.com
+                id: 1
+                inserted:
+                  date: 29
+                  day: 0
+                  hours: 10
+                  minutes: 59
+                  month: 7
+                  ownerField: 1
+                  seconds: 49
+                  time: 1630191589000
+                  timezoneOffset: -720
+                  year: 121
+              firstname: firstname
+              id: 1
+              languageId: 1
+              lastname: lastname
+              login: admin
+              rights:
+              - ROOM
+              - SOAP
+              - DASHBOARD
+              - ADMIN
+              - LOGIN
               timeZoneId: Europe/Berlin
               type: USER
           owner:
@@ -473,15 +712,6 @@ components:
           - OAUTH
           - EXTERNAL
           - CONTACT
-    ServiceResultWrapper:
-      type: object
-      properties:
-        serviceResult:
-          $ref: '#/components/schemas/ServiceResult'
-      example:
-        serviceResult:
-          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
-          type: SUCCESS
     Address:
       type: object
       properties:
@@ -520,241 +750,11 @@ components:
           type: string
       xml:
         name: address
-    AppointmentDTO:
+    MeetingMemberDTO:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        title:
-          type: string
-        location:
-          type: string
-        start:
-          type: string
-          format: date-time
-        end:
-          type: string
-          format: date-time
-        description:
-          type: string
-        owner:
+        user:
           $ref: '#/components/schemas/UserDTO'
-        inserted:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-        deleted:
-          type: boolean
-        reminder:
-          type: string
-          enum:
-          - NONE
-          - EMAIL
-          - ICAL
-        room:
-          $ref: '#/components/schemas/RoomDTO'
-        icalId:
-          type: string
-        meetingMembers:
-          type: array
-          items:
-            $ref: '#/components/schemas/MeetingMemberDTO'
-        languageId:
-          type: integer
-          format: int64
-        password:
-          type: string
-        passwordProtected:
-          type: boolean
-        connectedEvent:
-          type: boolean
-        reminderEmailSend:
-          type: boolean
-    RoomDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        tag:
-          type: string
-        comment:
-          type: string
-        type:
-          type: string
-          enum:
-          - CONFERENCE
-          - PRESENTATION
-          - INTERVIEW
-        capacity:
-          type: integer
-          format: int64
-        appointment:
-          type: boolean
-        confno:
-          type: string
-        demo:
-          type: boolean
-        closed:
-          type: boolean
-        demoTime:
-          type: integer
-          format: int32
-        externalId:
-          type: string
-        externalType:
-          type: string
-        redirectUrl:
-          type: string
-        moderated:
-          type: boolean
-        waitModerator:
-          type: boolean
-        allowUserQuestions:
-          type: boolean
-        allowRecording:
-          type: boolean
-        waitRecording:
-          type: boolean
-        audioOnly:
-          type: boolean
-        hiddenElements:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-            enum:
-            - TOP_BAR
-            - CHAT
-            - ACTIVITIES
-            - FILES
-            - ACTION_MENU
-            - POLL_MENU
-            - SCREEN_SHARING
-            - WHITEBOARD
-            - MICROPHONE_STATUS
-            - USER_COUNT
-        files:
-          type: array
-          items:
-            $ref: '#/components/schemas/RoomFileDTO'
-        public:
-          type: boolean
-    AppointmentDTOListWrapper:
-      type: object
-      properties:
-        appointmentDTO:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppointmentDTO'
-      example:
-        appointmentDTO:
-        - connectedEvent: false
-          deleted: false
-          description: Comments
-          end: 2021-09-23T12:31:00+1200
-          icalId: 7507ab5d-81ec-458a-bdb1-48d102978e49
-          id: 1
-          inserted: 2021-09-19T11:31:37+1200
-          meetingMembers:
-          - id: 1
-            user:
-              address:
-                country: NZ
-                deleted: false
-                email: seba.wagner@gmail.com
-                id: 1
-                inserted:
-                  date: 29
-                  day: 0
-                  hours: 10
-                  minutes: 59
-                  month: 7
-                  ownerField: 1
-                  seconds: 49
-                  time: 1630191589000
-                  timezoneOffset: -720
-                  year: 121
-              firstname: firstname
-              id: 1
-              languageId: 1
-              lastname: lastname
-              login: admin
-              rights:
-              - ROOM
-              - SOAP
-              - DASHBOARD
-              - ADMIN
-              - LOGIN
-              timeZoneId: Europe/Berlin
-              type: USER
-          owner:
-            address:
-              country: NZ
-              deleted: false
-              email: seba.wagner@gmail.com
-              id: 1
-              inserted:
-                date: 29
-                day: 0
-                hours: 10
-                minutes: 59
-                month: 7
-                ownerField: 1
-                seconds: 49
-                time: 1630191589000
-                timezoneOffset: -720
-                year: 121
-            firstname: firstname
-            id: 1
-            languageId: 1
-            lastname: lastname
-            login: admin
-            rights:
-            - ROOM
-            - SOAP
-            - DASHBOARD
-            - ADMIN
-            - LOGIN
-            timeZoneId: Europe/Berlin
-            type: USER
-          passwordProtected: false
-          reminder: ICAL
-          reminderEmailSend: false
-          room:
-            allowRecording: true
-            allowUserQuestions: false
-            appointment: true
-            audioOnly: false
-            capacity: 50
-            closed: false
-            demo: false
-            files: []
-            hiddenElements:
-            - MICROPHONE_STATUS
-            id: 11
-            moderated: false
-            name: New Event
-            public: false
-            type: CONFERENCE
-            waitModerator: false
-            waitRecording: false
-          start: 2021-09-23T11:31:00+1200
-          title: New Event
-    RoomFileDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        fileId:
-          type: integer
-          format: int64
-        wbIdx:
-          type: integer
-          format: int64

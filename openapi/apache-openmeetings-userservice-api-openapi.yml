@@ -234,13 +234,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ServiceResult:
-      type: object
-      properties:
-        message:
-          type: string
-        type:
-          type: string
     UserDTOListWrapper:
       type: object
       properties:
@@ -317,6 +310,68 @@ components:
           type: string
         externalType:
           type: string
+    UserDTOWrapper:
+      type: object
+      properties:
+        userDTO:
+          $ref: '#/components/schemas/UserDTO'
+      example:
+        userDTO:
+          address:
+            created: 1630191589000
+            deleted: false
+            country: NZ
+            mail: seba.wagner@gmail.com
+          firstname: firstname
+          id: 1
+          languageId: 1
+          lastname: lastname
+          login: admin
+          rights:
+          - ROOM
+          - SOAP
+          - DASHBOARD
+          - ADMIN
+          - LOGIN
+          timeZoneId: Europe/Berlin
+          type: USER
+    RoomOptionsDTO:
+      type: object
+      properties:
+        roomId:
+          type: integer
+          format: int64
+        externalRoomId:
+          type: string
+        externalType:
+          type: string
+        recordingId:
+          type: integer
+          format: int64
+        moderator:
+          type: boolean
+        showAudioVideoTest:
+          type: boolean
+        allowSameURLMultipleTimes:
+          type: boolean
+        allowRecording:
+          type: boolean
+    ServiceResultWrapper:
+      type: object
+      properties:
+        serviceResult:
+          $ref: '#/components/schemas/ServiceResult'
+      example:
+        serviceResult:
+          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
+          type: SUCCESS
+    ServiceResult:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
     UserDTO:
       type: object
       properties:
@@ -368,15 +423,6 @@ components:
           - OAUTH
           - EXTERNAL
           - CONTACT
-    ServiceResultWrapper:
-      type: object
-      properties:
-        serviceResult:
-          $ref: '#/components/schemas/ServiceResult'
-      example:
-        serviceResult:
-          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
-          type: SUCCESS
     Address:
       type: object
       properties:
@@ -415,49 +461,3 @@ components:
           type: string
       xml:
         name: address
-    UserDTOWrapper:
-      type: object
-      properties:
-        userDTO:
-          $ref: '#/components/schemas/UserDTO'
-      example:
-        userDTO:
-          address:
-            created: 1630191589000
-            deleted: false
-            country: NZ
-            mail: seba.wagner@gmail.com
-          firstname: firstname
-          id: 1
-          languageId: 1
-          lastname: lastname
-          login: admin
-          rights:
-          - ROOM
-          - SOAP
-          - DASHBOARD
-          - ADMIN
-          - LOGIN
-          timeZoneId: Europe/Berlin
-          type: USER
-    RoomOptionsDTO:
-      type: object
-      properties:
-        roomId:
-          type: integer
-          format: int64
-        externalRoomId:
-          type: string
-        externalType:
-          type: string
-        recordingId:
-          type: integer
-          format: int64
-        moderator:
-          type: boolean
-        showAudioVideoTest:
-          type: boolean
-        allowSameURLMultipleTimes:
-          type: boolean
-        allowRecording:
-          type: boolean
