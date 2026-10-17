@@ -348,16 +348,30 @@ components:
             height: 768
           userHomeSize: 1444970
           roomHomeSize: 334311
-    FileItemDTOListWrapper:
+    ServiceResult:
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
+    ServiceResultWrapper:
+      type: object
+      properties:
+        serviceResult:
+          $ref: '#/components/schemas/ServiceResult'
+      example:
+        serviceResult:
+          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
+          type: SUCCESS
+    FileItemDTOWrapper:
       type: object
       properties:
         fileItemDTO:
-          type: array
-          items:
-            $ref: '#/components/schemas/FileItemDTO'
+          $ref: '#/components/schemas/FileItemDTO'
       example:
         fileItemDTO:
-        - id: 2
+          id: 2
           name: OpenMeetings-NodeJS-Use-Case_preview.jpg
           hash: f802b727-5bfc-4273-8c90-939ea15bf388
           ownerId: 1
@@ -382,22 +396,23 @@ components:
         roomHomeSize:
           type: integer
           format: int64
-    ServiceResultWrapper:
+    FileItemDTOListWrapper:
       type: object
       properties:
-        serviceResult:
-          $ref: '#/components/schemas/ServiceResult'
+        fileItemDTO:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileItemDTO'
       example:
-        serviceResult:
-          message: 9dbb6907-61fc-42c0-a2b2-5dbfbe053ac6
-          type: SUCCESS
-    ServiceResult:
-      type: object
-      properties:
-        message:
-          type: string
-        type:
-          type: string
+        fileItemDTO:
+        - id: 2
+          name: OpenMeetings-NodeJS-Use-Case_preview.jpg
+          hash: f802b727-5bfc-4273-8c90-939ea15bf388
+          ownerId: 1
+          size: 391449
+          type: IMAGE
+          width: 2193
+          height: 1823
     FileItemDTO:
       type: object
       properties:
@@ -443,18 +458,3 @@ components:
         height:
           type: integer
           format: int32
-    FileItemDTOWrapper:
-      type: object
-      properties:
-        fileItemDTO:
-          $ref: '#/components/schemas/FileItemDTO'
-      example:
-        fileItemDTO:
-          id: 2
-          name: OpenMeetings-NodeJS-Use-Case_preview.jpg
-          hash: f802b727-5bfc-4273-8c90-939ea15bf388
-          ownerId: 1
-          size: 391449
-          type: IMAGE
-          width: 2193
-          height: 1823
