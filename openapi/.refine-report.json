@@ -1,48 +1,19 @@
 {
   "provider": "apache-openmeetings",
   "sources": [
-    "_original/apache-openmeetings-rest-api.json"
+    "_original/apache-openmeetings-openapi.json"
   ],
   "outputs": [
-    "apache-openmeetings-calendarservice-api-openapi.yml",
-    "apache-openmeetings-errorservice-api-openapi.yml",
-    "apache-openmeetings-fileservice-api-openapi.yml",
-    "apache-openmeetings-groupservice-api-openapi.yml",
-    "apache-openmeetings-infoservice-api-openapi.yml",
-    "apache-openmeetings-nettestservice-api-openapi.yml",
-    "apache-openmeetings-recordingservice-api-openapi.yml",
-    "apache-openmeetings-roomservice-api-openapi.yml",
-    "apache-openmeetings-userservice-api-openapi.yml",
-    "apache-openmeetings-wbservice-api-openapi.yml"
+    "apache-openmeetings-queues-api-openapi.yml",
+    "apache-openmeetings-status-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "apache-openmeetings-rest-api.json: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
-    "apache-openmeetings-rest-api.json: declared missing tag: CalendarService",
-    "apache-openmeetings-rest-api.json: declared missing tag: ErrorService",
-    "apache-openmeetings-rest-api.json: declared missing tag: FileService",
-    "apache-openmeetings-rest-api.json: declared missing tag: GroupService",
-    "apache-openmeetings-rest-api.json: declared missing tag: InfoService",
-    "apache-openmeetings-rest-api.json: declared missing tag: NetTestService",
-    "apache-openmeetings-rest-api.json: declared missing tag: RecordingService",
-    "apache-openmeetings-rest-api.json: declared missing tag: RoomService",
-    "apache-openmeetings-rest-api.json: declared missing tag: UserService",
-    "apache-openmeetings-rest-api.json: declared missing tag: WbService",
-    "apis.yml register: already-registered"
+    "apache-openmeetings-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+2 apis, 2 total)"
   ],
-  "skipped": [
-    "apache-openmeetings-calendarservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-openmeetings-errorservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-openmeetings-fileservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-openmeetings-groupservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-openmeetings-infoservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-openmeetings-nettestservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-openmeetings-recordingservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-openmeetings-roomservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-openmeetings-userservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-openmeetings-wbservice-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }
