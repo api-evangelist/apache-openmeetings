@@ -1,4 +1,4 @@
-# Apache OpenMeetings (apache-openmeetings)
+# Apache OpenMeetings
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,65 +66,246 @@
 
 Apache OpenMeetings is a web conferencing and collaboration tool that provides video conferencing, instant messaging, white board, collaborative document editing, and other groupware tools. It offers integration APIs for LMS platforms.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/apache-openmeetings/refs/heads/main/apis.yml)
+**Areas:** Collaboration · Video Conferencing · Web Conferencing · Whiteboard · Apache · Open Source · Conferencing
 
-## Scope
+## Apache OpenMeetings on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Apache OpenMeetings is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/apache-openmeetings/](https://apis.io/providers/apache-openmeetings/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (10)
 
-- Collaboration
-- Video Conferencing
-- Web Conferencing
-- Whiteboard
-- Apache
-- Open Source
-- Conferencing
+- [Apache OpenMeetings CalendarService API](https://apis.io/apis/apache-openmeetings/apache-openmeetings-calendarservice-api/) — The CalendarService API from Apache OpenMeetings — 8 operation(s) for calendarservice.
+- [Apache OpenMeetings ErrorService API](https://apis.io/apis/apache-openmeetings/apache-openmeetings-errorservice-api/) — The ErrorService API from Apache OpenMeetings — 2 operation(s) for errorservice.
+- [Apache OpenMeetings FileService API](https://apis.io/apis/apache-openmeetings/apache-openmeetings-fileservice-api/) — The FileService API from Apache OpenMeetings — 8 operation(s) for fileservice.
+- [Apache OpenMeetings GroupService API](https://apis.io/apis/apache-openmeetings/apache-openmeetings-groupservice-api/) — The GroupService API from Apache OpenMeetings — 5 operation(s) for groupservice.
+- [Apache OpenMeetings InfoService API](https://apis.io/apis/apache-openmeetings/apache-openmeetings-infoservice-api/) — The InfoService API from Apache OpenMeetings — 3 operation(s) for infoservice.
+- [Apache OpenMeetings NetTestService API](https://apis.io/apis/apache-openmeetings/apache-openmeetings-nettestservice-api/) — The NetTestService API from Apache OpenMeetings — 1 operation(s) for nettestservice.
+- [Apache OpenMeetings RecordingService API](https://apis.io/apis/apache-openmeetings/apache-openmeetings-recordingservice-api/) — The RecordingService API from Apache OpenMeetings — 4 operation(s) for recordingservice.
+- [Apache OpenMeetings RoomService API](https://apis.io/apis/apache-openmeetings/apache-openmeetings-roomservice-api/) — The RoomService API from Apache OpenMeetings — 11 operation(s) for roomservice.
+- [Apache OpenMeetings UserService API](https://apis.io/apis/apache-openmeetings/apache-openmeetings-userservice-api/) — The UserService API from Apache OpenMeetings — 5 operation(s) for userservice.
+- [Apache OpenMeetings WbService API](https://apis.io/apis/apache-openmeetings/apache-openmeetings-wbservice-api/) — The WbService API from Apache OpenMeetings — 4 operation(s) for wbservice.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Apache OpenMeetings REST API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The OpenMeetings REST API provides endpoints for managing rooms, users, recordings, calendars, and file uploads, with SOAP API support for legacy integrations and plugin APIs for LMS integration (Moodle, Sakai).
+- [Apache Openmeetings Agentic Access](https://apis.io/agentic-access/apache-openmeetings/apache-openmeetings-agentic-access/)
 
-- **Human URL:** [https://openmeetings.apache.org/RestAPISample.html](https://openmeetings.apache.org/RestAPISample.html)
+#### JSON Schema (32)
 
-#### Tags
+The data models the API reads and writes.
 
-- Conferencing
-- REST
-- SOAP
-- Apache
-- Open Source
+- [Address](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-address/)
+- [AppointmentDTO](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-appointment-dto/)
+- [AppointmentDTOListWrapper](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-appointment-dto-list-wrapper/)
+- [AppointmentDTOWrapper](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-appointment-dto-wrapper/)
+- [ExternalUserDTO](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-external-user-dto/)
+- [FileExplorerObject](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-file-explorer-object/)
+- [FileExplorerObjectWrapper](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-file-explorer-object-wrapper/)
+- [FileItemDTO](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-file-item-dto/)
+- [FileItemDTOListWrapper](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-file-item-dto-list-wrapper/)
+- [FileItemDTOWrapper](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-file-item-dto-wrapper/)
+- [GroupDTO](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-group-dto/)
+- [GroupDTOListWrapper](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-group-dto-list-wrapper/)
+- [Health](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-health/)
+- [HealthWrapper](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-health-wrapper/)
+- [Info](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-info/)
+- [InfoWrapper](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-info-wrapper/)
+- [InvitationDTO](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-invitation-dto/)
+- [MeetingMemberDTO](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-meeting-member-dto/)
+- [RecordingDTO](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-recording-dto/)
+- [RecordingDTOListWrapper](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-recording-dto-list-wrapper/)
+- [RoomDTO](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-room-dto/)
+- [RoomDTOListWrapper](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-room-dto-list-wrapper/)
+- [RoomDTOWrapper](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-room-dto-wrapper/)
+- [RoomFileDTO](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-room-file-dto/)
+- [RoomOptionsDTO](https://apis.io/schemas/apache-openmeetings/apache-openmeetings-room-options-dto/)
+- …and 7 more published on APIs.io
 
-#### Properties
+#### JSON Structure (32)
 
-- [Documentation](https://openmeetings.apache.org/RestAPISample.html)
-- [OpenAPI](openapi/apache-openmeetings-rest-api.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/apache-openmeetings-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/apache-openmeetings-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Data models expressed in JSON Structure.
 
-## Common Properties
+- [Apache Openmeetings Address Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-address-structure/)
+- [Apache Openmeetings Appointment Dto List Wrapper Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-appointment-dto-list-wrapper-structure/)
+- [Apache Openmeetings Appointment Dto Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-appointment-dto-structure/)
+- [Apache Openmeetings Appointment Dto Wrapper Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-appointment-dto-wrapper-structure/)
+- [Apache Openmeetings External User Dto Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-external-user-dto-structure/)
+- [Apache Openmeetings File Explorer Object Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-file-explorer-object-structure/)
+- [Apache Openmeetings File Explorer Object Wrapper Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-file-explorer-object-wrapper-structure/)
+- [Apache Openmeetings File Item Dto List Wrapper Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-file-item-dto-list-wrapper-structure/)
+- [Apache Openmeetings File Item Dto Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-file-item-dto-structure/)
+- [Apache Openmeetings File Item Dto Wrapper Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-file-item-dto-wrapper-structure/)
+- [Apache Openmeetings Group Dto List Wrapper Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-group-dto-list-wrapper-structure/)
+- [Apache Openmeetings Group Dto Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-group-dto-structure/)
+- [Apache Openmeetings Health Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-health-structure/)
+- [Apache Openmeetings Health Wrapper Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-health-wrapper-structure/)
+- [Apache Openmeetings Info Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-info-structure/)
+- [Apache Openmeetings Info Wrapper Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-info-wrapper-structure/)
+- [Apache Openmeetings Invitation Dto Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-invitation-dto-structure/)
+- [Apache Openmeetings Meeting Member Dto Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-meeting-member-dto-structure/)
+- [Apache Openmeetings Recording Dto List Wrapper Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-recording-dto-list-wrapper-structure/)
+- [Apache Openmeetings Recording Dto Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-recording-dto-structure/)
+- [Apache Openmeetings Room Dto List Wrapper Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-room-dto-list-wrapper-structure/)
+- [Apache Openmeetings Room Dto Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-room-dto-structure/)
+- [Apache Openmeetings Room Dto Wrapper Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-room-dto-wrapper-structure/)
+- [Apache Openmeetings Room File Dto Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-room-file-dto-structure/)
+- [Apache Openmeetings Room Options Dto Structure](https://apis.io/json-structure/apache-openmeetings/apache-openmeetings-room-options-dto-structure/)
+- …and 7 more published on APIs.io
 
-- [GitHub Organization](https://github.com/apache/openmeetings)
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Apache Openmeetings Context](https://apis.io/jsonld/apache-openmeetings/apache-openmeetings-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Apache Openmeetings Vocabulary](https://apis.io/vocabularies/apache-openmeetings/apache-openmeetings-vocabulary/)
+
+#### Examples (32)
+
+Example requests and responses.
+
+- [Apache Openmeetings Address Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-address-example/)
+- [Apache Openmeetings Appointment Dto Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-appointment-dto-example/)
+- [Apache Openmeetings Appointment Dto List Wrapper Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-appointment-dto-list-wrapper-example/)
+- [Apache Openmeetings Appointment Dto Wrapper Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-appointment-dto-wrapper-example/)
+- [Apache Openmeetings External User Dto Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-external-user-dto-example/)
+- [Apache Openmeetings File Explorer Object Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-file-explorer-object-example/)
+- [Apache Openmeetings File Explorer Object Wrapper Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-file-explorer-object-wrapper-example/)
+- [Apache Openmeetings File Item Dto Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-file-item-dto-example/)
+- [Apache Openmeetings File Item Dto List Wrapper Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-file-item-dto-list-wrapper-example/)
+- [Apache Openmeetings File Item Dto Wrapper Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-file-item-dto-wrapper-example/)
+- [Apache Openmeetings Group Dto Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-group-dto-example/)
+- [Apache Openmeetings Group Dto List Wrapper Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-group-dto-list-wrapper-example/)
+- [Apache Openmeetings Health Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-health-example/)
+- [Apache Openmeetings Health Wrapper Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-health-wrapper-example/)
+- [Apache Openmeetings Info Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-info-example/)
+- [Apache Openmeetings Info Wrapper Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-info-wrapper-example/)
+- [Apache Openmeetings Invitation Dto Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-invitation-dto-example/)
+- [Apache Openmeetings Meeting Member Dto Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-meeting-member-dto-example/)
+- [Apache Openmeetings Recording Dto Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-recording-dto-example/)
+- [Apache Openmeetings Recording Dto List Wrapper Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-recording-dto-list-wrapper-example/)
+- [Apache Openmeetings Room Dto Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-room-dto-example/)
+- [Apache Openmeetings Room Dto List Wrapper Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-room-dto-list-wrapper-example/)
+- [Apache Openmeetings Room Dto Wrapper Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-room-dto-wrapper-example/)
+- [Apache Openmeetings Room File Dto Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-room-file-dto-example/)
+- [Apache Openmeetings Room Options Dto Example](https://apis.io/examples/apache-openmeetings/apache-openmeetings-room-options-dto-example/)
+- …and 7 more published on APIs.io
+
+#### Collections (11)
+
+Postman and Open Collection request collections.
+
+- [Apache OpenMeetings REST CalendarService API](https://apis.io/collections/apache-openmeetings/open-apache-openmeetings-calendarservice-api/)
+- [Apache OpenMeetings REST CalendarService ErrorService API](https://apis.io/collections/apache-openmeetings/open-apache-openmeetings-errorservice-api/)
+- [Apache OpenMeetings REST CalendarService FileService API](https://apis.io/collections/apache-openmeetings/open-apache-openmeetings-fileservice-api/)
+- [Apache OpenMeetings REST CalendarService GroupService API](https://apis.io/collections/apache-openmeetings/open-apache-openmeetings-groupservice-api/)
+- [Apache OpenMeetings REST CalendarService InfoService API](https://apis.io/collections/apache-openmeetings/open-apache-openmeetings-infoservice-api/)
+- [Apache OpenMeetings REST CalendarService NetTestService API](https://apis.io/collections/apache-openmeetings/open-apache-openmeetings-nettestservice-api/)
+- [Apache OpenMeetings REST CalendarService RecordingService API](https://apis.io/collections/apache-openmeetings/open-apache-openmeetings-recordingservice-api/)
+- [Apache OpenMeetings REST API](https://apis.io/collections/apache-openmeetings/open-apache-openmeetings-rest-api/)
+- [Apache OpenMeetings REST CalendarService RoomService API](https://apis.io/collections/apache-openmeetings/open-apache-openmeetings-roomservice-api/)
+- [Apache OpenMeetings REST CalendarService UserService API](https://apis.io/collections/apache-openmeetings/open-apache-openmeetings-userservice-api/)
+- [Apache OpenMeetings REST CalendarService WbService API](https://apis.io/collections/apache-openmeetings/open-apache-openmeetings-wbservice-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Apache OpenMeetings — jsonschema rules](https://apis.io/rules/apache-openmeetings/apache-openmeetings-jsonschema-spectral-rules/)
+- [Apache OpenMeetings API Rules](https://apis.io/rules/apache-openmeetings/apache-openmeetings-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Apache Openmeetings Domain Security](https://apis.io/security/apache-openmeetings/apache-openmeetings-domain-security/)
+- [Apache Openmeetings Vulnerability Disclosure](https://apis.io/security/apache-openmeetings/apache-openmeetings-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Apache Openmeetings Plans Pricing](https://apis.io/plans/apache-openmeetings/apache-openmeetings-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Apache Openmeetings Rate Limits](https://apis.io/rate-limits/apache-openmeetings/apache-openmeetings-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Apache Openmeetings Finops](https://apis.io/finops/apache-openmeetings/apache-openmeetings-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.apache.org/)
 - [Documentation](https://openmeetings.apache.org/)
-- [Getting Started](https://openmeetings.apache.org/installation.html)
-- [Spectral Rules](rules/apache-openmeetings-spectral-rules.yml)
-- [Vocabulary](vocabulary/apache-openmeetings-vocabulary.yaml)
-- [JSON-LD](json-ld/apache-openmeetings-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Getting started](https://openmeetings.apache.org/installation.html)
+- [GitHub](https://github.com/apache/openmeetings)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
+**Kin Score 30.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 48.4 |
+| Contract governance | 27.3 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 7.9 |
+
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/apache-openmeetings/](https://apis.io/providers/apache-openmeetings/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Apache OpenMeetings: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/apache-openmeetings/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
